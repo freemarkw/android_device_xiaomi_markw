@@ -34,6 +34,7 @@
 #define __CAMLIST_H
 
 // System dependency
+#include <stddef.h>
 #include <stdlib.h>
 
 #define member_of(ptr, type, member) ({ \

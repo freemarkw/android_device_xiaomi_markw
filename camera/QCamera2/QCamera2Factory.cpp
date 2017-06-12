@@ -32,15 +32,17 @@
 // System dependencies
 #include <stdlib.h>
 #include <utils/Errors.h>
+#include <cutils/properties.h>
 
 // Camera dependencies
 #include "camera.h"
-#include "camera3.h"
 #include "HAL/QCamera2HWI.h"
+#include "QCameraMuxer.h"
+
+#include "hardware/camera3.h"
 #include "HAL3/QCamera3HWI.h"
 #include "util/QCameraFlash.h"
 #include "QCamera2Factory.h"
-#include "QCameraMuxer.h"
 
 extern "C" {
 #include "mm_camera_dbg.h"
