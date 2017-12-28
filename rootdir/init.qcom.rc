@@ -220,6 +220,9 @@ on boot
     # Create directory used for display
     mkdir /persist/display 0770 system graphics
 
+    # Audio amplifier kernel module
+    chown audioserver system /sys/audio_amplifier/enable
+
 # msm specific files that need to be created on /data
 on post-fs-data
     mkdir /data/vendor/misc 01771 system system

@@ -76,7 +76,6 @@
     <ctl name="EAR_S" value="ZERO" />
     <ctl name="HPHL" value="ZERO" />
     <ctl name="HPHR" value="ZERO" />
-    <ctl name="Lineout_1 amp" value="DISABLE"/>
     <ctl name="SPK" value="ZERO" />
     <ctl name="WSA Spk Switch" value="ZERO" />
     <ctl name="EAR PA Gain" value="POS_6_DB" />
@@ -245,10 +244,6 @@
     <ctl name="IIR1 Enable Band4" value="0" />
     <ctl name="IIR1 Enable Band5" value="0" />
     <!-- IIR -->
-
-    <!-- ADSP testfwk -->
-    <ctl name="MI2S_DL_HL Switch" value="0" />
-    <!-- ADSP testfwk end-->
 
     <path name="bt-sco-wb-samplerate">
         <ctl name="Internal BTSCO SampleRate" value="16000" />
@@ -647,7 +642,6 @@
     <path name="play-fm">
         <ctl name="Internal FM RX Volume" value="1" />
         <ctl name="PRI_MI2S_RX Port Mixer INTERNAL_FM_TX" value="1" />
-        <ctl name="MI2S_DL_HL Switch" value="1" />
     </path>
 
     <path name="vowlan-call">
@@ -981,8 +975,8 @@
 
     <path name="speaker">
         <ctl name="RX3 MIX1 INP1" value="RX1" />
+        <ctl name="RX3 Digital Volume" value="89"/>
         <ctl name="LINE_OUT" value="Switch" />
-        <ctl name="Lineout_1 amp" value="ENABLE"/>
     </path>
 
     <path name="speaker-and-hdmi">
@@ -1257,10 +1251,6 @@
 
     <path name="unprocessed-mic">
         <path name="unprocessed-handset-mic" />
-    </path>
-
-    <path name="ADSP testfwk">
-        <ctl name="MI2S_DL_HL Switch" value="1" />
     </path>
 
     <path name="voice-rx">
