@@ -68,6 +68,7 @@ PRODUCT_COPY_FILES += \
     com.dsi.ant.antradio_library \
     libantradio
 
+# HIDL
 PRODUCT_PACKAGES += \
     android.hidl.base@1.0
 
