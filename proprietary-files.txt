@@ -471,6 +471,10 @@ etc/firmware/cpp_firmware_v1_5_2.fw
 etc/firmware/cpp_firmware_v1_6_0.fw
 etc/firmware/cpp_firmware_v1_8_0.fw
 
+# Consumer Ir
+lib/hw/consumerir.default.so
+lib64/hw/consumerir.default.so
+
 # Display calibration
 -etc/qdcm_calib_data_nt35596_1080p_video_EBBG.xml
 -etc/qdcm_calib_data_r63350_1080p_video_Tianma.xml
