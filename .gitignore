@@ -1,0 +1,12 @@
+*.h~
+*.java~
+*.xml~
+*.rc~
+*.mk~
+*.old
+*.bak
+*.orig
+*.conf~
+*.c~
+*~
+
