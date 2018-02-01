@@ -502,6 +502,3 @@ lib64/libfpservice.so
 
 # FM
 bin/fm_qsoc_patches
-
-# Wi-Fi
-vendor/bin/wcnss_service
