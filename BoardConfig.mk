@@ -45,7 +45,7 @@ BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 BOARD_KERNEL_PAGESIZE :=  2048
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
 TARGET_KERNEL_CONFIG := markw_defconfig
-TARGET_KERNEL_SOURCE := kernel/xiaomi/la_um_6_5
+TARGET_KERNEL_SOURCE := kernel/xiaomi/msm8953
 
 # ANT
 BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
