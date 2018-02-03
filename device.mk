@@ -281,7 +281,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libjson
 
-# Ramdisk
+# init files
 PRODUCT_PACKAGES += \
     fstab.qcom \
     init.qcom.rc \
@@ -291,6 +291,7 @@ PRODUCT_PACKAGES += \
     init.target.rc \
     ueventd.qcom.rc
 
+# vendor/bin configuration scripts
 PRODUCT_PACKAGES += \
     init.qcom.bt.sh \
     init.qcom.post_boot.sh
