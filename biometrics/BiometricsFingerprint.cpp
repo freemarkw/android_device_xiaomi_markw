@@ -47,7 +47,7 @@ BiometricsFingerprint::BiometricsFingerprint() : mClientCallback(nullptr), mDevi
     char vend [PROPERTY_VALUE_MAX];
     property_get("ro.hardware.fingerprint", vend, NULL);
 
-    if (!strcmp(vend, "searchf")) {
+    if (!strcmp(vend, "fpc")) {
         is_goodix = false;
         mDevice = openHal();
     } else if (!strcmp(vend, "goodix")) {
