@@ -656,7 +656,5 @@ on property:persist.sys.fp.vendor=goodix
     setprop persist.sys.fp.goodix 1
     setprop ro.boot.fpsensor gdx
     setprop ro.hardware.fingerprint goodix 
-
-on property:persist.sys.fp.onstart=1
-   start fps_hal
+    start fps_hal
 # goodix fingerprint section - end
