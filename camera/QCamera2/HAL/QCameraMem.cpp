@@ -1954,7 +1954,7 @@ int QCameraGrallocMemory::displayBuffer(uint32_t index)
                     mGetMemory(mPrivateHandle[dequeuedIdx]->fd,
                     (size_t)mPrivateHandle[dequeuedIdx]->size,
                     1,
-                    mCallbackCookie)
+                    mCallbackCookie);
             LOGH("idx = %d, fd = %d, size = %d, offset = %d",
                      dequeuedIdx, mPrivateHandle[dequeuedIdx]->fd,
                     mPrivateHandle[dequeuedIdx]->size,
