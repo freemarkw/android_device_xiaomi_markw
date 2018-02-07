@@ -479,15 +479,6 @@ lib64/hw/consumerir.default.so
 -etc/qdcm_calib_data_nt35596_1080p_video_EBBG.xml
 -etc/qdcm_calib_data_r63350_1080p_video_Tianma.xml
 
-# Graphics firmware - from mm2
-etc/firmware/a506_zap.b00|c45a7b34456844f5deb73e2dce79cbfcfb9ae71c
-etc/firmware/a506_zap.b01|4b37cffe1506debc7b27945a593f87285076696a
-etc/firmware/a506_zap.b02|b79957c47f0a6757ac1d721dbe06551508454634
-etc/firmware/a506_zap.mdt|785f1011df8a15ecd96d4a0358f9e7cb331ef0c9
-etc/firmware/a506_zap.elf|7562b178b884983ebe1bdd307fbc8e61d8449811
-etc/firmware/a530_pfp.fw|448f9db8271fefb08348cbc50409e8e95bd93f78
-etc/firmware/a530_pm4.fw|5741a28752355b478d455635bab008028ff7e1c6
-
 # Fingerprint
 bin/gx_fpd
 lib/libcom_fingerprints_service.so

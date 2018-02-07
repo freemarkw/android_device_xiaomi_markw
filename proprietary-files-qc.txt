@@ -225,6 +225,16 @@ vendor/lib64/librs_adreno.so
 vendor/lib64/librs_adreno_sha1.so
 vendor/lib64/libuiblur.so|4b3fabf5ded7c4af531abde681676fc5e9248494
 
+
+# Graphics firmware
+etc/firmware/a506_zap.b00|
+etc/firmware/a506_zap.b01
+etc/firmware/a506_zap.b02
+etc/firmware/a506_zap.mdt
+etc/firmware/a506_zap.elf
+etc/firmware/a530_pfp.fw
+etc/firmware/a530_pm4.fw
+
 # Graphics (HDR)
 vendor/lib/libhdr_tm.so
 vendor/lib64/libhdr_tm.so
