@@ -317,6 +317,9 @@ case "$target" in
                     echo -n enable > $mode
                 done
 
+                # Switch TCP congestion control to westwood
+                echo westwood > /proc/sys/net/ipv4/tcp_congestion_control
+
                 #governor settings
                 echo 1 > /sys/devices/system/cpu/cpu0/online
                 echo "interactive" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
