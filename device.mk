@@ -293,7 +293,6 @@ PRODUCT_PACKAGES += \
 
 # vendor/bin configuration scripts
 PRODUCT_PACKAGES += \
-    init.qcom.bt.sh \
     init.qcom.post_boot.sh
 
 # RenderScript HAL
@@ -324,7 +323,12 @@ PRODUCT_PACKAGES += \
 
 # Vibrator
 PRODUCT_PACKAGES += \
-    android.hardware.vibrator@1.0-impl
+    android.hardware.vibrator@1.0-impl \
+    android.hardware.vibrator@1.0-service
+
+# VNDK-SP:
+PRODUCT_PACKAGES += \
+    vndk-sp
 
 # Whitelisted app
 PRODUCT_COPY_FILES += \
