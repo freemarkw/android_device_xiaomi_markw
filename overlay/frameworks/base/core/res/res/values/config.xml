@@ -43,10 +43,10 @@
         <item>14</item>
         <item>25</item>
         <item>50</item>
-        <item>100</item> 
+        <item>100</item>
         <item>200</item>
-        <item>300</item> 
-        <item>500</item> 
+        <item>300</item>
+        <item>500</item>
         <item>750</item>
         <item>1000</item>
         <item>2000</item>
@@ -95,7 +95,6 @@
          when adapting to brighter or darker environments.  This parameter controls how quickly
          brightness changes occur in response to an observed change in light level that exceeds the
          hysteresis threshold. -->
-    <integer name="config_autoBrightnessBrighteningLightFastDebounce">600</integer>
     <integer name="config_autoBrightnessBrighteningLightDebounce">2000</integer>
     <integer name="config_autoBrightnessDarkeningLightDebounce">4000</integer>
 
