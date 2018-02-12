@@ -329,18 +329,31 @@ case "$target" in
                 echo 0 > /sys/kernel/sound_control/speaker_gain
                 echo 0 > /sys/kernel/sound_control/mic_gain
 
-                #governor settings
-                echo 1 > /sys/devices/system/cpu/cpu0/online
-                echo "interactive" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
-                echo "19000 1401600:39000" > /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay
-                echo 85 > /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load
-                echo 20000 > /sys/devices/system/cpu/cpufreq/interactive/timer_rate
-                echo 1401600 > /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq
-                echo 0 > /sys/devices/system/cpu/cpufreq/interactive/io_is_busy
-                echo "85 1401600:80" > /sys/devices/system/cpu/cpufreq/interactive/target_loads
-                echo 39000 > /sys/devices/system/cpu/cpufreq/interactive/min_sample_time
-                echo 40000 > /sys/devices/system/cpu/cpufreq/interactive/sampling_down_factor
+                # Governor settings
+                echo "impulse" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+                echo "20000 1036800:30000" > /sys/devices/system/cpu/cpufreq/impulse/above_hispeed_delay
+                echo 95 > /sys/devices/system/cpu/cpufreq/impulse/go_hispeed_load
+                echo 20000 > /sys/devices/system/cpu/cpufreq/impulse/timer_rate
+                echo 1209600 > /sys/devices/system/cpu/cpufreq/impulse/hispeed_freq
+                echo 0 > /sys/devices/system/cpu/cpufreq/impulse/io_is_busy
+                echo 30000 > /sys/devices/system/cpu/cpufreq/impulse/min_sample_time
                 echo 652800 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+                echo 652800 > /sys/devices/system/cpu/cpufreq/impulse/screen_off_maxfreq
+
+                echo 1 > /sys/devices/system/cpu/cpufreq/impulse/use_sched_load
+                echo 1 > /sys/devices/system/cpu/cpufreq/impulse/use_migration_notif
+
+                ### CPU_INPUT_BOOST
+                # Only boost power cores
+                echo "652800 1401600" > /sys/kernel/cpu_input_boost/ib_freqs
+                #Input boost duration
+                echo 400 > /sys/kernel/cpu_input_boost/ib_duration_ms
+                echo 1 > /sys/kernel/cpu_input_boost/enabled
+
+                # Don't put new tasks on the core which is 70% loaded
+                echo 70 > /proc/sys/kernel/sched_spill_load
+                # Migrate tasks to powerful cores when the load is above 70%
+                echo 80 > /proc/sys/kernel/sched_upmigrate
 
                 # re-enable thermal & BCL core_control now
                 echo 1 > /sys/module/msm_thermal/core_control/enabled
