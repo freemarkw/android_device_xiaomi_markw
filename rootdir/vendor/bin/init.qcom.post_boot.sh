@@ -320,6 +320,15 @@ case "$target" in
                 # Switch TCP congestion control to westwood
                 echo westwood > /proc/sys/net/ipv4/tcp_congestion_control
 
+                # Sound control (decrease / increase volume)
+                # -1 => 255
+                # headphone_gain: -10(246)/20
+                # speaker_gain: -10(246)/20
+                # mic_gain: -10(246)/20
+                echo "0 0" > /sys/kernel/sound_control/headphone_gain
+                echo 0 > /sys/kernel/sound_control/speaker_gain
+                echo 0 > /sys/kernel/sound_control/mic_gain
+
                 #governor settings
                 echo 1 > /sys/devices/system/cpu/cpu0/online
                 echo "interactive" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
