@@ -50,5 +50,6 @@ public class Startup extends BroadcastReceiver {
         VibratorStrengthPreference.restore(context);
         YellowTorchBrightnessPreference.restore(context);
         WhiteTorchBrightnessPreference.restore(context);
+        DisplayCalibration.restore(context);
     }
 }

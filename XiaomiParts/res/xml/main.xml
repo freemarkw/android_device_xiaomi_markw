@@ -20,6 +20,7 @@
             android:key="vib_strength"
             android:title="@string/vib_strength_title_head" />
     </PreferenceCategory>
+
     <PreferenceCategory
         android:title="@string/category_torch">
         <com.mdroid.settings.device.YellowTorchBrightnessPreference
@@ -29,4 +30,14 @@
             android:key="white_torch_brightness"
             android:title="@string/white_torch_brightness_title_head" />
     </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/graphics_title">
+        <PreferenceScreen
+            android:key="kcal"
+            android:fragment="com.mdroid.settings.device.DisplayCalibration"
+            android:summary="@string/kcal_summary"
+            android:title="@string/kcal_title" />
+    </PreferenceCategory>
+
 </PreferenceScreen>
