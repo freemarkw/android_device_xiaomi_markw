@@ -63,6 +63,10 @@ persist.camera.stats.test=5 \
 persist.vendor.qti.telephony.vt_cam_interface=1 \
 vidc.enc.dcvs.extra-buff-count=2
 
+# cgroup.procs
+PRODUCT_PROPERTY_OVERRIDES += \
+ro.vendor.qti.cgroup_follow.enable=true
+
 # Cne/Dpm
 PRODUCT_PROPERTY_OVERRIDES += \
 persist.cne.feature=1 \
