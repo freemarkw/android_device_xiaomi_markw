@@ -1775,8 +1775,6 @@ uint8_t get_num_of_cameras()
         dev_fd = -1;
     }
 
-
-    sleep(4); //sleep 4 seconds before open subdev
     /* Open sensor_init subdev */
     sd_fd = open(subdev_name, O_RDWR);
     if (sd_fd < 0) {
