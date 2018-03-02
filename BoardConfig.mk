@@ -208,8 +208,8 @@ TARGET_PER_MGR_ENABLED := true
 HWUI_COMPILE_FOR_PERF := true
 
 # Power
-TARGET_POWERHAL_VARIANT := qcom
-
+#TARGET_POWERHAL_VARIANT := qcom
+TARGET_HAS_NO_WIFI_STATS := true
 # Tap2Wake
 TARGET_TAP_TO_WAKE_NODE := "/proc/gesture/onoff"
 
