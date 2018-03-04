@@ -156,7 +156,7 @@ TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
 # Extended Filesystem Support
-TARGET_EXFAT_DRIVER := exfat
+TARGET_EXFAT_DRIVER := sdfat
 
 #FM
 BOARD_HAVE_QCOM_FM := true
