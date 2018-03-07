@@ -27,7 +27,7 @@ etc/firmware/rampatch_tlv_3.0.tlv|5f8120ea99ec8462f5ee21a29e0b290a031524c0
 etc/firmware/rampatch_tlv_3.2.tlv|1c934123b0571803cb3404a0d884fdf97241d0cb
 
 # Camera configs
-bin/mm-qcamera-daemon
+bin/mm-qcamera-daemon:vendor/bin/mm-qcamera-daemon
 etc/camera/csidtg_camera.xml
 etc/camera/csidtg_chromatix.xml
 etc/camera/msm8953_camera.xml
