@@ -235,7 +235,7 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/recovery/fstab.qcom
 #BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
 
 # Shims
-TARGET_LD_SHIM_LIBS := /system/bin/mm-qcamera-daemon|libshims_camera.so
+TARGET_LD_SHIM_LIBS := /vendor/bin/mm-qcamera-daemon|libshims_qcamera-daemon.so
 
 # Wi-Fi
 BOARD_HAS_QCOM_WLAN := true

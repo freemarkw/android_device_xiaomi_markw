@@ -128,7 +128,7 @@ PRODUCT_PACKAGES += \
 # Camera
 PRODUCT_PACKAGES += \
     camera.msm8953 \
-    libshims_camera \
+    libshims_qcamera-daemon \
     libmm-qcamera \
     Snap
 

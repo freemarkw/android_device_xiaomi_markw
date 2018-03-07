@@ -23,7 +23,7 @@ LOCAL_SRC_FILES := \
 
 LOCAL_SHARED_LIBRARIES := libc
 
-LOCAL_MODULE := libshims_camera
+LOCAL_MODULE := libshims_qcamera-daemon
 LOCAL_MODULE_TAGS := optional
 
 LOCAL_32_BIT_ONLY := true
