@@ -471,6 +471,14 @@ etc/firmware/cpp_firmware_v1_5_2.fw
 etc/firmware/cpp_firmware_v1_6_0.fw
 etc/firmware/cpp_firmware_v1_8_0.fw
 
+# Venus firmware - from mido
+etc/firmware/venus.b00|2aa445e0f292c3c960b96288e9b0fbea21b1483c
+etc/firmware/venus.b01|1cc21ef65d971ea65c631fc2ca754fa4a730b023
+etc/firmware/venus.b02|0614a7dfe925e9292b18f6492a06ef87a61c2612
+etc/firmware/venus.b03|1bf3a9e4e768cb763467bbe8b94040cf0f1af121
+etc/firmware/venus.b04|c1756e0567d10a1173f481cd367ff4637b2dd77f
+etc/firmware/venus.mdt|b87ee727456abfe1b6757c12fda7544693656796
+
 # Consumer Ir
 lib/hw/consumerir.default.so
 lib64/hw/consumerir.default.so
