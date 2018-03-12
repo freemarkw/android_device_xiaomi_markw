@@ -175,6 +175,7 @@ ro.vendor.extension_library=libqti-perfd-client.so
 ro.vendor.gt_library=libqti-gt.so
 ro.vendor.at_library=libqti-at.so
 ro.am.reschedule_service=true
+ro.vendor.qti.sys.fw.bg_apps_limit=60
 
 # QMI
 persist.data.qmi.adb_logmask=0
