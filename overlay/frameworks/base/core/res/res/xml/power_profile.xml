@@ -45,7 +45,6 @@
   <!-- Different CPU speeds as reported in
        /sys/devices/system/cpu/cpu0/cpufreq/stats/time_in_state -->
   <array name="cpu.speeds">
-      <value>400457</value> <!-- 400 MHz CPU speed -->
       <value>652800</value> <!-- 625 MHz CPU speed -->
       <value>806400</value> <!-- 806 MHz CPU speed -->
       <value>1036800</value> <!-- 1036 MHz CPU speed -->
@@ -53,9 +52,7 @@
       <value>1401600</value> <!-- 1401 MHz CPU speed -->
       <value>1689600</value> <!-- 1689 MHz CPU speed -->
       <value>1804800</value> <!-- 1804 MHz CPU speed -->
-      <value>1958400</value> <!-- 1958 MHz CPU speed -->
       <value>2016000</value> <!-- 2016 MHz CPU speed -->
-      <value>2150400</value> <!-- 2150 MHz CPU speed -->
       <value>2208000</value> <!-- 2208 MHz CPU speed -->
   </array>
   <!-- Current at each CPU speed, as per 'cpu.speeds' -->
