@@ -1,1 +1,1 @@
-add_lunch_combo rr_markw-userdebug
+add_lunch_combo elixir_markw-userdebug
