@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2017 The LineageOS Project
+# Copyright (C) 2017-2018 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -156,7 +156,8 @@ TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
 # Extended Filesystem Support
-TARGET_EXFAT_DRIVER := sdfat
+TARGET_KERNEL_HAVE_EXFAT := true
+TARGET_KERNEL_HAVE_NTFS := true
 
 #FM
 BOARD_HAVE_QCOM_FM := true
@@ -208,7 +209,9 @@ TARGET_PER_MGR_ENABLED := true
 HWUI_COMPILE_FOR_PERF := true
 
 # Power
+TARGET_PROVIDES_POWERHAL := true
 TARGET_HAS_NO_WIFI_STATS := true
+TARGET_HAS_LEGACY_POWER_STATS := true
 # Tap2Wake
 TARGET_TAP_TO_WAKE_NODE := "/proc/gesture/onoff"
 
@@ -230,7 +233,7 @@ TARGET_RIL_VARIANT := caf
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/recovery/fstab.qcom
 
 # SELinux
-#include device/qcom/sepolicy/sepolicy.mk
+include device/qcom/sepolicy/sepolicy.mk
 #BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
 
 # Shims
