@@ -129,6 +129,10 @@ PRODUCT_PACKAGES += \
     Snap \
     vendor.qti.hardware.camera.device@1.0 \
     vendor.qti.hardware.camera.device@1.0_vendor
+	
+# Camera shim
+PRODUCT_PACKAGES += \
+    libshims_qcamera-daemon
 
 # Configstore
 PRODUCT_PACKAGES += \
