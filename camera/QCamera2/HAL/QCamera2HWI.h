@@ -168,9 +168,7 @@ public:
     static void releaseNotifications(void *data, void *user_data);
     static bool matchSnapshotNotifications(void *data, void *user_data);
     static bool matchPreviewNotifications(void *data, void *user_data);
-    static bool matchTimestampNotifications(void *data, void *user_data);
     virtual int32_t flushPreviewNotifications();
-    virtual int32_t flushVideoNotifications();
 private:
 
     camera_notify_callback         mNotifyCb;
@@ -566,6 +564,7 @@ private:
     void setDisplayFrameSkip(uint32_t start = 0, uint32_t end = 0);
     /*Verifies if frameId is valid to skip*/
     bool isDisplayFrameToSkip(uint32_t frameId);
+    bool needSyncCB(cam_stream_type_t stream_type);
 
 private:
     camera_device_t   mCameraDevice;
@@ -760,7 +759,7 @@ private:
 #endif
     QCameraMemory *mMetadataMem;
 
-    static uint32_t sNextJobId;
+    uint32_t mNextJobId;
 
     //Gralloc memory details
     pthread_mutex_t mGrallocLock;
