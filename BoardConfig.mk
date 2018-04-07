@@ -183,7 +183,7 @@ TARGET_PROVIDES_KEYMASTER := true
 BOARD_HARDWARE_CLASS += \
     $(DEVICE_PATH)/lineagehw
 
-#Lights
+# Lights
 TARGET_PROVIDES_LIBLIGHT:= true
 
 # Media
@@ -240,6 +240,9 @@ BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_qcwcn
 WIFI_DRIVER_FW_PATH_AP := "ap"
 WIFI_DRIVER_FW_PATH_STA := "sta"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
+
+# Treble
+PRODUCT_COMPATIBILITY_MATRIX_LEVEL_OVERRIDE := 27
 
 # Inherit from the proprietary version
 -include vendor/xiaomi/markw/BoardConfigVendor.mk
