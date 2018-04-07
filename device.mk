@@ -316,6 +316,9 @@ PRODUCT_PACKAGES += \
     libxml2 \
     telephony-ext
 
+PRODUCT_BOOT_JARS += \
+    telephony-ext
+
 # Seccomp policy
 PRODUCT_PACKAGES += \
     $(LOCAL_PATH)/seccomp/mediacodec-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy \
