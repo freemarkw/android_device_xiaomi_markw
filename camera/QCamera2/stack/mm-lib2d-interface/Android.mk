@@ -17,7 +17,7 @@ IMGLIB_HEADER_PATH := $(TARGET_OUT_INTERMEDIATES)/include/mm-camera/imglib
 LOCAL_C_INCLUDES += \
     $(IMGLIB_HEADER_PATH) \
     $(LOCAL_PATH)/inc \
-    $(LOCAL_PATH)/../common \
+    $(LOCAL_PATH)/../common
     $(LOCAL_PATH)/../mm-camera-interface/inc \
 
 ifeq ($(strip $(TARGET_USES_ION)),true)

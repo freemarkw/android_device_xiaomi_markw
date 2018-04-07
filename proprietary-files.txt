@@ -1,10 +1,3 @@
-# Audio dirac
-vendor/lib/soundfx/libdirac.so
-vendor/lib/libDiracAPI_SHARED.so
-vendor/etc/diracmobile.config
-vendor/lib/libhwdaphal.so
-vendor/lib64/libhwdaphal.so
-
 # Audio ACDB
 etc/acdbdata/MTP/MTP_Bluetooth_cal.acdb:vendor/etc/acdbdata/MTP/MTP_Bluetooth_cal.acdb
 etc/acdbdata/MTP/MTP_General_cal.acdb:vendor/etc/acdbdata/MTP/MTP_General_cal.acdb
@@ -14,20 +7,7 @@ etc/acdbdata/MTP/MTP_Hdmi_cal.acdb:vendor/etc/acdbdata/MTP/MTP_Hdmi_cal.acdb
 etc/acdbdata/MTP/MTP_Headset_cal.acdb:vendor/etc/acdbdata/MTP/MTP_Headset_cal.acdb
 etc/acdbdata/MTP/MTP_Speaker_cal.acdb:vendor/etc/acdbdata/MTP/MTP_Speaker_cal.acdb
 
-# Bluetooth firmware - from MM2
-etc/firmware/nvm_tlv.bin|78d937d7939300be7a23d9281cf082827697d4c2
-etc/firmware/nvm_tlv_1.3.bin|a5856eaf0ef9537772f1f07a287d4bc666483728
-etc/firmware/nvm_tlv_2.1.bin|c4dddea2ae08f625feb0fc5c75137dec0a58e46d
-etc/firmware/nvm_tlv_3.0.bin|d527cfa764514c60588753c3f637a266d96a4f8c
-etc/firmware/nvm_tlv_3.2.bin|fb0c1c079d019957fe4ac07f52cd8e5e9c02b030
-etc/firmware/rampatch_tlv.img|0503c6452f9eb843c751d107feed370de8a75f71
-etc/firmware/rampatch_tlv_1.3.tlv|1da2a06f5dc5d8d2489c35a695a6c3db6575110b
-etc/firmware/rampatch_tlv_2.1.tlv|3f7e5271b40e581af603bb1093ccb2b058c83e82
-etc/firmware/rampatch_tlv_3.0.tlv|5f8120ea99ec8462f5ee21a29e0b290a031524c0
-etc/firmware/rampatch_tlv_3.2.tlv|1c934123b0571803cb3404a0d884fdf97241d0cb
-
 # Camera configs
-bin/mm-qcamera-daemon:vendor/bin/mm-qcamera-daemon
 etc/camera/csidtg_camera.xml
 etc/camera/csidtg_chromatix.xml
 etc/camera/msm8953_camera.xml
@@ -44,6 +24,7 @@ etc/camera/s5k5e8_chromatix.xml
 etc/camera/sunny_s5k3l8_f3l8yam_chromatix.xml
 
 # Camera
+bin/mm-qcamera-daemon:vendor/bin/mm-qcamera-daemon
 vendor/lib/libChamomilePA.so
 vendor/lib/libchromaflash.so
 vendor/lib/libflash_pmic.so
@@ -94,83 +75,6 @@ vendor/lib/libtm_interface.so
 -vendor/lib/libts_face_beautify_hal.so
 vendor/lib/libtrueportrait.so
 vendor/lib/libubifocus.so
-
-# Camera - from wingtech wt89536
-vendor/lib/libmmcamera_s5k3l8.so|907c4b85df294258711bbe56b5238d6ad6706212
-
-# Camera - from marmite 6.0
-bin/mm-qcamera-daemon|249b53f1ca1c079d3c9c3df8e31bd99f90244846
-vendor/lib/libmmcamera2_c2d_module.so|45c3e1a592a1664af115cd83aaa5d7ef2b936787
-vendor/lib/libmmcamera2_cpp_module.so|1b6ec637cf100692becbc0abce17f943055854b5
-vendor/lib/libmmcamera2_dcrf.so|fe06a0bccb616b55c4c97788c419766ead1cdf06
-vendor/lib/libmmcamera2_frame_algorithm.so|69a470003144d5b60f397b58f9d9570e83d2f0dc
-vendor/lib/libmmcamera2_imglib_modules.so|3ec103b8a6d13702f84488d1742a41131ed716ad
-vendor/lib/libmmcamera2_is.so|8a5005d980f4f13a92105c37466c3140ab8ad100
-vendor/lib/libmmcamera2_mct.so|c8dff4c38e7ee31610d89b6f85e5239b6a5fd60e
-vendor/lib/libmmcamera2_pp_buf_mgr.so|675aa7d036b840ea3eff985e0606d9a4f9be0cd3
-vendor/lib/libmmcamera2_pproc_modules.so|78b95654ff57c2e41c975f07a713d2f95bb4b446
-vendor/lib/libmmcamera2_q3a_core.so|6dc442bc8beff115404c668e30d68bc110a2f4b3
-vendor/lib/libmmcamera2_stats_algorithm.so|a1163325dd28115f74dfc0e308bffccec997b938
-vendor/lib/libmmcamera2_stats_modules.so|faab6beae31189740a3550badd9389aa820f56d7
-vendor/lib/libmmcamera_chromaflash_lib.so|bf3b0ed2cdd7302c33eab126700518b823ffec7f
-vendor/lib/libmmcamera_csidtg.so|0e4a052b3768c14ab5bf724c253270336ba69912
-vendor/lib/libmmcamera_dbg.so|113521d5895a3ad2b8242985b6c82e1e264fd687
-vendor/lib/libmmcamera_dcrf_lib.so|e8e607578cb453744781a53b86987178968f7333
-vendor/lib/libmmcamera_eeprom_util.so|f75207fb972bcef4a30acf608238ba457ef9e05a
-vendor/lib/libmmcamera_eztune_module.so|95fa799f34ba26b5261d979d27636b3edab0944f
-vendor/lib/libmmcamera_faceproc.so|2b580dc5464b390586246ad3cc23efdf903a2833
-vendor/lib/libmmcamera_hdr_gb_lib.so|f00e096fe0bebe3e5098a17e3905488301e1e25a
-vendor/lib/libmmcamera_imglib.so|1a7809fe2291415fdfde946d5e00aa6c22d48122
-vendor/lib/libmmcamera_llvd.so|34a6ae455902f9d412e434810830a79e5ed33a1e
-vendor/lib/libmmcamera_optizoom_lib.so|05a9db33defc2ce8832520b27a0694779e782990
-vendor/lib/libmmcamera_ppbase_module.so|b143ab5a1c5aa38ea994555c82227ee5a4369ef2
-vendor/lib/libmmcamera_stillmore_lib.so|2ae4f63b2935ac54807faae5912fead60688a9ef
-vendor/lib/libmmcamera_thread_services.so|494175cf65fb9345f43d1b486acb0ed09d6ac0d6
-vendor/lib/libmmcamera_tintless_algo.so|af9f28e9f05d6343ad73e7adb19c1301ba8354e3
-vendor/lib/libmmcamera_tintless_bg_pca_algo.so|0d8ba69e66140b4e7b89259e65b89ac708b8ba18
-vendor/lib/libmmcamera_tuning_lookup.so|588cce5d23ba053aa9bedf1808068ea1d4decc86
-vendor/lib/libmmcamera_tuning.so|3d88d569e3b183cfb501809b9acfe4153a30d92a
-vendor/lib/libqomx_jpegdec.so|88382b1a489796817ee4793e957a0669bd2b975a
-vendor/lib/libqomx_jpegenc_pipe.so|f6e57035bba5eb46b7540c8834a5ee62fcf36088
-vendor/lib/libqomx_jpegenc.so|5a3493002dbcd8c92988d40e772691215ea6aaa5
-
-# Camera ISP - from marmite 6.0
-vendor/lib/libmmcamera2_iface_modules.so|7c56c6539b07fae82ae95e4d5ada5a1ebbc70d9b
-vendor/lib/libmmcamera2_isp_modules.so|c31ddfb11e0ba55fec3e116e87bfe167731e5138
-vendor/lib/libmmcamera_isp_abf40.so|15701c65cdfd37a79b1f71199941dd42be1e9683
-vendor/lib/libmmcamera_isp_bcc40.so|23756f5e7597269ec5412ae0994ce52468ce7851
-vendor/lib/libmmcamera_isp_be_stats44.so|03b79422dc9eb13374d44f10c6d1facf6c65b561
-vendor/lib/libmmcamera_isp_bf_stats47.so|60d6376a11c747f11e92201163762c4b3451ccbc
-vendor/lib/libmmcamera_isp_bg_stats44.so|0e59753b1ef16b11cbeb055b58dbf780ca6413c0
-vendor/lib/libmmcamera_isp_bhist_stats44.so|2981b9dec28504e252e594100eb2d38e344de9d5
-vendor/lib/libmmcamera_isp_bpc40.so|8946b8986b27801d1626268d680510368f253597
-vendor/lib/libmmcamera_isp_chroma_enhan40.so|717cd45173b9bd6be37dd7a83bce3914b47e8424
-vendor/lib/libmmcamera_isp_chroma_suppress40.so|82e0cede6612582fe52ccdab039c1647e0e22730
-vendor/lib/libmmcamera_isp_clamp_encoder40.so|9b286d9bbefa338d80c9c623a747c3238f143703
-vendor/lib/libmmcamera_isp_clamp_video40.so|1e3babef036a0bb4b7ebd9abff6b076801cc3f19
-vendor/lib/libmmcamera_isp_clamp_viewfinder40.so|69d905a5efe13e9e9eb838f5300795cd481f7485
-vendor/lib/libmmcamera_isp_color_correct40.so|50ad2ee5f8822ec7157e661bed7e7dbe4fec43db
-vendor/lib/libmmcamera_isp_color_xform_encoder40.so|8c3d98d428e7d2f9226ebceba7effe9d73217fd1
-vendor/lib/libmmcamera_isp_color_xform_viewfinder40.so|944a6f5b9f4aebf01a61c11f32430bd4872f26d7
-vendor/lib/libmmcamera_isp_cs_stats44.so|4474528fbb00df009cda18b892edd28ddf769837
-vendor/lib/libmmcamera_isp_demosaic40.so|0c94d2818f3e09a0e557225208afdd6258c2a00e
-vendor/lib/libmmcamera_isp_demux40.so|f49e8ea476f4d90f1f22ef91a8a51c654bd40a4b
-vendor/lib/libmmcamera_isp_fovcrop_encoder40.so|2cb8f293644d44165ffe1065a04354e35d0724c0
-vendor/lib/libmmcamera_isp_fovcrop_viewfinder40.so|24c6a3130a3e4de10b378f266bba1f98c693a047
-vendor/lib/libmmcamera_isp_gamma40.so|340c74c4c440cfe52e1a69fba2d20135e0b584d9
-vendor/lib/libmmcamera_isp_ihist_stats44.so|053781b213d6f1535abf1519719343c358a5b1aa
-vendor/lib/libmmcamera_isp_linearization40.so|8727a17f86b2393e3b23ec399532ffb29561146b
-vendor/lib/libmmcamera_isp_ltm44.so|ec8cb653f86ba995b5bcff260fa29a0a0bcd5e7b
-vendor/lib/libmmcamera_isp_luma_adaptation40.so|ae81c5307afa487c9182556fabb56fc5fa2b8021
-vendor/lib/libmmcamera_isp_mce40.so|ba421060807fa3e98c42a63ec0d91284df620d18
-vendor/lib/libmmcamera_isp_mesh_rolloff40.so|bbed1e2bca4112acba1c6454b6748af28cf44c4a
-vendor/lib/libmmcamera_isp_rs_stats44.so|f877842f5a89b536a98c5715b379727eec4a9a00
-vendor/lib/libmmcamera_isp_scaler_encoder44.so|b6741163c9823252da9dcdf9774bedf20bd3f79e
-vendor/lib/libmmcamera_isp_scaler_viewfinder44.so|c9e2143eea837f6d167d463dcac9f3fc38f0d325
-vendor/lib/libmmcamera_isp_sce40.so|5bcb51d98ff8dd8d156a600ea6cc4c8919cd357f
-vendor/lib/libmmcamera_isp_sub_module.so|f9edc292e08776078aba620d4d20338768263064
-vendor/lib/libmmcamera_isp_template.so|7829582e89a425a49857f121503a626b11fc9cc5
-vendor/lib/libmmcamera_isp_wb40.so|473c34fc620efea151203cec987b0f20948006c9
 
 # Camera actuators
 vendor/lib/libactuator_ad5816g.so
@@ -460,21 +364,13 @@ vendor/lib/libchromatix_sunny_s5k3l8_f3l8yam_snapshot.so
 vendor/lib/libchromatix_sunny_s5k3l8_f3l8yam_zsl_preview_dw9763.so
 vendor/lib/libchromatix_sunny_s5k3l8_f3l8yam_zsl_video_dw9763.so
 
-# Venus firmware - from mido
-vendor/firmware/venus.b00|2aa445e0f292c3c960b96288e9b0fbea21b1483c
-vendor/firmware/venus.b01|1cc21ef65d971ea65c631fc2ca754fa4a730b023
-vendor/firmware/venus.b02|0614a7dfe925e9292b18f6492a06ef87a61c2612
-vendor/firmware/venus.b03|1bf3a9e4e768cb763467bbe8b94040cf0f1af121
-vendor/firmware/venus.b04|c1756e0567d10a1173f481cd367ff4637b2dd77f
-vendor/firmware/venus.mdt|b87ee727456abfe1b6757c12fda7544693656796
-
 # Consumer Ir
 lib/hw/consumerir.default.so
 lib64/hw/consumerir.default.so
 
 # Display calibration
--etc/qdcm_calib_data_nt35596_1080p_video_EBBG.xml
--etc/qdcm_calib_data_r63350_1080p_video_Tianma.xml
+etc/qdcm_calib_data_nt35596_1080p_video_EBBG.xml:vendor/etc/qdcm_calib_data_nt35596_1080p_video_EBBG.xml
+etc/qdcm_calib_data_r63350_1080p_video_Tianma.xml:vendor/etc/qdcm_calib_data_r63350_1080p_video_Tianma.xml
 
 # Fingerprint
 bin/gx_fpd
