@@ -1,4 +1,4 @@
-/* Copyright (c) 2012-2016, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2012-2017, The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -1287,7 +1287,7 @@ QCameraVideoMemory::QCameraVideoMemory(camera_request_memory memory, void* cbCoo
     : QCameraStreamMemory(memory, cbCookie, cached)
 {
     memset(mMetadata, 0, sizeof(mMetadata));
-    
+    memset(mNativeHandle, 0, sizeof(mNativeHandle));
     mMetaBufCount = 0;
     mBufType = bufType;
     //Set Default color conversion format
@@ -1394,14 +1394,13 @@ int QCameraVideoMemory::allocateMore(uint8_t count, size_t size)
                     mMetadata[j]->release(mMetadata[j]);
                     mCameraMemory[j]->release(mCameraMemory[j]);
                     mCameraMemory[j] = NULL;
-                    deallocOneBuffer(mMemInfo[j]);
+                    deallocOneBuffer(mMemInfo[j]);;
                 }
                 ATRACE_END();
                 return NO_MEMORY;
             }
             media_metadata_buffer * packet =
                     (media_metadata_buffer *)mMetadata[i]->data;
-
             //FDs = 1
             //numInts  = 5 (offset, size, usage, timestamp, format)
             mNativeHandle[i] = native_handle_create(1,
@@ -1425,7 +1424,7 @@ int QCameraVideoMemory::allocateMore(uint8_t count, size_t size)
             nh->data[3] = mUsage;
             nh->data[4] = 0; //dummy value for timestamp in non-batch mode
             nh->data[5] = mFormat;
-            nh->data[6] = i;
+			nh->data[6] = i;
         }
     }
     mBufferCount = (uint8_t)(mBufferCount + count);
@@ -1479,7 +1478,7 @@ int QCameraVideoMemory::allocateMeta(uint8_t buf_cnt, int numFDs, int numInts)
                 mMetadata[j]->release(mMetadata[j]);
             }
             return NO_MEMORY;
-        } else {
+		} else {
             //assign buffer index to native handle.
             native_handle_t *nh =  mNativeHandle[i];
             nh->data[numFDs + mTotalInts] = i;
@@ -1514,7 +1513,7 @@ void QCameraVideoMemory::deallocateMeta()
                LOGE("Unable to delete native handle");
            }
         } else {
-            LOGE("native handle not available");
+           LOGE("native handle not available");
         }
         mNativeHandle[i] = NULL;
         mMetadata[i]->release(mMetadata[i]);
@@ -1558,7 +1557,7 @@ camera_memory_t *QCameraVideoMemory::getMemory(uint32_t index,
         bool metadata) const
 {
     int i;
-    if (index >= mMetaBufCount || (!metadata && index >= mBufferCount))
+	if (index >= mMetaBufCount || (!metadata && index >= mBufferCount))
         return NULL;
 
     if (metadata) {
@@ -1593,6 +1592,7 @@ camera_memory_t *QCameraVideoMemory::getMemory(uint32_t index,
  *
  * PARAMETERS :
  *   @index   : buffer index
+ *   @metadata: flag if it's metadata
  *
  * RETURN     : native_handle_t  * type of handle
  *==========================================================================*/
@@ -1648,14 +1648,14 @@ int QCameraVideoMemory::closeNativeHandle(const void *data)
  *              NO_ERROR  -- success
  *              none-zero failure code
  *==========================================================================*/
-int QCameraVideoMemory::closeNativeHandle(const void *data, bool metadata)
+ int QCameraVideoMemory::closeNativeHandle(const void *data, bool metadata)
 {
     int32_t rc = NO_ERROR;
 
 #ifdef USE_MEDIA_EXTENSIONS
 
     if (metadata) {
-       const media_metadata_buffer *packet =
+        const media_metadata_buffer *packet =
                     (const media_metadata_buffer *)data;
         if ((packet != NULL) && (packet->eType ==
                 kMetadataBufferTypeNativeHandleSource)
@@ -1669,7 +1669,7 @@ int QCameraVideoMemory::closeNativeHandle(const void *data, bool metadata)
                     mem->pHandle = NULL;
                     break;
                 }
-            }
+			}
         } else {
             LOGE("Invalid Data. Could not release");
             return BAD_VALUE;
@@ -1774,9 +1774,11 @@ int QCameraVideoMemory::convCamtoOMXFormat(cam_format_t format)
         case CAM_FORMAT_YUV_420_NV12_VENUS:
             omxFormat = OMX_COLOR_FormatYUV420SemiPlanar;
             break;
+#ifndef VANILLA_HAL
         case CAM_FORMAT_YUV_420_NV12_UBWC:
             omxFormat = QOMX_COLOR_FORMATYUV420PackedSemiPlanar32mCompressed;
             break;
+#endif
         default:
             omxFormat = OMX_COLOR_FormatYUV420SemiPlanar;
     }

@@ -1192,7 +1192,7 @@ int32_t QCameraStream::bufDone(const void *opaque, bool isMetaData)
         mVideoMem = (QCameraVideoMemory *)mStreamBufs;
     }
 
-    //Close and delete duplicated native handle and FD's.
+	//Close and delete duplicated native handle and FD's.
     if (mVideoMem != NULL) {
         rc = mVideoMem->closeNativeHandle(opaque, isMetaData);
         if (rc != NO_ERROR) {

@@ -3671,6 +3671,7 @@ int32_t mm_stream_calc_offset_video(cam_format_t fmt,
     int meta_stride = 0,meta_scanline = 0;
     #endif
 
+
     switch (fmt) {
         case CAM_FORMAT_YUV_420_NV12:
             buf_planes->plane_info.num_planes = 2;
