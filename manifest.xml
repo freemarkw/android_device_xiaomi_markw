@@ -1,3 +1,16 @@
+<!-- 
+    This is a skeleton device manifest. Notes: 
+    1. android.hidl.*, android.frameworks.*, android.system.* are not included.
+    2. If a HAL is supported in both hwbinder and passthrough transport, 
+       only hwbinder is shown.
+    3. It is likely that HALs in passthrough transport does not have
+       <interface> declared; users will have to write them by hand.
+    4. A HAL with lower minor version can be overridden by a HAL with
+       higher minor version if they have the same name and major version.
+    5. sepolicy version is set to 0.0. It is recommended that the entry
+       is removed from the manifest file and written by assemble_vintf
+       at build time.
+-->
 <manifest version="1.0" type="device">
     <hal format="hidl">
         <name>android.hardware.audio</name>
@@ -74,12 +87,10 @@
         <interface>
             <name>ICryptoFactory</name>
             <instance>default</instance>
-            <instance>widevine</instance>
         </interface>
         <interface>
             <name>IDrmFactory</name>
             <instance>default</instance>
-            <instance>widevine</instance>
         </interface>
     </hal>
     <hal format="hidl">
@@ -139,7 +150,7 @@
     </hal>
     <hal format="hidl">
         <name>android.hardware.ir</name>
-        <transport>hwbinder</transport>
+        <transport arch="32+64">passthrough</transport>
         <version>1.0</version>
         <interface>
             <name>IConsumerIr</name>
@@ -271,15 +282,6 @@
         </interface>
     </hal>
     <hal format="hidl">
-        <name>android.hardware.wifi.supplicant</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>ISupplicant</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
         <name>com.qualcomm.qti.dpm.api</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
@@ -325,38 +327,11 @@
         </interface>
     </hal>
     <hal format="hidl">
-        <name>vendor.display.color</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IDisplayColor</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
         <name>vendor.display.config</name>
         <transport>hwbinder</transport>
-        <version>1.0</version>
+        <version>1.1</version>
         <interface>
             <name>IDisplayConfig</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.display.postproc</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IDisplayPostproc</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.lineage.livedisplay</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IColor</name>
             <instance>default</instance>
         </interface>
     </hal>
@@ -368,6 +343,11 @@
             <name>ILocHidlGnss</name>
             <instance>gnss_vendor</instance>
         </interface>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.hardware.fm</name>
+        <transport arch="32+64">passthrough</transport>
+        <version>1.0</version>
     </hal>
     <hal format="hidl">
         <name>vendor.qti.hardware.iop</name>
@@ -384,15 +364,6 @@
         <version>1.0</version>
         <interface>
             <name>IPerf</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.qti.hardware.qdutils_disp</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IQdutilsDisp</name>
             <instance>default</instance>
         </interface>
     </hal>
@@ -476,15 +447,6 @@
         </interface>
     </hal>
     <hal format="hidl">
-        <name>vendor.qti.hardware.tui_comm</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>ITuiComm</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
         <name>vendor.qti.imsrtpservice</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
@@ -493,7 +455,16 @@
             <instance>imsrtpservice</instance>
         </interface>
     </hal>
+    <hal format="hidl">
+        <name>vendor.lineage.power</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ILineagePower</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
     <sepolicy>
         <version>0.0</version>
     </sepolicy>
-</manifest> 
+</manifest>
