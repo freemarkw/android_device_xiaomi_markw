@@ -47,8 +47,8 @@ qcom.bluetooth.soc=smd
 
 # Camera
 camera.hal1.packagelist=com.skype.raider,com.google.android.talk
-persist.camera.HAL3.enabled=0
-persist.camera.time.monotonic=0
+persist.camera.HAL3.enabled=1
+persist.camera.time.monotonic=1
 persist.camera.isp.clock.optmz=0
 vidc.enc.dcvs.extra-buff-count=2
 media.camera.ts.monotonic=0
