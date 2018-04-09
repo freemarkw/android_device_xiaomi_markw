@@ -49,27 +49,18 @@ qcom.bluetooth.soc=smd
 camera.hal1.packagelist=com.skype.raider,com.google.android.talk
 persist.camera.HAL3.enabled=1
 persist.camera.time.monotonic=1
-persist.camera.isp.clock.optmz=0
-vidc.enc.dcvs.extra-buff-count=2
-media.camera.ts.monotonic=0
-vidc.dec.downscalar_height=1088
-vidc.dec.downscalar_width=1920
-vidc.enc.disable_bframes=1
-vidc.disable.split.mode=1
-vidc.enc.disable.pq=true
-camera.display.umax=1920x1080
 camera.display.lmax=1280x720
-persist.camera.stats.test=5
-persist.camera.feature.cac=1
-persist.camera.imglib.cac3=2
+camera.display.umax=1920x1080
 camera.lowpower.record.enable=1
+media.camera.ts.monotonic=1
 persist.camera.gyro.disable=0
-persist.capture.burst.exposures=-5,0,5
+persist.camera.isp.clock.optmz=0
+persist.camera.stats.test=5
+vidc.enc.dcvs.extra-buff-count=2
 
 # CNE
 persist.cne.feature=1
 persist.dpm.feature=1
-persist.dpm.nsrm.bkg.evt=3955
 
 # CoreSight configuration to enable
 persist.debug.coresight.config=stm-events
@@ -166,10 +157,6 @@ ro.vendor.extension_library=libqti-perfd-client.so
 ro.vendor.gt_library=libqti-gt.so
 ro.vendor.at_library=libqti-at.so
 ro.am.reschedule_service=true
-
-#min/max cpu in core control
-ro.core_ctl_min_cpu=2
-ro.core_ctl_max_cpu=4
 
 # QMI
 persist.data.qmi.adb_logmask=0
