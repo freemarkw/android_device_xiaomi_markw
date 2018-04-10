@@ -15,8 +15,8 @@
 /system/bin/gx_fpd				u:object_r:gx_fpd_exec:s0
 
 Sysfs
-/sys/devices/soc/qpnp-flash-led-25/leds/led:torch_0/max_brightness          u:object_r:sysfs_torch:s0
-/sys/devices/soc/qpnp-flash-led-25/leds/led:torch_1/max_brightness          u:object_r:sysfs_torch:s0
+/sys/devices/soc/qpnp-flash-led-24/leds/led:torch_0/max_brightness          u:object_r:sysfs_torch:s0
+/sys/devices/soc/qpnp-flash-led-24/leds/led:torch_1/max_brightness          u:object_r:sysfs_torch:s0
 
 # Block devices
 /dev/block/bootdevice/by-name/persist		u:object_r:persist_block_device:s0
