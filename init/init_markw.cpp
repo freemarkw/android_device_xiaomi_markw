@@ -118,9 +118,6 @@ void vendor_load_properties()
     android::init::property_set("dalvik.vm.heapminfree", heapminfree);
     android::init::property_set("dalvik.vm.heapmaxfree", heapmaxfree);
 
-    // hci transport is smd not ttyHS
-    android::init::property_set("ro.qualcomm.bt.hci_transport", "smd");
-
     android::init::property_set("ro.hwui.texture_cache_size", "72");
     android::init::property_set("ro.hwui.layer_cache_size", "48");
     android::init::property_set("ro.hwui.r_buffer_cache_size", "8");
