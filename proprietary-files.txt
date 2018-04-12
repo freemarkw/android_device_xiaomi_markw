@@ -386,3 +386,7 @@ lib64/libfpservice.so
 
 # FM
 bin/fm_qsoc_patches
+
+# Sensors
+lib/sensors.ssc.so:vendor/lib/sensors.ssc.so
+lib/sensors.ssc.so:vendor/lib64/sensors.ssc.so
