@@ -334,7 +334,7 @@ case "$target" in
                 echo "interactive" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
                 echo "20000 1209600:40000" > /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay
                 echo 95 > /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load
-                echo 1209600 > /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq
+                echo 1401600 > /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq
                 echo 0 > /sys/devices/system/cpu/cpufreq/interactive/io_is_busy
                 echo 40000 > /sys/devices/system/cpu/cpufreq/interactive/min_sample_time
                 echo 652800 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
@@ -342,9 +342,9 @@ case "$target" in
 
                 ### CPU_INPUT_BOOST
                 # Only boost power cores
-                echo "652800 1401600" > /sys/kernel/cpu_input_boost/ib_freqs
+                echo "652800 2208000" > /sys/kernel/cpu_input_boost/ib_freqs
                 #Input boost duration
-                echo 400 > /sys/kernel/cpu_input_boost/ib_duration_ms
+                echo 300 > /sys/kernel/cpu_input_boost/ib_duration_ms
                 echo 1 > /sys/kernel/cpu_input_boost/enabled
 
 
