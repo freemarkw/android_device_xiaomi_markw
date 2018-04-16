@@ -15,7 +15,7 @@
 * along with this program. If not, see <http://www.gnu.org/licenses/>.
 *
 */
-package com.elixir.settings.device;
+package com.mdroid.settings.device;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
