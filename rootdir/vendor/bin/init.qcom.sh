@@ -101,6 +101,9 @@ start_msm_irqbalance()
 	fi
 }
 
+# Set shared touchpanel nodes ownership (these are proc_symlinks to the real sysfs nodes)
+chown -LR system.system /proc/touchpanel
+
 start_copying_prebuilt_qcril_db()
 {
     if [ -f /vendor/radio/qcril_database/qcril.db -a ! -f /data/vendor/radio/qcril.db ]; then
