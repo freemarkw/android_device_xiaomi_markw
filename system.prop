@@ -168,6 +168,13 @@ ro.am.reschedule_service=true
 # QMI
 persist.data.qmi.adb_logmask=0
 
+# Scrolling cache
+#1=cache on always
+#2=cache on certain times
+#3=cache off certain times
+#4=cache off always
+persist.sys.scrollingcache=4
+
 # Service Restart
 ro.am.reschedule_service=true
 
