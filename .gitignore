@@ -1,3 +1,5 @@
+*.patch
+*.patch~
 *.h~
 *.java~
 *.xml~
