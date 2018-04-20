@@ -8,20 +8,20 @@ etc/acdbdata/MTP/MTP_Headset_cal.acdb:vendor/etc/acdbdata/MTP/MTP_Headset_cal.ac
 etc/acdbdata/MTP/MTP_Speaker_cal.acdb:vendor/etc/acdbdata/MTP/MTP_Speaker_cal.acdb
 
 # Camera configs
-etc/camera/csidtg_camera.xml
-etc/camera/csidtg_chromatix.xml
-etc/camera/msm8953_camera.xml
-etc/camera/ofilm_s5k3l8_f3l8yam_chromatix.xml
-etc/camera/ov5670_chromatix.xml
-etc/camera/ov5670_f5670bq_chromatix.xml
-etc/camera/qtech_ov5670_f5670bq_chromatix.xml
-etc/camera/qtech_s5k3l8_f3l8yam_chromatix.xml
-etc/camera/s5k3l8_chromatix.xml
-etc/camera/s5k3l8_f3l8yam_chromatix.xml
-etc/camera/s5k3l8_mono_chromatix.xml
-etc/camera/s5k4h8_chromatix.xml
-etc/camera/s5k5e8_chromatix.xml
-etc/camera/sunny_s5k3l8_f3l8yam_chromatix.xml
+etc/camera/csidtg_camera.xml:vendor/etc/camera/csidtg_camera.xml
+etc/camera/csidtg_chromatix.xml:vendor/etc/camera/csidtg_chromatix.xml
+etc/camera/msm8953_camera.xml:vendor/etc/camera/msm8953_camera.xml
+etc/camera/ofilm_s5k3l8_f3l8yam_chromatix.xml:vendor/etc/camera/ofilm_s5k3l8_f3l8yam_chromatix.xml
+etc/camera/ov5670_chromatix.xml:vendor/etc/camera/ov5670_chromatix.xml
+etc/camera/ov5670_f5670bq_chromatix.xml:vendor/etc/camera/ov5670_f5670bq_chromatix.xml
+etc/camera/qtech_ov5670_f5670bq_chromatix.xml:vendor/etc/camera/qtech_ov5670_f5670bq_chromatix.xml
+etc/camera/qtech_s5k3l8_f3l8yam_chromatix.xml:vendor/etc/camera/qtech_s5k3l8_f3l8yam_chromatix.xml
+etc/camera/s5k3l8_chromatix.xml:vendor/etc/camera/s5k3l8_chromatix.xml
+etc/camera/s5k3l8_f3l8yam_chromatix.xml:vendor/etc/camera/s5k3l8_f3l8yam_chromatix.xml
+etc/camera/s5k3l8_mono_chromatix.xml:vendor/etc/camera/s5k3l8_mono_chromatix.xml
+etc/camera/s5k4h8_chromatix.xml:vendor/etc/camera/s5k4h8_chromatix.xml
+etc/camera/s5k5e8_chromatix.xml:vendor/etc/camera/s5k5e8_chromatix.xml
+etc/camera/sunny_s5k3l8_f3l8yam_chromatix.xml:vendor/etc/camera/sunny_s5k3l8_f3l8yam_chromatix.xml
 
 # Camera
 bin/mm-qcamera-daemon:vendor/bin/mm-qcamera-daemon
@@ -365,27 +365,27 @@ vendor/lib/libchromatix_sunny_s5k3l8_f3l8yam_zsl_preview_dw9763.so
 vendor/lib/libchromatix_sunny_s5k3l8_f3l8yam_zsl_video_dw9763.so
 
 # Consumer Ir
-lib/hw/consumerir.default.so
-lib64/hw/consumerir.default.so
+lib/hw/consumerir.default.so:vendor/lib/hw/consumerir.default.so
+lib64/hw/consumerir.default.so:vendor/lib64/hw/consumerir.default.so
 
 # Display calibration
 etc/qdcm_calib_data_nt35596_1080p_video_EBBG.xml:vendor/etc/qdcm_calib_data_nt35596_1080p_video_EBBG.xml
 etc/qdcm_calib_data_r63350_1080p_video_Tianma.xml:vendor/etc/qdcm_calib_data_r63350_1080p_video_Tianma.xml
 
 # Fingerprint
-bin/gx_fpd
-lib/libcom_fingerprints_service.so
-lib/hw/fingerprint.default.so:lib/hw/fingerprint.fpc.so
-lib64/hw/fingerprint.default.so:lib64/hw/fingerprint.fpc.so
-lib64/hw/fingerprint.goodix.so
-lib64/hw/gxfingerprint.default.so
-lib64/libcom_fingerprints_service.so
-lib64/libfp_client.so
-lib64/libfpnav.so
-lib64/libfpservice.so
+bin/gx_fpd:vendor/bin/gx_fpd
+lib/libcom_fingerprints_service.so:vendor/lib/libcom_fingerprints_service.so
+lib/hw/fingerprint.default.so:vendor/lib/hw/fingerprint.fpc.so
+lib64/hw/fingerprint.default.so:vendor/lib64/hw/fingerprint.fpc.so
+lib64/hw/fingerprint.goodix.so:vendor/lib64/hw/fingerprint.goodix.so
+lib64/hw/gxfingerprint.default.so:vendor/lib64/hw/gxfingerprint.default.so
+lib64/libcom_fingerprints_service.so:vendor/lib64/libcom_fingerprints_service.so
+lib64/libfp_client.so:vendor/lib64/libfp_client.so
+lib64/libfpnav.so:vendor/lib64/libfpnav.so
+lib64/libfpservice.so:vendor/lib64/libfpservice.so
 
 # FM
-bin/fm_qsoc_patches
+bin/fm_qsoc_patches:vendor/bin/fm_qsoc_patches
 
 # Sensors
 lib/sensors.ssc.so:vendor/lib/sensors.ssc.so
