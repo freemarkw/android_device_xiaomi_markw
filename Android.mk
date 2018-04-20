@@ -115,7 +115,12 @@ $(RFS_MSM_MPSS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 
 ALL_DEFAULT_INSTALLED_MODULES += $(RFS_MSM_ADSP_SYMLINKS) $(RFS_MSM_MPSS_SYMLINKS)
 
-# camera configs dir symlink 
-$(shell ln -sf /vendor/etc/camera $(TARGET_OUT)/etc/camera)
+CAMERA_SYMLINK := $(TARGET_OUT_ETC)/
+$(CAMERA_SYMLINK): $(LOCAL_INSTALLED_MODULE)
+	@echo "Camera link: $@"
+	@rm -rf $@/camera
+	$(hide) ln -sf /vendor/etc/camera $@/camera
+
+ALL_DEFAULT_INSTALLED_MODULES += $(CAMERA_SYMLINK)
 
 endif
