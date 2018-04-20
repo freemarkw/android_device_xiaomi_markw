@@ -75,10 +75,10 @@ vendor/lib/libmmcamera_isp_sub_module.so|f9edc292e08776078aba620d4d2033876826306
 vendor/lib/libmmcamera_isp_template.so|7829582e89a425a49857f121503a626b11fc9cc5
 vendor/lib/libmmcamera_isp_wb40.so|473c34fc620efea151203cec987b0f20948006c9
 
-# Venus firmware - from mido
-vendor/firmware/venus.b00|2aa445e0f292c3c960b96288e9b0fbea21b1483c
-vendor/firmware/venus.b01|1cc21ef65d971ea65c631fc2ca754fa4a730b023
-vendor/firmware/venus.b02|0614a7dfe925e9292b18f6492a06ef87a61c2612
-vendor/firmware/venus.b03|1bf3a9e4e768cb763467bbe8b94040cf0f1af121
+# Venus firmware - from tissot
+vendor/firmware/venus.b00|5f72de2428711fb3efdb26761dabc275a49b31d6
+vendor/firmware/venus.b01|29e3e1693ccf97e43ae73921f1e7dfe9c3a39a56
+vendor/firmware/venus.b02|6922a8a65339da5794e9ff384cdea56b946aacea
+vendor/firmware/venus.b03|96d0b23e5b0c328c3c495df5f10aa7d9255a1272
 vendor/firmware/venus.b04|c1756e0567d10a1173f481cd367ff4637b2dd77f
-vendor/firmware/venus.mdt|b87ee727456abfe1b6757c12fda7544693656796
+vendor/firmware/venus.mdt|0b1aba2d0855757f1e42b0a8ac6a9bb9f2fd8026
