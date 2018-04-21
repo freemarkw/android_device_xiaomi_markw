@@ -16,10 +16,10 @@
 
 $(call inherit-product, device/xiaomi/markw/full_markw.mk)
 
-# Inherit some common LineageOS stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+# Inherit some common MDroid stuff.
+$(call inherit-product, vendor/mdroid/config/common_full_phone.mk)
 
-PRODUCT_NAME := lineage_markw
+PRODUCT_NAME := mdroid_markw
 BOARD_VENDOR := Xiaomi
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi

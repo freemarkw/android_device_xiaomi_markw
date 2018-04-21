@@ -1,1 +1,1 @@
-add_lunch_combo lineage_markw-userdebug
+add_lunch_combo mdroid_markw-userdebug
