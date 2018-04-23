@@ -6,5 +6,7 @@ SYMLINK_DIR=/system/etc/camera
 SOURCE_DIR=/vendor/etc/camera
 
 if [ ! -f $SYMLINK_DIR ]; then
+    mount -o rw,remount /system
     ln -sf $SOURCE_DIR $SYMLINK_DIR
+    mount -o ro,remount /system
 fi
