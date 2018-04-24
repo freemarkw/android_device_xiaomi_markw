@@ -298,8 +298,7 @@ PRODUCT_PACKAGES += \
 
 # vendor/bin configuration scripts
 PRODUCT_PACKAGES += \
-    init.qcom.post_boot.sh \
-    init.camera_symlink.sh
+    init.qcom.post_boot.sh
 
 # RenderScript HAL
 PRODUCT_PACKAGES += \

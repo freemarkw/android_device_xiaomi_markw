@@ -61,7 +61,6 @@ on post-fs-data
     mkdir /persist/qti_fp 0700 system system
     mkdir /data/misc/seemp 0700 system system
     mkdir /data/misc/audio_pp 0771 media audio
-    start camera_sym
 
 # Vibrator
     chown system system /sys/class/timed_output/vibrator/vtg_level
@@ -83,12 +82,6 @@ on post-fs-data
 #Create folder for mm-qcamera-daemon
 mkdir /data/vendor/camera 0770 camera camera
 mkdir /data/misc/camera 0770 camera camera
-
-service camera_sym /vendor/bin/init.camera_symlink.sh
-    class late_start
-    user root
-    disabled
-    oneshot
 
 #start camera server as daemon
 service qcamerasvr /vendor/bin/mm-qcamera-daemon
