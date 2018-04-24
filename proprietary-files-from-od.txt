@@ -2,6 +2,9 @@
 # Camera - from wingtech wt89536
 vendor/lib/libmmcamera_s5k3l8.so|907c4b85df294258711bbe56b5238d6ad6706212
 
+# Camera - from markw(hex edit)
+vendor/lib/libmmcamera2_sensor_modules.so|74b9886ed5bbc8f0cdb977d1537d3fec9b8d20b2
+
 # Camera - from marmite 6.0
 vendor/lib/libmmcamera2_c2d_module.so|45c3e1a592a1664af115cd83aaa5d7ef2b936787
 vendor/lib/libmmcamera2_cpp_module.so|1b6ec637cf100692becbc0abce17f943055854b5
