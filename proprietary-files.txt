@@ -33,7 +33,6 @@ vendor/lib/libjpegdmahw.so
 vendor/lib/libjpegehw.so
 vendor/lib/libllvd_smore.so
 vendor/lib/libllvd_sw_tnr.so
-vendor/lib/libmmcamera2_sensor_modules.so
 vendor/lib/libmmcamera_atmel_at24c32e_eeprom.so
 vendor/lib/libmmcamera_cac3_lib.so
 vendor/lib/libmmcamera_dummyalgo.so
