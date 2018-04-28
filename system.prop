@@ -159,6 +159,8 @@ ro.telephony.call_ring.multiple=false
 ro.telephony.default_network=9,9
 service.qti.ims.enabled=1
 telephony.lteOnCdmaDevice=1
+#hdvoice, for those who activated in the modem
+ro.ril.enable.amr.wideband=1
 
 # Perf
 ro.vendor.extension_library=libqti-perfd-client.so
