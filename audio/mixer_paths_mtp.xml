@@ -975,7 +975,6 @@
 
     <path name="speaker">
         <ctl name="RX3 MIX1 INP1" value="RX1" />
-        <ctl name="RX3 Digital Volume" value="89"/>
         <ctl name="LINE_OUT" value="Switch" />
     </path>
 
