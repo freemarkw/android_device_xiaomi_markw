@@ -33,9 +33,6 @@
     <ctl name="LSM3 Mixer TERT_MI2S_TX" value="0" />
     <ctl name="LSM4 Mixer TERT_MI2S_TX" value="0" />
     <ctl name="LSM5 Mixer TERT_MI2S_TX" value="0" />
-    <ctl name="LSM6 Mixer TERT_MI2S_TX" value="0" />
-    <ctl name="LSM7 Mixer TERT_MI2S_TX" value="0" />
-    <ctl name="LSM8 Mixer TERT_MI2S_TX" value="0" />
     <ctl name="LSM1 Port" value="None" />
     <ctl name="LSM2 Port" value="None" />
     <ctl name="LSM3 Port" value="None" />
