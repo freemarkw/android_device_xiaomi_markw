@@ -178,7 +178,6 @@ BOARD_HARDWARE_CLASS += \
 TARGET_PROVIDES_LIBLIGHT:= true
 
 # Media
-BOARD_SECCOMP_POLICY := $(PLATFORM_PATH)/seccomp
 TARGET_USES_MEDIA_EXTENSIONS := true
 
 # Partitions
@@ -201,7 +200,7 @@ TARGET_HAS_NO_WIFI_STATS := true
 TARGET_TAP_TO_WAKE_NODE := "/proc/gesture/onoff"
 
 # Properties
-TARGET_SYSTEM_PROP := $(DEVICE_PATH)/system.prop
+TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 
 # Qualcomm
 BOARD_USES_QCOM_HARDWARE := true
