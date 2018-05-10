@@ -49,6 +49,7 @@ char const *small_cache_height;
 char const *large_cache_width;
 char const *large_cache_height;
 
+using android::init::property_set;
 
 static void init_alarm_boot_properties()
 {
