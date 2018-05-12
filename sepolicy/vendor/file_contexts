@@ -1,0 +1,27 @@
+# Block devices
+/dev/block/mmcblk0p26				u:object_r:persist_block_device:s0
+
+# Bluetooth
+/(vendor|system/vendor)/bin/hci_qcomm_init	u:object_r:bluetooth_loader_exec:s0
+
+# Fpc Fingerprint
+/data/fpc(/.*)?					u:object_r:fpc_data_file:s0
+/dev/socket/fpce(/.*)?				u:object_r:fpce_socket:s0
+/sys/devices/soc/soc:fpc1020(/.*)?		u:object_r:fpc_sysfs:s0
+
+# Goodix Fingerprint
+/(vendor|system/vendor)/bin/gx_fpd		u:object_r:gx_fpd_exec:s0
+
+# Input files
+/(vendor|system/vendor)/usr/idc(/.*)?		u:object_r:idc_file:s0
+/(vendor|system/vendor)/usr/keylayout(/.*)?	u:object_r:keylayout_file:s0
+
+# Ir
+/dev/lirc[0-9]*					u:object_r:lirc_device:s0
+
+# HALs
+/(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.0-service\.xiaomi_markw		u:object_r:hal_fingerprint_markw_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.ir@1\.0-service\.xiaomi_markw					u:object_r:hal_ir_default_exec:s0
+
+# Rild
+/(vendor|system/vendor)/radio/qcril_database/qcril.db			u:object_r:rild_file:s0
