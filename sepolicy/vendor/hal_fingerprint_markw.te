@@ -26,6 +26,7 @@ use_keystore(hal_fingerprint_markw)
 allow hal_fingerprint_markw keystore:keystore_key { add_auth };
 # need to find KeyStore and add self
 allow hal_fingerprint_markw hal_fingerprint_markw_service:service_manager { add find };
+# allow hal_fingerprint_markw fingerprintd_service:service_manager { add find };
 
 allow hal_fingerprint_markw keystore_service:service_manager find;
 

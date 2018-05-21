@@ -13,6 +13,7 @@ allow gx_fpd gx_fpd_data_file:dir create_dir_perms;
 
 #Allow access to goodix device
 allow gx_fpd gx_fpd_device:chr_file rw_file_perms;
+allow gx_fpd device:chr_file ioctl;
 
 #Allow access to tee device
 allow gx_fpd tee_device:chr_file rw_file_perms;
