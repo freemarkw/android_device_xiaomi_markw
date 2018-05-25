@@ -427,6 +427,6 @@
     <bool name="config_pinnerCameraApp">true</bool>
     
     <!-- Flag indicating whether round icons should be parsed from the application manifest. -->
-    <bool name="config_useRoundIcon">false</bool>
+    <bool name="config_useRoundIcon">true</bool>
 
 </resources>
