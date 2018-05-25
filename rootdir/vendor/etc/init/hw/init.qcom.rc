@@ -543,7 +543,7 @@ service ipacm /vendor/bin/ipacm
 service qti /vendor/bin/qti
     class main
     user radio
-    group radio diag usb net_admin
+    group radio net_raw diag usb net_admin
     writepid /dev/cpuset/system-background/tasks
 
 service sensors /vendor/bin/sensors.qcom
