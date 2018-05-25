@@ -36,6 +36,7 @@ allow gx_fpd fuse:file { getattr open append };
 allow gx_fpd storage_file:dir search;
 allow gx_fpd storage_file:lnk_file read;
 allow gx_fpd mnt_user_file:dir search;
+allow gx_fpd vfat:file { read open getattr };
 r_dir_file(gx_fpd, firmware_file)
 
 #register service in service manager
