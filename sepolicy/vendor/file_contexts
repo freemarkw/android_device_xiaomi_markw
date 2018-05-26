@@ -30,5 +30,4 @@
 /sys/devices/soc/78b6000\.i2c/i2c-2/2-[0-9a-f]+/leds(/.*)?	u:object_r:sysfs:s0
 /sys/audio_amplifier/enable					u:object_r:sysfs:s0
 /proc/gesture/onoff						u:object_r:proc:s0
-/firmware/image(/.*)?						u:object_r:vfat:s0
 /firmware/verinfo/ver_info.txt					u:object_r:vfat:s0
