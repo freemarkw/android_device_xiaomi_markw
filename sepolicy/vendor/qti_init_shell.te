@@ -5,3 +5,4 @@ allow qti_init_shell vfat:file { read open getattr };
 allow qti_init_shell sysfs:dir write;
 allow qti_init_shell sysfs:file write;
 allow qti_init_shell sysfs_devices_system_cpu:dir write;
+allow qti_init_shell vfat:dir search;
