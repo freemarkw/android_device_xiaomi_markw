@@ -325,9 +325,9 @@ case "$target" in
                 # headphone_gain: -10(246)/20
                 # speaker_gain: -10(246)/20
                 # mic_gain: -10(246)/20
-                echo "0 0" > /sys/kernel/sound_control/headphone_gain
-                echo 0 > /sys/kernel/sound_control/speaker_gain
-                echo 0 > /sys/kernel/sound_control/mic_gain
+                # echo "0 0" > /sys/kernel/sound_control/headphone_gain
+                # echo 0 > /sys/kernel/sound_control/speaker_gain
+                # echo 0 > /sys/kernel/sound_control/mic_gain
 
                 # Governor settings
                 echo 1 > /sys/devices/system/cpu/cpu0/online
