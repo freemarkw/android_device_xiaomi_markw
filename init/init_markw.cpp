@@ -1,5 +1,6 @@
 /*
    Copyright (c) 2016, The CyanogenMod Project
+             (c) 2018, The LineageOS Project
    Redistribution and use in source and binary forms, with or without
    modification, are permitted provided that the following conditions are
    met:
@@ -28,6 +29,8 @@
 #include <fcntl.h>
 #include <stdlib.h>
 #include <sys/sysinfo.h>
+#define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
+#include <sys/_system_properties.h>
 
 #include "vendor_init.h"
 #include "property_service.h"
@@ -50,6 +53,17 @@ char const *large_cache_width;
 char const *large_cache_height;
 
 using android::init::property_set;
+
+void property_override(char const prop[], char const value[])
+{
+    prop_info *pi;
+
+    pi = (prop_info*) __system_property_find(prop);
+    if (pi)
+        __system_property_update(pi, value, strlen(value));
+    else
+        __system_property_add(prop, strlen(prop), value, strlen(value));
+}
 
 static void init_alarm_boot_properties()
 {
@@ -76,9 +90,9 @@ static void init_alarm_boot_properties()
      * 8 -> KPDPWR_N pin toggled (power key pressed)
      */
      if (boot_reason == 3) {
-        android::init::property_set("ro.alarm_boot", "true");
+        property_set("ro.alarm_boot", "true");
      } else {
-        android::init::property_set("ro.alarm_boot", "false");
+        property_set("ro.alarm_boot", "false");
      }
 }
 
@@ -143,22 +157,28 @@ void vendor_load_properties()
     init_alarm_boot_properties();
     check_device();
 
-    android::init::property_set("dalvik.vm.heapstartsize", heapstartsize);
-    android::init::property_set("dalvik.vm.heapgrowthlimit", heapgrowthlimit);
-    android::init::property_set("dalvik.vm.heapsize", heapsize);
-    android::init::property_set("dalvik.vm.heaptargetutilization", "0.75");
-    android::init::property_set("dalvik.vm.heapminfree", heapminfree);
-    android::init::property_set("dalvik.vm.heapmaxfree", heapmaxfree);
+    // For GSI
+    property_override("ro.product.manufacturer", "Xiaomi");
+    property_override("ro.build.product", "markw");
+    property_override("ro.build.description", "markw-user 6.0.1 MMB29M V9.2.3.0.MBEMIEK release-keys");
+    property_override("ro.build.fingerprint", "Xiaomi/markw/markw:6.0.1/MMB29M/V9.2.3.0.MBEMIEK:user/release-keys");
 
-    android::init::property_set("ro.hwui.texture_cache_size", texture_cache_size);
-    android::init::property_set("ro.hwui.layer_cache_size", layer_cache_size);
-    android::init::property_set("ro.hwui.r_buffer_cache_size", "8");
-    android::init::property_set("ro.hwui.path_cache_size", "32");
-    android::init::property_set("ro.hwui.gradient_cache_size", gradient_cache_size);
-    android::init::property_set("ro.hwui.drop_shadow_cache_size", drop_shadow_cache_size);
-    android::init::property_set("ro.hwui.texture_cache_flushrate", "0.4");
-    android::init::property_set("ro.hwui.text_small_cache_width", small_cache_width);
-    android::init::property_set("ro.hwui.text_small_cache_height", small_cache_height);
-    android::init::property_set("ro.hwui.text_large_cache_width", large_cache_width);
-    android::init::property_set("ro.hwui.text_large_cache_height", large_cache_height);
+    property_set("dalvik.vm.heapstartsize", heapstartsize);
+    property_set("dalvik.vm.heapgrowthlimit", heapgrowthlimit);
+    property_set("dalvik.vm.heapsize", heapsize);
+    property_set("dalvik.vm.heaptargetutilization", "0.75");
+    property_set("dalvik.vm.heapminfree", heapminfree);
+    property_set("dalvik.vm.heapmaxfree", heapmaxfree);
+
+    property_set("ro.hwui.texture_cache_size", texture_cache_size);
+    property_set("ro.hwui.layer_cache_size", layer_cache_size);
+    property_set("ro.hwui.r_buffer_cache_size", "8");
+    property_set("ro.hwui.path_cache_size", "32");
+    property_set("ro.hwui.gradient_cache_size", gradient_cache_size);
+    property_set("ro.hwui.drop_shadow_cache_size", drop_shadow_cache_size);
+    property_set("ro.hwui.texture_cache_flushrate", "0.4");
+    property_set("ro.hwui.text_small_cache_width", small_cache_width);
+    property_set("ro.hwui.text_small_cache_height", small_cache_height);
+    property_set("ro.hwui.text_large_cache_width", large_cache_width);
+    property_set("ro.hwui.text_large_cache_height", large_cache_height);
 }
