@@ -150,7 +150,7 @@ TARGET_COPY_OUT_VENDOR := vendor
 # Extended Filesystem Support
 TARGET_EXFAT_DRIVER := sdfat
 
-#FM
+# FM
 BOARD_HAVE_QCOM_FM := true
 TARGET_QCOM_NO_FM_FIRMWARE := true
 
@@ -177,7 +177,7 @@ TARGET_PROVIDES_KEYMASTER := true
 BOARD_HARDWARE_CLASS += \
     $(DEVICE_PATH)/lineagehw
 
-#Lights
+# Lights
 TARGET_PROVIDES_LIBLIGHT:= true
 
 # Media
