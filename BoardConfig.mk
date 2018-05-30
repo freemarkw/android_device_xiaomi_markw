@@ -50,7 +50,7 @@ TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-gnu-
 KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/aarch64/aarch64-linaro-7.3/bin
 
 # ANT
-BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
+BOARD_ANT_WIRELESS_DEVICE := "qualcomm-hidl"
 
 # Audio
 AUDIO_FEATURE_ENABLED_ANC_HEADSET := true
