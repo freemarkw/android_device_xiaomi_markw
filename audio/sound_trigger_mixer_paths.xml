@@ -38,9 +38,6 @@
     <ctl name="LSM3 Port" value="None" />
     <ctl name="LSM4 Port" value="None" />
     <ctl name="LSM5 Port" value="None" />
-    <ctl name="LSM6 Port" value="None" />
-    <ctl name="LSM7 Port" value="None" />
-    <ctl name="LSM8 Port" value="None" />
     <ctl name="TERT_MI2S_TX LSM Function" value="None" />
 
     <path name="listen-voice-wakeup-1">
