@@ -70,24 +70,6 @@
         <ctl name="LSM5 Mixer TERT_MI2S_TX" value="1" />
     </path>
 
-    <path name="listen-voice-wakeup-6">
-        <ctl name="TERT_MI2S_TX LSM Function" value="SWAUDIO" />
-        <ctl name="LSM6 Port" value="TERT_MI2S_TX" />
-        <ctl name="LSM6 Mixer TERT_MI2S_TX" value="1" />
-    </path>
-
-    <path name="listen-voice-wakeup-7">
-        <ctl name="TERT_MI2S_TX LSM Function" value="SWAUDIO" />
-        <ctl name="LSM7 Port" value="TERT_MI2S_TX" />
-        <ctl name="LSM7 Mixer TERT_MI2S_TX" value="1" />
-    </path>
-
-    <path name="listen-voice-wakeup-8">
-        <ctl name="TERT_MI2S_TX LSM Function" value="SWAUDIO" />
-        <ctl name="LSM8 Port" value="TERT_MI2S_TX" />
-        <ctl name="LSM8 Mixer TERT_MI2S_TX" value="1" />
-    </path>
-
     <path name="listen-voice-wakeup-1 preproc">
         <ctl name="TERT_MI2S_TX LSM Function" value="SWAUDIO" />
         <ctl name="LSM1 Port" value="ADM_LSM_TX" />
@@ -116,24 +98,6 @@
         <ctl name="TERT_MI2S_TX LSM Function" value="SWAUDIO" />
         <ctl name="LSM5 Port" value="ADM_LSM_TX" />
         <ctl name="LSM5 Mixer TERT_MI2S_TX" value="1" />
-    </path>
-
-    <path name="listen-voice-wakeup-6 preproc">
-        <ctl name="TERT_MI2S_TX LSM Function" value="SWAUDIO" />
-        <ctl name="LSM6 Port" value="ADM_LSM_TX" />
-        <ctl name="LSM6 Mixer TERT_MI2S_TX" value="1" />
-    </path>
-
-    <path name="listen-voice-wakeup-7 preproc">
-        <ctl name="TERT_MI2S_TX LSM Function" value="SWAUDIO" />
-        <ctl name="LSM7 Port" value="ADM_LSM_TX" />
-        <ctl name="LSM7 Mixer TERT_MI2S_TX" value="1" />
-    </path>
-
-    <path name="listen-voice-wakeup-8 preproc">
-        <ctl name="TERT_MI2S_TX LSM Function" value="SWAUDIO" />
-        <ctl name="LSM8 Port" value="ADM_LSM_TX" />
-        <ctl name="LSM8 Mixer TERT_MI2S_TX" value="1" />
     </path>
 
     <path name="listen-ape-handset-mic">
