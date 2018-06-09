@@ -42,6 +42,10 @@
   <item name="radio.active">231.8</item> <!-- cellular radio is transmitting/receiving, ~100-300mA -->
   <item name="radio.scanning">34.2</item> <!-- cellular radio scanning for signal, ~10mA -->
   <item name="gps.on">68.84</item> <!-- GPS is acquiring a signal, ~50mA -->
+  <array name="radio.on">
+      <value>3</value>
+      <value>2</value>
+  </array>
   <!-- Different CPU speeds as reported in
        /sys/devices/system/cpu/cpu0/cpufreq/stats/time_in_state -->
   <array name="cpu.speeds">
@@ -57,7 +61,6 @@
   </array>
   <!-- Current at each CPU speed, as per 'cpu.speeds' -->
   <array name="cpu.active">
-      <value>39.1</value>
       <value>42.6</value>
       <value>45.2</value>
       <value>47.0</value>
@@ -65,9 +68,7 @@
       <value>71.0</value>
       <value>76.0</value>
       <value>90.0</value>
-      <value>106.6</value>
       <value>113.6</value>
-      <value>120.4</value>
       <value>123.7</value>
   </array>
   <!-- Total power drawn by the system when CPUs (and the SoC) are in system suspend state. -->
@@ -76,4 +77,6 @@
   <item name="cpu.awake">8.1</item> 
   <!-- This is the battery capacity in mAh (measured at nominal voltage) -->
   <item name="battery.capacity">4100</item>
+  <allow-in-power-save package="com.google.android.gms" />
+  <allow-in-data-usage-save package="com.google.android.gms" />
 </device>
