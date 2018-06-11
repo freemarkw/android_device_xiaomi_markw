@@ -179,7 +179,7 @@ persist.data.qmi.adb_logmask=0
 #2=cache on certain times
 #3=cache off certain times
 #4=cache off always
-persist.sys.scrollingcache=4
+persist.sys.scrollingcache=2
 
 # Service Restart
 ro.am.reschedule_service=true
