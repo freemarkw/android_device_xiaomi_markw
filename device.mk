@@ -293,8 +293,7 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.0-service-qti \
-    power.msm8953
+    android.hardware.power@1.0-service-qti
 
 # QMI
 PRODUCT_PACKAGES += \
