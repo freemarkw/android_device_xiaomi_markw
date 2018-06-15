@@ -163,7 +163,6 @@ telephony.lteOnCdmaDevice=1
 #hdvoice, for those who activated in the modem
 ro.ril.enable.amr.wideband=1
 ril.ecclist=000,08,100,101,102,110,112,118,119,120,122,911,999
-ril.ecclist1=000,08,100,101,102,110,112,118,119,120,122,911,999
 
 # Perf
 ro.vendor.extension_library=libqti-perfd-client.so
