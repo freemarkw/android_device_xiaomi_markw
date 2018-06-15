@@ -103,37 +103,39 @@ void check_device()
     sysinfo(&sys);
 
     if (sys.totalram > 3072ull * 1024 * 1024) {
-        // from - phone-xxhdpi-4096-dalvik-heap.mk
+        // original values in file framework/native: phone-xxhdpi-4096-dalvik-heap.mk
+        // 4GB - from vince 7.1 values
         heapstartsize = "16m";
-        heapgrowthlimit = "256m";
+        heapgrowthlimit = "192m";
         heapsize = "512m";
         heapminfree = "4m";
         heapmaxfree = "8m";
-        texture_cache_size="88";
-        layer_cache_size="58";
+        texture_cache_size="88"; //increased texture cachce size
+        layer_cache_size="58"; //increased layer cachce size
         shape_cache_size="4";
-        gradient_cache_size="2";
-        drop_shadow_cache_size="8";
-        small_cache_width="2048";
-        small_cache_height="2048";
-        large_cache_width="4096";
-        large_cache_height = "2048";
+        gradient_cache_size="1";
+        drop_shadow_cache_size="6";
+        small_cache_width="1024";
+        small_cache_height="1024";
+        large_cache_width="2048";
+        large_cache_height = "1024";
     } else if (sys.totalram > 2048ull * 1024 * 1024) {
-        // from - phone-xxhdpi-3072-dalvik-heap.mk
-        heapstartsize = "8m";
-        heapgrowthlimit = "288m";
-        heapsize = "768m";
-        heapminfree = "512k";
-        heapmaxfree = "8m";
-        texture_cache_size="88";
-        layer_cache_size="58";
+        // original values in file framework/native: phone-xxhdpi-3072-dalvik-heap.mk
+        // 3GB - from markw 6.0 values
+        heapstartsize = "16m";
+        heapgrowthlimit = "192m";
+        heapsize = "512m";
+        heapminfree = "8m";
+        heapmaxfree = "32m";
+        texture_cache_size="88"; //increased texture cachce size
+        layer_cache_size="58"; //increased layer cachce size
         shape_cache_size="4";
-        gradient_cache_size="2";
-        drop_shadow_cache_size="8";
-        small_cache_width="2048";
-        small_cache_height="2048";
-        large_cache_width="4096";
-        large_cache_height = "4096";
+        gradient_cache_size="1";
+        drop_shadow_cache_size="6";
+        small_cache_width="1024";
+        small_cache_height="1024";
+        large_cache_width="2048";
+        large_cache_height = "1024";
     } else {
         // from - phone-xxhdpi-2048-dalvik-heap.mk
         heapstartsize = "16m";
@@ -143,6 +145,7 @@ void check_device()
         heapmaxfree = "8m";
         texture_cache_size="72";
         layer_cache_size="48";
+        shape_cache_size="4";
         gradient_cache_size="1";
         drop_shadow_cache_size="6";
         small_cache_width="1024";
@@ -177,7 +180,8 @@ void vendor_load_properties()
     property_set("ro.hwui.texture_cache_size", texture_cache_size);
     property_set("ro.hwui.layer_cache_size", layer_cache_size);
     property_set("ro.hwui.r_buffer_cache_size", "8");
-    property_set("ro.hwui.path_cache_size", "32");
+    property_set("ro.hwui.shape_cache_size", shape_cache_size);
+    property_set("ro.hwui.path_cache_size", "16"); //reduced path cache size
     property_set("ro.hwui.gradient_cache_size", gradient_cache_size);
     property_set("ro.hwui.drop_shadow_cache_size", drop_shadow_cache_size);
     property_set("ro.hwui.texture_cache_flushrate", "0.4");
