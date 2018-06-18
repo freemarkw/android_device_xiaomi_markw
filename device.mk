@@ -332,7 +332,8 @@ PRODUCT_PACKAGES += \
     telephony-ext
 
 PRODUCT_BOOT_JARS += \
-telephony-ext
+telephony-ext \
+vendor.qti.hardware.sensorscalibrate.V1_0
 
 # Seccomp policy
 PRODUCT_COPY_FILES += \
