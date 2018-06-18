@@ -28,10 +28,7 @@
 #
 
 on early-init
-    mkdir /firmware 0771 system system
-    mkdir /system 0777 root root
     symlink /data/tombstones /tombstones
-    mkdir /dsp 0771 media media
 
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
@@ -59,8 +56,6 @@ on post-fs-data
     mkdir /persist/data/sfs 0700 system system
     mkdir /persist/data/tz 0700 system system
     mkdir /persist/qti_fp 0700 system system
-    mkdir /data/misc/seemp 0700 system system
-    mkdir /data/misc/audio_pp 0771 media audio
 
 # Vibrator
     chown system system /sys/class/timed_output/vibrator/vtg_level
