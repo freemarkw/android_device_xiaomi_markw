@@ -1,6 +1,7 @@
 /**
  * Copyright (C) 2012 The Android Open Source Project
  * Copyright (C) 2016 The CyanogenMod Project
+ * Copyright (C) 2018 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,15 +23,21 @@
 #include <cutils/properties.h>
 #include <string.h>
 
-#define MAX_ACL_CONNECTIONS    16
+#define MAX_ACL_CONNECTIONS    7
 #define MAX_L2CAP_CHANNELS    16
 #define BLE_VND_INCLUDED   TRUE
+
+#define BTM_WBS_INCLUDED TRUE
+#define BTA_DISABLE_DELAY 1000 /* in milliseconds */
 
 // Wide-band speech support
 #define BTIF_HF_WBS_PREFERRED TRUE
 
 // skips conn update at conn completion
+#define BTA_BLE_SKIP_CONN_UPD  FALSE
+#define BLE_PERIPHERAL_ADV_NAME  FALSE
 #define BT_CLEAN_TURN_ON_DISABLED 1
+#define BTM_SCO_ENHANCED_SYNC_ENABLED FALSE
 
 /* Increasing SEPs to 12 from 6 to support SHO/MCast i.e. two streams per codec */
 #define AVDT_NUM_SEPS 12
@@ -40,5 +47,4 @@
 #endif
 
 /* Disable enhanced sco commands */
-#define BTM_SCO_ENHANCED_SYNC_ENABLED FALSE
 #define BTM_SCO_ENHANCED_SYNC_DISABLED TRUE
