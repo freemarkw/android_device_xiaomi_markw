@@ -201,3 +201,8 @@ persist.sys.usb.config.extra=none
 
 # WIFI
 wifi.interface=wlan0
+
+# Higher fling velocities
+# for smoother scrolling and better responsiveness
+ro.min.fling_velocity=160
+ro.max.fling_velocity=20000
