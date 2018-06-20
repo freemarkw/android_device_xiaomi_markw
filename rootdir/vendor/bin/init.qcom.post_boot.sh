@@ -342,10 +342,10 @@ case "$target" in
 
                 ### CPU_INPUT_BOOST
                 # Only boost power cores
-                echo "652800 2208000" > /sys/kernel/cpu_input_boost/ib_freqs
+                # echo "652800 2208000" > /sys/kernel/cpu_input_boost/ib_freqs
                 #Input boost duration
-                echo 300 > /sys/kernel/cpu_input_boost/ib_duration_ms
-                echo 1 > /sys/kernel/cpu_input_boost/enabled
+                # echo 300 > /sys/kernel/cpu_input_boost/ib_duration_ms
+                # echo 1 > /sys/kernel/cpu_input_boost/enabled
 
 
                 # Don't put new tasks on the core which is 70% loaded
