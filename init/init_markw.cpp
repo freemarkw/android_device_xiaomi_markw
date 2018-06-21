@@ -52,6 +52,7 @@ char const *small_cache_height;
 char const *large_cache_width;
 char const *large_cache_height;
 
+using android::base::GetProperty;
 using android::init::property_set;
 
 void property_override(char const prop[], char const value[])
@@ -96,7 +97,7 @@ static void init_alarm_boot_properties()
      }
 }
 
-void check_device()
+void check_ram()
 {
     struct sysinfo sys;
 
@@ -155,20 +156,28 @@ void check_device()
    }
 }
 
+void gsi_check()
+{
+    product = GetProperty("ro.product.device", "");
+
+    // override device specific props for GSI
+    if (product == "phhgsi_arm64_a") {
+        property_override("ro.product.model", "Redmi 4 Prime");
+        property_override("ro.product.brand", "Xiaomi");
+        property_override("ro.product.name", "markw");
+        property_override("ro.product.device", "markw");
+        property_override("ro.product.manufacturer", "Xiaomi");
+        property_override("ro.build.product", "markw");
+        property_override("ro.build.description", "markw-user 6.0.1 MMB29M V9.2.3.0.MBEMIEK release-keys");
+        property_override("ro.build.fingerprint", "Xiaomi/markw/markw:6.0.1/MMB29M/V9.2.3.0.MBEMIEK:user/release-keys");
+    }
+}
+
 void vendor_load_properties()
 {
     init_alarm_boot_properties();
-    check_device();
-
-    // override device specific props for GSI
-    property_override("ro.product.model", "Redmi 4 Prime");
-    property_override("ro.product.brand", "Xiaomi");
-    property_override("ro.product.name", "markw");
-    property_override("ro.product.device", "markw");
-    property_override("ro.product.manufacturer", "Xiaomi");
-    property_override("ro.build.product", "markw");
-    property_override("ro.build.description", "markw-user 6.0.1 MMB29M V9.2.3.0.MBEMIEK release-keys");
-    property_override("ro.build.fingerprint", "Xiaomi/markw/markw:6.0.1/MMB29M/V9.2.3.0.MBEMIEK:user/release-keys");
+    check_ram();
+    gsi_check();
 
     property_set("dalvik.vm.heapstartsize", heapstartsize);
     property_set("dalvik.vm.heapgrowthlimit", heapgrowthlimit);
