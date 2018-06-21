@@ -29,6 +29,7 @@
 #include <fcntl.h>
 #include <stdlib.h>
 #include <sys/sysinfo.h>
+#include <android-base/properties.h>
 #define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
 #include <sys/_system_properties.h>
 
@@ -158,6 +159,8 @@ void check_ram()
 
 void gsi_check()
 {
+    std::string product;
+
     product = GetProperty("ro.product.device", "");
 
     // override device specific props for GSI
