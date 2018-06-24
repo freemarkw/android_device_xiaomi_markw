@@ -7,3 +7,4 @@ allow mm-qcamerad system_server:unix_stream_socket { read write };
 allow mm-qcamerad binder_device:chr_file { read write };
 allow mm-qcamerad sensorservice_service:service_manager find;
 allow mm-qcamerad servicemanager:binder call;
+binder_use(mm-qcamerad)
