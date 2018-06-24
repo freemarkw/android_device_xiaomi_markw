@@ -1,5 +1,9 @@
+typeattribute mm-qcamerad binder_in_vendor_violators;
 type_transition mm-qcamerad camera_data_file:sock_file camera_socket "cam_socket1";
 type_transition mm-qcamerad camera_data_file:sock_file camera_socket "cam_socket2";
 allow mm-qcamerad camera_socket:sock_file { create unlink write };
 allow mm-qcamerad sysfs_graphics:file r_file_perms;
 allow mm-qcamerad system_server:unix_stream_socket { read write };
+allow mm-qcamerad binder_device:chr_file { read write };
+allow mm-qcamerad sensorservice_service:service_manager find;
+allow mm-qcamerad servicemanager:binder call;
