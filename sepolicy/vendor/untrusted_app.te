@@ -1,0 +1,1 @@
+allow untrusted_app keylayout_file:dir search;
