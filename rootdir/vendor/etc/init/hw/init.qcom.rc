@@ -166,17 +166,6 @@ on boot
     # bond0 used by FST Manager
     chown wifi wifi /sys/class/net/bond0/bonding/queue_id
 
-    # Notification LED
-    chown system system /sys/class/leds/red/blink
-    chown system system /sys/class/leds/red/led_time
-    chown system system /sys/class/leds/red/brightness
-    chown system system /sys/class/leds/green/blink
-    chown system system /sys/class/leds/green/led_time
-    chown system system /sys/class/leds/green/brightness
-    chown system system /sys/class/leds/blue/blink
-    chown system system /sys/class/leds/blue/led_time
-    chown system system /sys/class/leds/blue/brightness
-
     # IR Blaster
     chown system system /sys/class/leds/infrared/transmit
     chown system system /sys/class/leds/infrared/brightness
