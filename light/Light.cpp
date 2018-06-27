@@ -109,10 +109,12 @@ namespace V2_0 {
 namespace implementation {
 
 Light::Light(std::pair<std::ofstream, uint32_t>&& lcd_backlight,
+             uint32_t old_led_driver,
              std::ofstream&& red_led, std::ofstream&& green_led, std::ofstream&& blue_led,
              std::ofstream&& red_blink, std::ofstream&& green_blink, std::ofstream&& blue_blink,
              std::ofstream&& red_breath, std::ofstream&& green_breath, std::ofstream&& blue_breath)
     : mLcdBacklight(std::move(lcd_backlight)),
+      mOldLedDriver(old_led_driver),
       mRedLed(std::move(red_led)),
       mGreenLed(std::move(green_led)),
       mBlueLed(std::move(blue_led)),
@@ -228,17 +230,17 @@ void Light::setSpeakerBatteryLightLocked() {
         setSpeakerLightLocked(mBatteryState);
     } else {
         // Lights off
-        mRedLed << 0 << std::endl;
-        mGreenLed << 0 << std::endl;
-        mBlueLed << 0 << std::endl;
-        mRedBlink << 0 << std::endl;
+        mRedLed     << 0 << std::endl;
+        mGreenLed   << 0 << std::endl;
+        mBlueLed    << 0 << std::endl;
+        mRedBlink   << 0 << std::endl;
         mGreenBlink << 0 << std::endl;
-        mBlueBlink << 0 << std::endl;
+        mBlueBlink  << 0 << std::endl;
     }
 }
 
 void Light::setSpeakerLightLocked(const LightState& state) {
-    int red, green, blue, blink, max;
+    int red, green, blue, blink, blink_mode, max;
     int red_fade, green_fade, blue_fade;
     int onMs, offMs;
     uint32_t colorRGB = state.color;
@@ -265,51 +267,63 @@ void Light::setSpeakerLightLocked(const LightState& state) {
     mGreenLed << 0 << std::endl;
     mBlueLed  << 0 << std::endl;
 
-    if (blink) {
-        adapt_colors_for_blink(&red, &green, &blue);
-
-        // In our case, use the settings in the driver led range values
-        // to do: refactor intervals
-        if (onMs < 1000)
-            onMs = 1000;
-        else if (onMs > 5000)
-            onMs = 5000;
-
-        if (offMs < 1000)
-            offMs = 1000;
-        else if (offMs > 7000)
-            offMs = 7000;
-
-        // Indexes [0: 0.13, 1:0.26, 2: 0.52, 3:1.04, 4: 2.08, 5: 4.16, 6: 8.32, 7: 16.64]
-        // max fade grid     256     128      64      32       16       8        4   
-        // to do: match max fade element to grid
-        max = (red > green) ? ((red > blue) ? red : blue) : ((green > blue) ? green : blue);
-        red_fade   = get_fade_index(max, red,   1);
-        green_fade = get_fade_index(max, green, 1);
-        blue_fade  = get_fade_index(max, blue,  1);
-
-        LOG(VERBOSE) << "Light::setSpeakerLightLocked:" <<
-                        " r " << red << ", g " << green << ", b " << blue <<
-                        ", rf " << red_fade << ", gf " << green_fade << ", bf " << blue_fade;
-
-        if (red_fade == -1 || green_fade == -1 || blue_fade == -1) { // to do: remove
-            LOG(VERBOSE) << "Light::setSpeakerLightLocked: LED ERROR";
-            red = green = blue = 127;
-            red_fade = green_fade = blue_fade = 2; // 0.52 => 0.26 for 127 color
+    if (mOldLedDriver) {
+        /* Old LED driver */
+        if (blink) {
+            blink_mode = (onMs != offMs) ? 1 : 2;
+        } else {
+            blink_mode = 0;
         }
     } else {
-        onMs = 3000; offMs = 4000;
-        red_fade = green_fade = blue_fade = 2; // 0.52 => 0.26 for 127 color
+        /* New LED driver */
+        if (blink) {
+            blink_mode = 1;
+            adapt_colors_for_blink(&red, &green, &blue);
+
+            // In our case, use the settings in the driver led range values
+            // to do: refactor intervals
+            if (onMs < 1000)
+                onMs = 1000;
+            else if (onMs > 5000)
+                onMs = 5000;
+
+            if (offMs < 1000)
+                offMs = 1000;
+            else if (offMs > 7000)
+                offMs = 7000;
+
+            // Indexes [0: 0.13, 1:0.26, 2: 0.52, 3:1.04, 4: 2.08, 5: 4.16, 6: 8.32, 7: 16.64]
+            // max fade grid     256     128      64      32       16       8        4
+            // to do: match max fade element to grid
+            max = (red > green) ? ((red > blue) ? red : blue) : ((green > blue) ? green : blue);
+            red_fade   = get_fade_index(max, red,   1);
+            green_fade = get_fade_index(max, green, 1);
+            blue_fade  = get_fade_index(max, blue,  1);
+
+            LOG(VERBOSE) << "Light::setSpeakerLightLocked:" <<
+                            " r " << red << ", g " << green << ", b " << blue <<
+                            ", rf " << red_fade << ", gf " << green_fade << ", bf " << blue_fade;
+
+            if (red_fade == -1 || green_fade == -1 || blue_fade == -1) { // to do: remove
+                LOG(VERBOSE) << "Light::setSpeakerLightLocked: LED ERROR";
+                red = green = blue = 127;
+                red_fade = green_fade = blue_fade = 2; // 0.52 => 0.26 for 127 color
+            }
+        } else {
+            blink_mode = 0;
+            onMs = 3000; offMs = 4000;
+            red_fade = green_fade = blue_fade = 2; // 0.52 => 0.26 for 127 color
+        }
+
+        // sprintf(breath_pattern_red,   "%d %d %d %d", red_fade,   (int)(onMS/1000), red_fade,   (int)(offMS/1000));
+        mRedBreath   << red_fade   << " " << (int)(onMs/1000) << " " << red_fade   << " " << (int)(offMs/1000) << std::endl;
+        mGreenBreath << green_fade << " " << (int)(onMs/1000) << " " << green_fade << " " << (int)(offMs/1000) << std::endl;
+        mBlueBreath  << blue_fade  << " " << (int)(onMs/1000) << " " << blue_fade  << " " << (int)(offMs/1000) << std::endl;
     }
 
-    // sprintf(breath_pattern_red,   "%d %d %d %d", red_fade,   (int)(onMS/1000), red_fade,   (int)(offMS/1000));
-    mRedBreath   << red_fade   << " " << (int)(onMs/1000) << " " << red_fade   << " " << (int)(offMs/1000) << std::endl;
-    mGreenBreath << green_fade << " " << (int)(onMs/1000) << " " << green_fade << " " << (int)(offMs/1000) << std::endl;
-    mBlueBreath  << blue_fade  << " " << (int)(onMs/1000) << " " << blue_fade  << " " << (int)(offMs/1000) << std::endl;
-
-    mRedBlink   << (blink && red   ? 1 : 0) << std::endl;
-    mGreenBlink << (blink && green ? 1 : 0) << std::endl;
-    mBlueBlink  << (blink && blue  ? 1 : 0) << std::endl;
+    mRedBlink   << (blink && red   ? blink_mode : 0) << std::endl;
+    mGreenBlink << (blink && green ? blink_mode : 0) << std::endl;
+    mBlueBlink  << (blink && blue  ? blink_mode : 0) << std::endl;
 
     mRedLed   << red   << std::endl;
     mGreenLed << green << std::endl;
