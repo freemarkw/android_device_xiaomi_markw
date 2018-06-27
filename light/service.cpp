@@ -43,6 +43,7 @@ const static std::string kGreenBreathPath = "/sys/class/leds/green/led_time";
 const static std::string kBlueBreathPath = "/sys/class/leds/blue/led_time";
 
 int main() {
+    uint32_t old_led_driver;
     uint32_t lcdMaxBrightness = 255;
 
     std::ofstream lcdBacklight(kLcdBacklightPath);
@@ -103,29 +104,40 @@ int main() {
         return -errno;
     }
 
-    std::ofstream redBreath(kRedBreathPath);
-    if (!redBreath) {
+    std::ofstream redBreath;
+    std::ofstream greenBreath;
+    std::ofstream blueBreath;
+
+    redBreath.open(kRedBreathPath);
+    if (redBreath) {
+        /* New LED driver */
+        old_led_driver = 0;
+
+        greenBreath.open(kGreenBreathPath);
+        if (!greenBreath) {
+            LOG(ERROR) << "Failed to open " << kGreenBreathPath << ", error=" << errno
+                       << " (" << strerror(errno) << ")";
+            return -errno;
+        }
+
+        blueBreath.open(kBlueBreathPath);
+        if (!blueBreath) {
+            LOG(ERROR) << "Failed to open " << kBlueBreathPath << ", error=" << errno
+                       << " (" << strerror(errno) << ")";
+            return -errno;
+        }
+    } else if (errno == ENOENT) {
+        /* Old LED driver */
+        old_led_driver = 1;
+    } else {
         LOG(ERROR) << "Failed to open " << kRedBreathPath << ", error=" << errno
-                   << " (" << strerror(errno) << ")";
-        return -errno;
-    }
-
-    std::ofstream greenBreath(kGreenBreathPath);
-    if (!greenBreath) {
-        LOG(ERROR) << "Failed to open " << kGreenBreathPath << ", error=" << errno
-                   << " (" << strerror(errno) << ")";
-        return -errno;
-    }
-
-    std::ofstream blueBreath(kBlueBreathPath);
-    if (!blueBreath) {
-        LOG(ERROR) << "Failed to open " << kBlueBreathPath << ", error=" << errno
                    << " (" << strerror(errno) << ")";
         return -errno;
     }
 
     android::sp<ILight> service = new Light(
             {std::move(lcdBacklight), lcdMaxBrightness},
+            old_led_driver,
             std::move(redLed), std::move(greenLed), std::move(blueLed),
             std::move(redBlink), std::move(greenBlink), std::move(blueBlink),
             std::move(redBreath), std::move(greenBreath), std::move(blueBreath));
