@@ -22,14 +22,17 @@
 # HALs
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.0-service\.xiaomi_markw		u:object_r:hal_fingerprint_markw_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.ir@1\.0-service\.xiaomi_markw					u:object_r:hal_ir_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.light@2\.0-service\.xiaomi_markw				u:object_r:hal_light_default_exec:s0
 
 # Rild
-/(vendor|system/vendor)/radio/qcril_database/qcril.db		u:object_r:rild_file:s0
+/(vendor|system/vendor)/radio/qcril_database/qcril.db			u:object_r:rild_file:s0
 
 # Lights
-/sys/class/leds(/.*)?						u:object_r:sysfs_leds:s0
-/sys/devices/soc/78b6000\.i2c/i2c-2/2-[0-9a-f]+/leds(/.*)?	u:object_r:sysfs_leds:s0
-/(vendor|system/vendor)/bin/hw/android\.hardware\.light@2\.0-service\.xiaomi_markw				u:object_r:hal_light_default_exec:s0
+/sys/class/leds(/.*)?							u:object_r:sysfs_leds:s0
+/sys/devices/soc/78b6000\.i2c/i2c-2/2-[0-9a-f]+/leds(/.*)?		u:object_r:sysfs_leds:s0
+
+# System files
+/(vendor|system/vendor)/bin/mm-qcamera-daemon				u:object_r:mm-qcamerad_exec:s0
 
 # Sysfs files
 /sys/devices/soc/qpnp-flash-led-24/leds/led:torch_0/max_brightness	u:object_r:sysfs_torch:s0
