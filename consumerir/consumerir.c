@@ -28,6 +28,9 @@
 
 #define ARRAY_SIZE(a) (sizeof(a) / sizeof((a)[0]))
 
+char const*const IR_PATH
+        = "/sys/class/leds/infrared/transmit";
+
 static const consumerir_freq_range_t consumerir_freqs[] = {
     {.min = 30000, .max = 30000},
     {.min = 33000, .max = 33000},
@@ -40,16 +43,28 @@ static const consumerir_freq_range_t consumerir_freqs[] = {
 static int consumerir_transmit(struct consumerir_device *dev __unused,
    int carrier_freq, const int pattern[], int pattern_len)
 {
-    int total_time = 0;
-    long i;
+    int fd = -1;
+    int rc;
+    int len;
+    char buffer[4100];
+    
 
-    for (i = 0; i < pattern_len; i++)
-        total_time += pattern[i];
+    len = pattern_len*4;
+    memset(buffer,0,4100);
+    memcpy(buffer, &carrier_freq, 4);
+    memcpy(buffer+4, pattern, len);
 
-    /* simulate the time spent transmitting by sleeping */
-    ALOGD("transmit for %d uS at %d Hz", total_time, carrier_freq);
-    usleep(total_time);
+    fd = open(IR_PATH, O_RDWR);
+    if (fd <0)
+    {
+        ALOGE("Failed to open %s", IR_PATH);
+        return fd;
+    }
 
+    rc = write(fd, buffer, len+4);
+    close(fd);
+    if (rc == -1)
+        return -EPERM;
     return 0;
 }
 
@@ -114,8 +129,8 @@ consumerir_module_t HAL_MODULE_INFO_SYM = {
         .module_api_version = CONSUMERIR_MODULE_API_VERSION_1_0,
         .hal_api_version    = HARDWARE_HAL_API_VERSION,
         .id                 = CONSUMERIR_HARDWARE_MODULE_ID,
-        .name               = "Demo IR HAL",
-        .author             = "The Android Open Source Project",
+        .name               = "ConsumerIR HAL",
+        .author             = "FreeMarkW Team",
         .methods            = &consumerir_module_methods,
     },
 };
