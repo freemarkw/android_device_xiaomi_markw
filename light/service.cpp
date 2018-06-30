@@ -22,6 +22,10 @@
 
 #include "Light.h"
 
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
+
 // libhwbinder:
 using android::hardware::configureRpcThreadpool;
 using android::hardware::joinRpcThreadpool;
@@ -108,10 +112,31 @@ int main() {
     std::ofstream greenBreath;
     std::ofstream blueBreath;
 
-    redBreath.open(kRedBreathPath);
-    if (redBreath) {
+    struct stat st;
+    if (stat(kRedBreathPath.c_str(), &st) != 0){
+        switch(errno) {
+            case ENOENT:
+            case EACCES:
+                /* Old LED driver */
+                old_led_driver = 1;
+                LOG(INFO) << "Light: Use Old LED driver";
+                break;
+            default:
+                LOG(ERROR) << "Failed to stat " << kRedBreathPath << ", error=" << errno
+                           << " (" << strerror(errno) << ")";
+                return -errno;
+        }
+    } else {
         /* New LED driver */
         old_led_driver = 0;
+        LOG(INFO) << "Light: Use New LED driver";
+
+        redBreath.open(kRedBreathPath);
+        if (!redBreath) {
+            LOG(ERROR) << "Failed to stat " << kRedBreathPath << ", error=" << errno
+                       << " (" << strerror(errno) << ")";
+            return -errno;
+        }
 
         greenBreath.open(kGreenBreathPath);
         if (!greenBreath) {
@@ -126,13 +151,6 @@ int main() {
                        << " (" << strerror(errno) << ")";
             return -errno;
         }
-    } else if (errno == ENOENT) {
-        /* Old LED driver */
-        old_led_driver = 1;
-    } else {
-        LOG(ERROR) << "Failed to open " << kRedBreathPath << ", error=" << errno
-                   << " (" << strerror(errno) << ")";
-        return -errno;
     }
 
     android::sp<ILight> service = new Light(
