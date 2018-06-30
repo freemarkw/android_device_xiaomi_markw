@@ -127,10 +127,12 @@ Light::Light(std::pair<std::ofstream, uint32_t>&& lcd_backlight,
     auto attnFn(std::bind(&Light::setAttentionLight, this, std::placeholders::_1));
     auto backlightFn(std::bind(&Light::setLcdBacklight, this, std::placeholders::_1));
     auto batteryFn(std::bind(&Light::setBatteryLight, this, std::placeholders::_1));
+    auto buttonsFn(std::bind(&Light::setButtonsBacklight, this, std::placeholders::_1));
     auto notifFn(std::bind(&Light::setNotificationLight, this, std::placeholders::_1));
     mLights.emplace(std::make_pair(Type::ATTENTION, attnFn));
     mLights.emplace(std::make_pair(Type::BACKLIGHT, backlightFn));
     mLights.emplace(std::make_pair(Type::BATTERY, batteryFn));
+    mLights.emplace(std::make_pair(Type::BUTTONS, buttonsFn));
     mLights.emplace(std::make_pair(Type::NOTIFICATIONS, notifFn));
 }
 
@@ -179,6 +181,12 @@ void Light::setLcdBacklight(const LightState& state) {
     }
 
     mLcdBacklight.first << brightness << std::endl;
+}
+
+void Light::setButtonsBacklight(const LightState& state) {
+    // We have no buttons light management, so do nothing.
+    // This function required to shut up warnings about missing functionality.
+    (void)state;
 }
 
 void Light::setBatteryLight(const LightState& state) {
