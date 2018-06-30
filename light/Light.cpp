@@ -274,6 +274,15 @@ void Light::setSpeakerLightLocked(const LightState& state) {
         } else {
             blink_mode = 0;
         }
+
+        /* first brightness, then blink, otherwise blinking will be disabled */
+        mRedLed   << red   << std::endl;
+        mGreenLed << green << std::endl;
+        mBlueLed  << blue  << std::endl;
+
+        mRedBlink   << (blink && red   ? blink_mode : 0) << std::endl;
+        mGreenBlink << (blink && green ? blink_mode : 0) << std::endl;
+        mBlueBlink  << (blink && blue  ? blink_mode : 0) << std::endl;
     } else {
         /* New LED driver */
         if (blink) {
@@ -315,19 +324,19 @@ void Light::setSpeakerLightLocked(const LightState& state) {
             red_fade = green_fade = blue_fade = 2; // 0.52 => 0.26 for 127 color
         }
 
-        // sprintf(breath_pattern_red,   "%d %d %d %d", red_fade,   (int)(onMS/1000), red_fade,   (int)(offMS/1000));
+        // first configure fade & blinking than setup brightness */
         mRedBreath   << red_fade   << " " << (int)(onMs/1000) << " " << red_fade   << " " << (int)(offMs/1000) << std::endl;
         mGreenBreath << green_fade << " " << (int)(onMs/1000) << " " << green_fade << " " << (int)(offMs/1000) << std::endl;
         mBlueBreath  << blue_fade  << " " << (int)(onMs/1000) << " " << blue_fade  << " " << (int)(offMs/1000) << std::endl;
+
+        mRedBlink   << (blink && red   ? blink_mode : 0) << std::endl;
+        mGreenBlink << (blink && green ? blink_mode : 0) << std::endl;
+        mBlueBlink  << (blink && blue  ? blink_mode : 0) << std::endl;
+
+        mRedLed   << red   << std::endl;
+        mGreenLed << green << std::endl;
+        mBlueLed  << blue  << std::endl;
     }
-
-    mRedBlink   << (blink && red   ? blink_mode : 0) << std::endl;
-    mGreenBlink << (blink && green ? blink_mode : 0) << std::endl;
-    mBlueBlink  << (blink && blue  ? blink_mode : 0) << std::endl;
-
-    mRedLed   << red   << std::endl;
-    mGreenLed << green << std::endl;
-    mBlueLed  << blue  << std::endl;
 }
 
 }  // namespace implementation
