@@ -44,6 +44,7 @@ struct Light : public ILight {
   private:
     void setAttentionLight(const LightState& state);
     void setBatteryLight(const LightState& state);
+    void setButtonsBacklight(const LightState& state);
     void setLcdBacklight(const LightState& state);
     void setNotificationLight(const LightState& state);
     void setSpeakerBatteryLightLocked();
