@@ -166,10 +166,6 @@ on boot
     # bond0 used by FST Manager
     chown wifi wifi /sys/class/net/bond0/bonding/queue_id
 
-    # IR Blaster
-    chown system system /sys/class/leds/infrared/transmit
-    chown system system /sys/class/leds/infrared/brightness
-
     # Flashlight
     chown root system /sys/devices/soc/qpnp-flash-led-24/leds/led:torch_0/max_brightness
     chmod 0660 /sys/devices/soc/qpnp-flash-led-24/leds/led:torch_0/max_brightness

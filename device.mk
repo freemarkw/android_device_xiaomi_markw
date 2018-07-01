@@ -154,9 +154,7 @@ PRODUCT_PACKAGES += \
 
 # IR
 PRODUCT_PACKAGES += \
-    android.hardware.ir@1.0-impl \
-    android.hardware.ir@1.0-service \
-    consumerir.msm8953
+    android.hardware.ir@1.0-service.xiaomi_markw
 
 # Display
 PRODUCT_PACKAGES += \
