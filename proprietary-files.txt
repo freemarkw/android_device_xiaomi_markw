@@ -363,10 +363,6 @@ vendor/lib/libchromatix_sunny_s5k3l8_f3l8yam_snapshot.so
 vendor/lib/libchromatix_sunny_s5k3l8_f3l8yam_zsl_preview_dw9763.so
 vendor/lib/libchromatix_sunny_s5k3l8_f3l8yam_zsl_video_dw9763.so
 
-# Consumer Ir
-lib/hw/consumerir.default.so:vendor/lib/hw/consumerir.default.so
-lib64/hw/consumerir.default.so:vendor/lib64/hw/consumerir.default.so
-
 # Display calibration
 etc/qdcm_calib_data_nt35596_1080p_video_EBBG.xml:vendor/etc/qdcm_calib_data_nt35596_1080p_video_EBBG.xml
 etc/qdcm_calib_data_r63350_1080p_video_Tianma.xml:vendor/etc/qdcm_calib_data_r63350_1080p_video_Tianma.xml
