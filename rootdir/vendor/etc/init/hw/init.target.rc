@@ -132,11 +132,6 @@ service adsprpcd /vendor/bin/adsprpcd
    user media
    group media
 
-service audiod /vendor/bin/audiod
-   class late_start
-   user system
-   group system
-
 service wcnss-service /vendor/bin/wcnss_service
     class main
     user system
@@ -218,8 +213,6 @@ on charger
 
 on boot
 	write /dev/cpuset/top-app/cpus 0-7
-	write /dev/cpuset/top-app/boost/cpus 4-7
-	write /dev/cpuset/foreground/cpus 0-6
 	write /dev/cpuset/background/cpus 0-1
 	write /dev/cpuset/system-background/cpus 0-3
 
