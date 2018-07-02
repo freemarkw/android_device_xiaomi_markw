@@ -48,10 +48,6 @@ char const *layer_cache_size;
 char const *shape_cache_size;
 char const *gradient_cache_size;
 char const *drop_shadow_cache_size;
-char const *small_cache_width;
-char const *small_cache_height;
-char const *large_cache_width;
-char const *large_cache_height;
 
 using android::base::GetProperty;
 using android::init::property_set;
@@ -117,10 +113,6 @@ void check_ram()
         shape_cache_size="4";
         gradient_cache_size="1";
         drop_shadow_cache_size="6";
-        small_cache_width="1024";
-        small_cache_height="1024";
-        large_cache_width="2048";
-        large_cache_height = "1024";
     } else if (sys.totalram > 2048ull * 1024 * 1024) {
         // original values in file framework/native: phone-xxhdpi-3072-dalvik-heap.mk
         // 3GB - from markw 6.0 values
@@ -134,10 +126,6 @@ void check_ram()
         shape_cache_size="4";
         gradient_cache_size="1";
         drop_shadow_cache_size="6";
-        small_cache_width="1024";
-        small_cache_height="1024";
-        large_cache_width="2048";
-        large_cache_height = "1024";
     } else {
         // from - phone-xxhdpi-2048-dalvik-heap.mk
         heapstartsize = "16m";
@@ -150,10 +138,6 @@ void check_ram()
         shape_cache_size="4";
         gradient_cache_size="1";
         drop_shadow_cache_size="6";
-        small_cache_width="1024";
-        small_cache_height="1024";
-        large_cache_width="2048";
-        large_cache_height = "1024";
    }
 }
 
@@ -188,17 +172,4 @@ void vendor_load_properties()
     property_set("dalvik.vm.heaptargetutilization", "0.75");
     property_set("dalvik.vm.heapminfree", heapminfree);
     property_set("dalvik.vm.heapmaxfree", heapmaxfree);
-
-    property_set("ro.hwui.texture_cache_size", texture_cache_size);
-    property_set("ro.hwui.layer_cache_size", layer_cache_size);
-    property_set("ro.hwui.r_buffer_cache_size", "8");
-    property_set("ro.hwui.shape_cache_size", shape_cache_size);
-    property_set("ro.hwui.path_cache_size", "16"); //reduced path cache size
-    property_set("ro.hwui.gradient_cache_size", gradient_cache_size);
-    property_set("ro.hwui.drop_shadow_cache_size", drop_shadow_cache_size);
-    property_set("ro.hwui.texture_cache_flushrate", "0.4");
-    property_set("ro.hwui.text_small_cache_width", small_cache_width);
-    property_set("ro.hwui.text_small_cache_height", small_cache_height);
-    property_set("ro.hwui.text_large_cache_width", large_cache_width);
-    property_set("ro.hwui.text_large_cache_height", large_cache_height);
 }
