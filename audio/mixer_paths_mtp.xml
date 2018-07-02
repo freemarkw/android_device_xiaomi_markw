@@ -246,7 +246,7 @@
     <!-- IIR -->
 
     <path name="bt-sco-wb-samplerate">
-        <ctl name="Internal BTSCO SampleRate" value="16000" />
+        <ctl name="Internal BTSCO SampleRate" value="BTSCO_RATE_16KHZ" />
     </path>
 
     <!-- These are audio route (FE to BE) specific mixer settings -->
