@@ -210,6 +210,7 @@ void Light::setSpeakerBatteryLightLocked() {
         setSpeakerLightLocked(mBatteryState);
     } else {
         // Lights off
+        LOG(VERBOSE) << "Light::setSpeakerBatteryLightLocked: Lights off";
         mRedLed     << 0 << std::endl;
         mGreenLed   << 0 << std::endl;
         mBlueLed    << 0 << std::endl;
@@ -242,6 +243,10 @@ void Light::setSpeakerLightLocked(const LightState& state) {
     blue = colorRGB & 0xff;
     blink = onMs > 0 && offMs > 0;
 
+    LOG(VERBOSE) << "Light::setSpeakerLightLocked:"
+                 << " r " << red << ", g " << green << ", b " << blue
+                 << ", blink " << blink;
+
     // Disable all blinking to start
     mRedLed   << 0 << std::endl;
     mGreenLed << 0 << std::endl;
@@ -255,9 +260,11 @@ void Light::setSpeakerLightLocked(const LightState& state) {
         mGreenLed << green << std::endl;
         mBlueLed  << blue  << std::endl;
 
-        mRedBlink   << (blink && red   ? 1 : 0) << std::endl;
-        mGreenBlink << (blink && green ? 1 : 0) << std::endl;
-        mBlueBlink  << (blink && blue  ? 1 : 0) << std::endl;
+        if (blink) {
+            mRedBlink   << (red   ? 1 : 0) << std::endl;
+            mGreenBlink << (green ? 1 : 0) << std::endl;
+            mBlueBlink  << (blue  ? 1 : 0) << std::endl;
+        }
     } else {
         /* New LED driver */
         if (blink) {
@@ -283,9 +290,8 @@ void Light::setSpeakerLightLocked(const LightState& state) {
             green_fade = get_fade_index(max, green, 1);
             blue_fade  = get_fade_index(max, blue,  1);
 
-            LOG(VERBOSE) << "Light::setSpeakerLightLocked:" <<
-                            " r " << red << ", g " << green << ", b " << blue <<
-                            ", rf " << red_fade << ", gf " << green_fade << ", bf " << blue_fade;
+            LOG(VERBOSE) << "Light::setSpeakerLightLocked:"
+                         << " rf " << red_fade << ", gf " << green_fade << ", bf " << blue_fade;
 
             if (red_fade == -1 || green_fade == -1 || blue_fade == -1) { // to do: remove
                 LOG(VERBOSE) << "Light::setSpeakerLightLocked: LED ERROR";
