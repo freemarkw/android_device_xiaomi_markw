@@ -23,11 +23,6 @@
          successfully placing the OTA call -->
     <integer name="OtaShowListeningScreen">1</integer>
 
-    <!-- Determine whether calls to mute the microphone in PhoneUtils
-         are routed through the android.media.AudioManager class (true) or through
-         the com.android.internal.telephony.Phone interface (false). -->
-    <bool name="send_mic_mute_to_AudioManager">true</bool>
-
     <!-- Show Preferred Network Type options in No SIM case -->
     <bool name="config_no_sim_display_network_modes">true</bool>
 
