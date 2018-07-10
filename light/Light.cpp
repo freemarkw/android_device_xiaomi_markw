@@ -274,8 +274,8 @@ void Light::setSpeakerLightLocked(const LightState& state) {
             // to do: refactor intervals
             if (onMs < 1000)
                 onMs = 1000;
-            else if (onMs > 5000)
-                onMs = 5000;
+            else if (onMs > 6000)
+                onMs = 6000;
 
             if (offMs < 1000)
                 offMs = 1000;

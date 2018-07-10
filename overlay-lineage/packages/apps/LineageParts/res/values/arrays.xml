@@ -19,20 +19,13 @@
      also pulse_length_very_long is removed
 -->
 
-    <string-array name="notification_pulse_length_entries" translatable="false">
-        <item>@string/pulse_length_always_on</item>
-        <item>@string/pulse_length_very_short</item>
-        <item>@string/pulse_length_short</item>
-        <item>@string/pulse_length_normal</item>
-        <item>@string/pulse_length_long</item>
-    </string-array>
-
     <string-array name="notification_pulse_length_values" translatable="false">
         <item>1</item>
         <item>1000</item>
         <item>3000</item>
         <item>4000</item>
         <item>5000</item>
+        <item>6000</item>
     </string-array>
 
     <string-array name="notification_pulse_speed_values" translatable="false">
