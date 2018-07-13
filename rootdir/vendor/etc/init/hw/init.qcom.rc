@@ -386,7 +386,6 @@ service iop /vendor/bin/iop
     group root
     disabled
     socket iop seqpacket 0666 root system
-    writepid /dev/cpuset/system-background/tasks
 
 #bug156417 zhaoqf_sh add Allow usb charging to be disabled peristently
 on property:persist.sys.chgdisabled=1
@@ -414,13 +413,11 @@ service cnd /vendor/bin/cnd
     class main
     user system
     group system wifi inet radio wakelock net_admin
-    writepid /dev/cpuset/system-background/tasks
 
 service dpmQmiMgr /vendor/bin/dpmQmiMgr
     class main
     user system
     group radio system
-    writepid /dev/cpuset/system-background/tasks
 
 service irsc_util /vendor/bin/irsc_util "/vendor/etc/sec_config"
     class core
@@ -432,7 +429,6 @@ service rmt_storage /vendor/bin/rmt_storage
     user root
     shutdown critical
     ioprio rt 0
-    writepid /dev/cpuset/system-background/tasks
 
 service tftp_server /vendor/bin/tftp_server
    class core
@@ -470,36 +466,30 @@ service atfwd /vendor/bin/ATFWD-daemon
     class late_start
     user system
     group system radio
-    writepid /dev/cpuset/system-background/tasks
 
 service netmgrd /vendor/bin/netmgrd
     class main
-    writepid /dev/cpuset/system-background/tasks
 
 service ipacm-diag /vendor/bin/ipacm-diag
     class main
     user radio
     socket ipacm_log_file dgram 660 radio radio
     group radio diag
-    writepid /dev/cpuset/system-background/tasks
 
 service ipacm /vendor/bin/ipacm
     class main
     user radio
     group radio inet
-    writepid /dev/cpuset/system-background/tasks
 
 service qti /vendor/bin/qti
     class main
     user radio
     group radio diag usb net_admin
-    writepid /dev/cpuset/system-background/tasks
 
 service sensors /vendor/bin/sensors.qcom
     class main
     user root
     group root
-    writepid /dev/cpuset/system-background/tasks
 
 on property:ro.use_data_netmgrd=false
     # netmgr not supported on specific target
@@ -533,7 +523,6 @@ service loc_launcher /vendor/bin/loc_launcher
     #loc_launcher will start as root and set its uid to gps
     class late_start
     group gps inet diag wifi
-    writepid /dev/cpuset/system-background/tasks
 
 service qcom-sh /vendor/bin/sh /vendor/bin/init.qcom.sh
     class late_start
@@ -565,7 +554,6 @@ service charger /charger
     class charger
     group system graphics
     seclabel u:r:healthd:s0
-    writepid /dev/cpuset/system-background/tasks
 
 service vendor.msm_irqbalance /vendor/bin/msm_irqbalance -f /vendor/etc/msm_irqbalance.conf
     class core
@@ -582,13 +570,11 @@ service time_daemon /vendor/bin/time_daemon
     class main
     user root
     group root
-    writepid /dev/cpuset/system-background/tasks
 
 service gx_fpd /vendor/bin/gx_fpd
-     class core
-     user system
-     group system drmrpc
-     writepid /dev/cpuset/system-background/tasks
+    class core
+    user system
+    group system drmrpc
 
 # fpc fingerprint section - start
 on property:persist.sys.fp.vendor=switchf
