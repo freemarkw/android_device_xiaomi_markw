@@ -13,19 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#define LOG_TAG "android.hardware.biometrics.fingerprint@2.0-service"
-#define LOG_VERBOSE "android.hardware.biometrics.fingerprint@2.0-service"
+#define LOG_TAG "android.hardware.biometrics.fingerprint@2.0-service.custom"
+#define LOG_VERBOSE "android.hardware.biometrics.fingerprint@2.0-service.custom"
 
 #include <hardware/hw_auth_token.h>
 #include <hardware/hardware.h>
 #include <hardware/fingerprint.h>
 #include "BiometricsFingerprint.h"
-#include <cutils/properties.h>
 
 #include <inttypes.h>
 #include <unistd.h>
-
-fingerprint_device_t* getWrapperService(fingerprint_notify_t);
 
 namespace android {
 namespace hardware {
@@ -35,7 +32,7 @@ namespace V2_1 {
 namespace implementation {
 
 // Supported fingerprint HAL version
-static bool is_goodix = false;
+static const uint16_t kVersion = HARDWARE_MODULE_API_VERSION(2, 0);
 
 using RequestStatus =
         android::hardware::biometrics::fingerprint::V2_1::RequestStatus;
@@ -44,15 +41,10 @@ BiometricsFingerprint *BiometricsFingerprint::sInstance = nullptr;
 
 BiometricsFingerprint::BiometricsFingerprint() : mClientCallback(nullptr), mDevice(nullptr) {
     sInstance = this; // keep track of the most recent instance
-    char vend [PROPERTY_VALUE_MAX];
-    property_get("ro.hardware.fingerprint", vend, NULL);
-
-    if (!strcmp(vend, "fpc")) {
-        is_goodix = false;
-        mDevice = openHal();
-    } else if (!strcmp(vend, "goodix")) {
-        is_goodix = true;
+    if (is_goodix) {
         mDevice = getWrapperService(BiometricsFingerprint::notify);
+    } else {
+        mDevice = openHal();
     }
 
     if (!mDevice) {
@@ -185,13 +177,16 @@ Return<uint64_t> BiometricsFingerprint::getAuthenticatorId() {
 }
 
 Return<RequestStatus> BiometricsFingerprint::cancel() {
-
-    fingerprint_msg_t msg;
-    msg.type = FINGERPRINT_ERROR;
-    msg.data.error = FINGERPRINT_ERROR_CANCELED;
-    mDevice->notify(&msg);
-
-      return ErrorFilter(mDevice->cancel(mDevice));
+    /* notify client on cancel hack */
+    int ret = mDevice->cancel(mDevice);
+    ALOG(LOG_VERBOSE, LOG_TAG, "cancel() %d\n", ret);
+    if (ret == 0) {
+        fingerprint_msg_t msg;
+        msg.type = FINGERPRINT_ERROR;
+        msg.data.error = FINGERPRINT_ERROR_CANCELED;
+        sInstance->notify(&msg);
+    }
+    return ErrorFilter(ret);
 }
 
 #define MAX_FINGERPRINTS 100
@@ -234,6 +229,7 @@ Return<RequestStatus> BiometricsFingerprint::setActiveGroup(uint32_t gid,
         return RequestStatus::SYS_EINVAL;
     }
     int ret = mDevice->set_active_group(mDevice, gid, storePath.c_str());
+    /* set active group hack for goodix */
     if ((ret > 0) && is_goodix)
         ret = 0;
     return ErrorFilter(ret);
@@ -279,6 +275,12 @@ fingerprint_device_t* BiometricsFingerprint::openHal() {
         return nullptr;
     }
 
+    if (kVersion != device->version) {
+        // enforce version on new devices because of HIDL@2.1 translation layer
+        ALOGE("Wrong fp version. Expected %d, got %d", kVersion, device->version);
+        //return nullptr;
+    }
+
     fingerprint_device_t* fp_device =
         reinterpret_cast<fingerprint_device_t*>(device);
 
@@ -303,6 +305,7 @@ void BiometricsFingerprint::notify(const fingerprint_msg_t *msg) {
         case FINGERPRINT_ERROR: {
                 int32_t vendorCode = 0;
                 FingerprintError result = VendorErrorFilter(msg->data.error, &vendorCode);
+                ALOGD("onError(%d)", result);
                 if (!thisPtr->mClientCallback->onError(devId, result, vendorCode).isOk()) {
                     ALOGE("failed to invoke fingerprint onError callback");
                 }
@@ -312,12 +315,17 @@ void BiometricsFingerprint::notify(const fingerprint_msg_t *msg) {
                 int32_t vendorCode = 0;
                 FingerprintAcquiredInfo result =
                     VendorAcquiredFilter(msg->data.acquired.acquired_info, &vendorCode);
+                ALOGD("onAcquired(%d)", result);
                 if (!thisPtr->mClientCallback->onAcquired(devId, result, vendorCode).isOk()) {
                     ALOGE("failed to invoke fingerprint onAcquired callback");
                 }
             }
             break;
         case FINGERPRINT_TEMPLATE_ENROLLING:
+            ALOGD("onEnrollResult(fid=%d, gid=%d, rem=%d)",
+                msg->data.enroll.finger.fid,
+                msg->data.enroll.finger.gid,
+                msg->data.enroll.samples_remaining);
             if (!thisPtr->mClientCallback->onEnrollResult(devId,
                     msg->data.enroll.finger.fid,
                     msg->data.enroll.finger.gid,
@@ -326,6 +334,10 @@ void BiometricsFingerprint::notify(const fingerprint_msg_t *msg) {
             }
             break;
         case FINGERPRINT_TEMPLATE_REMOVED:
+            ALOGD("onRemove(fid=%d, gid=%d, rem=%d)",
+                msg->data.removed.finger.fid,
+                msg->data.removed.finger.gid,
+                msg->data.removed.remaining_templates);
             if (!thisPtr->mClientCallback->onRemoved(devId,
                     msg->data.removed.finger.fid,
                     msg->data.removed.finger.gid,
@@ -335,6 +347,9 @@ void BiometricsFingerprint::notify(const fingerprint_msg_t *msg) {
             break;
         case FINGERPRINT_AUTHENTICATED:
             if (msg->data.authenticated.finger.fid != 0) {
+                ALOGD("onAuthenticated(fid=%d, gid=%d)",
+                    msg->data.authenticated.finger.fid,
+                    msg->data.authenticated.finger.gid);
                 const uint8_t* hat =
                     reinterpret_cast<const uint8_t *>(&msg->data.authenticated.hat);
                 const hidl_vec<uint8_t> token(
