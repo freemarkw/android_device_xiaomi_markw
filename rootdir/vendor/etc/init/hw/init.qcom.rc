@@ -58,6 +58,7 @@ on early-boot
     # Allow subsystem (modem etc) debugging
     write /sys/kernel/boot_adsp/boot 1
     write /sys/kernel/boot_slpi/boot 1
+    chown root audio /sys/kernel/boot_adsp/boot
 
     # SSR setup
     write /sys/bus/msm_subsys/devices/subsys0/restart_level "related"
@@ -497,7 +498,7 @@ service ipacm-diag /vendor/bin/ipacm-diag
     class main
     user radio
     socket ipacm_log_file dgram 660 radio radio
-    group radio diag
+    group radio diag oem_2901
 
 service ipacm /vendor/bin/ipacm
     class main
@@ -507,7 +508,7 @@ service ipacm /vendor/bin/ipacm
 service qti /vendor/bin/qti
     class main
     user radio
-    group radio diag usb net_admin
+    group radio oem_2901 diag usb net_admin
 
 service sensors /vendor/bin/sensors.qcom
     class main
@@ -588,6 +589,10 @@ on charger
     setprop persist.sys.usb.config mass_storage
     load_system_props
     start qcom-post-boot
+
+on property:init.svc.surfaceflinger=restarting
+    stop hwcomposer-2-1
+    start hwcomposer-2-1
 
 service time_daemon /vendor/bin/time_daemon
     class main
