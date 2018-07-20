@@ -4,6 +4,7 @@ vendor/lib/libmmcamera_s5k3l8.so|907c4b85df294258711bbe56b5238d6ad6706212
 
 # Camera - from markw(hex edit)
 vendor/lib/libmmcamera2_sensor_modules.so|74b9886ed5bbc8f0cdb977d1537d3fec9b8d20b2
+vendor/lib/libmmcamera_isp_color_correct40.so|f58122b6f5eedb12ce28cc49fbef3fa8b3dc7002
 
 # Camera - from marmite 6.0
 vendor/lib/libmmcamera2_c2d_module.so|45c3e1a592a1664af115cd83aaa5d7ef2b936787
@@ -55,7 +56,6 @@ vendor/lib/libmmcamera_isp_chroma_suppress40.so|82e0cede6612582fe52ccdab039c1647
 vendor/lib/libmmcamera_isp_clamp_encoder40.so|9b286d9bbefa338d80c9c623a747c3238f143703
 vendor/lib/libmmcamera_isp_clamp_video40.so|1e3babef036a0bb4b7ebd9abff6b076801cc3f19
 vendor/lib/libmmcamera_isp_clamp_viewfinder40.so|69d905a5efe13e9e9eb838f5300795cd481f7485
-vendor/lib/libmmcamera_isp_color_correct40.so|50ad2ee5f8822ec7157e661bed7e7dbe4fec43db
 vendor/lib/libmmcamera_isp_color_xform_encoder40.so|8c3d98d428e7d2f9226ebceba7effe9d73217fd1
 vendor/lib/libmmcamera_isp_color_xform_viewfinder40.so|944a6f5b9f4aebf01a61c11f32430bd4872f26d7
 vendor/lib/libmmcamera_isp_cs_stats44.so|4474528fbb00df009cda18b892edd28ddf769837
