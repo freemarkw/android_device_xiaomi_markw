@@ -194,6 +194,7 @@ net.tcp.2g_init_rwnd=10
 
 # Time
 persist.timed.enable=true
+persist.delta_time.enable=true
 
 # Trim properties
 ro.vendor.qti.sys.fw.use_trim_settings=true
