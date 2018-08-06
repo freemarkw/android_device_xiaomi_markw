@@ -1,3 +1,7 @@
+# Audio ACDB
+# daisy - Mi A2 Lite
+vendor/etc/acdbdata/adsp_avs_config.acdb
+
 # other devices props
 # Camera - from wingtech wt89536
 vendor/lib/libmmcamera_s5k3l8.so|907c4b85df294258711bbe56b5238d6ad6706212
