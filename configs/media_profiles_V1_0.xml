@@ -116,6 +116,30 @@
              channels="2" />
     </EncoderProfile>
 
+    <EncoderProfile quality="720p" fileFormat="mp4" duration="30">
+      <Video codec="h264"
+             bitRate="18000000"
+             width="1280"
+             height="720"
+             frameRate="60" />
+     <Audio codec="aac"
+             bitRate="156000"
+             sampleRate="48000"
+             channels="2" />
+     </EncoderProfile>
+
+     <EncoderProfile quality="1080p" fileFormat="mp4" duration="30">
+      <Video codec="h264"
+             bitRate="33000000"
+             width="1920"
+             height="1080"
+             frameRate="60" />
+      <Audio codec="aac"
+             bitRate="156000"
+             sampleRate="48000"
+             channels="2" />
+    </EncoderProfile>
+
     <EncoderProfile quality="2160p" fileFormat="mp4" duration="30">
       <Video codec="h264"
              bitRate="42000000"
@@ -770,7 +794,7 @@
         minBitRate="64000" maxBitRate="100000000"
         minFrameWidth="176" maxFrameWidth="3840"
         minFrameHeight="144" maxFrameHeight="2160"
-        minFrameRate="15" maxFrameRate="30"
+        minFrameRate="15" maxFrameRate="60"
         maxHFRFrameWidth="1920" maxHFRFrameHeight="1080"
         maxHFRMode="60"  />
 
