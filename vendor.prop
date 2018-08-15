@@ -176,9 +176,6 @@ ro.vendor.gt_library=libqti-gt.so
 ro.vendor.at_library=libqti-at.so
 ro.am.reschedule_service=true
 ro.vendor.qti.sys.fw.bg_apps_limit=60
-#min/max cpu in core control from daisy
-ro.vendor.qti.core_ctl_min_cpu=2
-ro.vendor.qti.core_ctl_max_cpu=4
 
 # QMI
 persist.data.qmi.adb_logmask=0
