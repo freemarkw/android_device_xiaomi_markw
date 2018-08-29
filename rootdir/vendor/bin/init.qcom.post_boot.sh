@@ -385,6 +385,9 @@ case "$target" in
                 # Enable low power modes
                 echo 0 > /sys/module/lpm_levels/parameters/sleep_disabled
 
+                # Set GPU default power level to 6 (133MHz)
+                echo 6 > /sys/class/kgsl/kgsl-3d0/default_pwrlevel
+
                 # SMP scheduler
                 echo 100 > /proc/sys/kernel/sched_upmigrate
                 echo 100 > /proc/sys/kernel/sched_downmigrate
