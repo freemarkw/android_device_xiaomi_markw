@@ -26,6 +26,6 @@ PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=markw \
-    PRIVATE_BUILD_DESC="markw-user 6.0.1 MMB29M V9.2.3.0.MBEMIEK release-keys"
+    PRIVATE_BUILD_DESC="markw-user 6.0.1 MMB29M V9.6.1.0.MBEMIFA release-keys"
 
-BUILD_FINGERPRINT := Xiaomi/markw/markw:6.0.1/MMB29M/V9.2.3.0.MBEMIEK:user/release-keys
+BUILD_FINGERPRINT := Xiaomi/markw/markw:6.0.1/MMB29M/V9.6.1.0.MBEMIFA:user/release-keys
