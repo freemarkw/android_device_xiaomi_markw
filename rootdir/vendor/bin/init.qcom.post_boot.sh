@@ -340,12 +340,9 @@ case "$target" in
                 echo 652800 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
                 echo 652800 > /sys/devices/system/cpu/cpufreq/interactive/screen_off_maxfreq
 
-                ### CPU_INPUT_BOOST
-                # Only boost power cores
-                # echo "652800 2208000" > /sys/kernel/cpu_input_boost/ib_freqs
-                #Input boost duration
-                # echo 300 > /sys/kernel/cpu_input_boost/ib_duration_ms
-                # echo 1 > /sys/kernel/cpu_input_boost/enabled
+                ### CPU_BOOST
+                echo 1036800 > /sys/module/cpu_boost/parameters/input_boost_freq
+                echo 100 > /sys/module/cpu_boost/parameters/input_boost_ms
 
 
                 # Don't put new tasks on the core which is 70% loaded
