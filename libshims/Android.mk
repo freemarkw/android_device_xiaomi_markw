@@ -18,8 +18,7 @@ LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := \
-    bionic/bionic_time_conversions.cpp \
-    bionic/pthread_cond.cpp
+    bionic/pthread_cond_timedwait.cpp
 
 LOCAL_SHARED_LIBRARIES := libc
 
