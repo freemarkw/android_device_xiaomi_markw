@@ -29,18 +29,14 @@
 #include <fcntl.h>
 #include <stdlib.h>
 #include <sys/sysinfo.h>
+#include <android-base/file.h>
 #include <android-base/properties.h>
+#include <android-base/strings.h>
 #define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
 #include <sys/_system_properties.h>
 
-#include <android-base/strings.h>
-
 #include "vendor_init.h"
 #include "property_service.h"
-#include "log.h"
-#include "util.h"
-
-using android::base::Trim;
 
 char const *heapstartsize;
 char const *heapgrowthlimit;
@@ -53,7 +49,9 @@ char const *shape_cache_size;
 char const *gradient_cache_size;
 char const *drop_shadow_cache_size;
 
+using android::base::Trim;
 using android::base::GetProperty;
+using android::base::ReadFileToString;
 using android::init::property_set;
 
 void property_override(char const prop[], char const value[])
@@ -73,10 +71,10 @@ static void init_alarm_boot_properties()
     char const *power_off_alarm_file = "/persist/alarm/powerOffAlarmSet";
     std::string boot_reason;
     std::string power_off_alarm;
-    std::string reboot_reason = property_get("ro.boot.alarmboot");
+    std::string reboot_reason = GetProperty("ro.boot.alarmboot", "");
 
-    if (read_file(boot_reason_file, &boot_reason)
-            && read_file(power_off_alarm_file, &power_off_alarm)) {
+    if (ReadFileToString(boot_reason_file, &boot_reason)
+            && ReadFileToString(power_off_alarm_file, &power_off_alarm)) {
         /*
          * Setup ro.alarm_boot value to true when it is RTC triggered boot up
          * For existing PMIC chips, the following mapping applies
