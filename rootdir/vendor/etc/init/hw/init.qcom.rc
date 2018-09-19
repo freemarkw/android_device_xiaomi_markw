@@ -137,10 +137,6 @@ on boot
     #Create NETMGR daemon socket area
     mkdir /dev/socket/netmgr 0750 radio radio
 
-    #Remove SUID bit for iproute2 ip tool
-    chmod 0755 /system/bin/ip
-
-
     chmod 0444 /sys/devices/platform/msm_hsusb/gadget/usb_state
 
 #   Assign TCP buffer thresholds to be ceiling value of technology maximums
@@ -169,7 +165,6 @@ on boot
     # Goodix Fingerprint
     chown system system /dev/goodix_fp
     chmod 0644 /dev/goodix_fp
-    chmod 0777 /vendor/bin/gx_fpd
 
     chown system system /sys/devices/soc/soc:fpc1020/compatible_all
     chmod 0664 /sys/devices/soc/soc:fpc1020/compatible_all
