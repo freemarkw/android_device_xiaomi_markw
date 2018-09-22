@@ -9,7 +9,7 @@ LOCAL_MODULE_CLASS := ETC
 ifeq ($(AB_OTA_UPDATER), true)
 LOCAL_SRC_FILES    := fstab_AB.qcom
 else
-LOCAL_SRC_FILES    := vendor/etc/fstab.qcom
+LOCAL_SRC_FILES    := vendor/fstab.qcom
 endif
 LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)
 include $(BUILD_PREBUILT)
