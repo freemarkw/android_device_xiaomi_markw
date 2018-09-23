@@ -1,0 +1,1 @@
+dontaudit healthd mm-qcamerad_exec:file getattr;

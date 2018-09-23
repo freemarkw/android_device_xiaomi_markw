@@ -1,0 +1,1 @@
+dontaudit gatekeeperd mm-qcamerad_exec:file getattr;

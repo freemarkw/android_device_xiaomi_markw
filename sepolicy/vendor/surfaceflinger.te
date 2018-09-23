@@ -1,0 +1,1 @@
+dontaudit surfaceflinger mm-qcamerad_exec:file getattr;

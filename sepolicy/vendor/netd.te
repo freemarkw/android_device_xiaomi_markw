@@ -1,0 +1,1 @@
+dontaudit netd mm-qcamerad_exec:file getattr;

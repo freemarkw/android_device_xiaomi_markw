@@ -1,0 +1,1 @@
+dontaudit mediametrics mm-qcamerad_exec:file getattr;
