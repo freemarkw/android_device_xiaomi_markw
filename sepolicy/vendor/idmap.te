@@ -1,0 +1,1 @@
+dontaudit idmap mm-qcamerad_exec:file getattr;

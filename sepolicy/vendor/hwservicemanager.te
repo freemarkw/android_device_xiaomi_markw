@@ -1,0 +1,1 @@
+dontaudit hwservicemanager mm-qcamerad_exec:file getattr;

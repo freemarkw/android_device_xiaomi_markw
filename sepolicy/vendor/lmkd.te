@@ -1,0 +1,1 @@
+dontaudit lmkd mm-qcamerad_exec:file getattr;

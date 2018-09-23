@@ -1,0 +1,2 @@
+allow mediadrmserver mediadrmserver_service:service_manager add;
+dontaudit mediadrmserver mm-qcamerad_exec:file getattr;

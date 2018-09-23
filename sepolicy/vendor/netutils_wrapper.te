@@ -1,0 +1,1 @@
+dontaudit netutils_wrapper mm-qcamerad_exec:file getattr;

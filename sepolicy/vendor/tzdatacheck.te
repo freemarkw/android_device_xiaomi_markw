@@ -1,0 +1,1 @@
+dontaudit tzdatacheck mm-qcamerad_exec:file getattr;

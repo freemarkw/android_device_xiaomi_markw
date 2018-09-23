@@ -1,0 +1,1 @@
+dontaudit audioserver mm-qcamerad_exec:file getattr;
