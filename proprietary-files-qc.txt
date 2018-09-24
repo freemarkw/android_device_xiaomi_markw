@@ -41,7 +41,7 @@ vendor/lib64/libaptXHD_encoder.so
 vendor/lib64/libldacBT_abr.so
 vendor/lib64/libldacBT_enc.so
 
-# ANT+ - from tissot (OPM1.171019.019.8.5.11)
+# ANT
 lib/com.qualcomm.qti.ant@1.0.so
 -lib/libantradio.so
 lib64/com.qualcomm.qti.ant@1.0.so
@@ -77,10 +77,17 @@ vendor/lib64/soundfx/libqcreverb.so
 vendor/lib64/soundfx/libqcvirt.so
 
 # Bluetooth
+vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti
 vendor/bin/hci_qcomm_init
 vendor/bin/wcnss_filter
+vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc
 vendor/lib/libbtnv.so
+vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so
 vendor/lib64/libbtnv.so
+vendor/lib64/libbt-hidlclient.so
+
+# Bluetooth (shared dependencies)
+vendor/lib64/vendor.qti.hardware.fm@1.0_vendor.so
 
 # Camera firmware
 vendor/firmware/cpp_firmware_v1_8_0.fw
