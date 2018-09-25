@@ -20,5 +20,8 @@
     <!-- Whether notify fingerprint client of successful cancelled authentication -->
     <bool name="config_notifyClientOnFingerprintCancelSuccess">true</bool>
 
+    <!-- Whether to ignore RSSNR for LTE -->
+    <bool name="config_ignore_rssnr">true</bool>
+
 </resources>
 
