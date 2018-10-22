@@ -533,14 +533,12 @@ vendor/lib64/vendor.qti.hardware.sensorscalibrate@1.0.so
 # Thermal
 vendor/etc/thermal-engine.conf
 vendor/bin/thermal-engine
--vendor/lib/libthermalclient.so
 -vendor/lib64/libthermalclient.so
 vendor/lib64/libthermalioctl.so
 
 # Time services
 -vendor/app/TimeService/TimeService.apk
 vendor/bin/time_daemon
--vendor/lib/libtime_genoff.so
 -vendor/lib64/libtime_genoff.so
 
 # TUI
