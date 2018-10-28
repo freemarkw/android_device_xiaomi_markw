@@ -119,6 +119,7 @@ void gsi_check()
 
     // override device specific props for GSI & P DP*
     if ((product == "phhgsi_arm64_a") || (product == "marlin")) {
+        property_override("ro.build.tags", "release-keys");
         property_override("ro.product.model", "Redmi 4 Prime");
         property_override("ro.product.brand", "Xiaomi");
         property_override("ro.product.name", "markw");
