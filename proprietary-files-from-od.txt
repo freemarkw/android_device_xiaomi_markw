@@ -1,4 +1,9 @@
 # other devices props
+
+#Audio - Xiaomi/gemini/gemini:8.0.0/OPR1.170623.032/8.4.10:user/release-keys
+vendor/lib/libaudcal.so|a1809291c8610be5e9ed307e4bbb3c497c790cea
+vendor/lib64/libaudcal.so|eea2e24cb166bf98cb15e16a80fe734a4d7b77a2
+
 # Camera - from wingtech wt89536
 vendor/lib/libmmcamera_s5k3l8.so|907c4b85df294258711bbe56b5238d6ad6706212
 
