@@ -408,7 +408,6 @@ case "$target" in
         echo 512 > /sys/block/mmcblk0/bdi/read_ahead_kb
         echo 512 > /sys/block/mmcblk0/queue/read_ahead_kb
         setprop sys.post_boot.parsed 1
-        start gamed
     ;;
 
 esac
