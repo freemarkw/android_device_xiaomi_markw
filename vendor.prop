@@ -192,6 +192,10 @@ net.tcp.2g_init_rwnd=10
 persist.timed.enable=true
 persist.delta_time.enable=true
 
+# Touch optimize
+persist.vendor.qti.inputopts.enable=true
+persist.vendor.qti.inputopts.movetouchslop=0.6
+
 # Trim properties
 ro.vendor.qti.sys.fw.use_trim_settings=true
 ro.vendor.qti.sys.fw.empty_app_percent=50
