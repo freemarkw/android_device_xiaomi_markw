@@ -348,6 +348,10 @@ case "$target" in
                 # echo 440 > /sys/kernel/cpu_input_boost/ib_duration_ms
                 # echo 1 > /sys/kernel/cpu_input_boost/enabled
 
+                # Virtual memory tweaks
+                echo 10 > /proc/sys/vm/swappiness
+                echo 10 > /proc/sys/vm/dirty_background_ratio
+
 
                 # Don't put new tasks on the core which is 70% loaded
                 echo 70 > /proc/sys/kernel/sched_spill_load
