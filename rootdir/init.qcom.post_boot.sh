@@ -344,6 +344,10 @@ case "$target" in
                 echo 1036800 > /sys/module/cpu_boost/parameters/input_boost_freq
                 echo 100 > /sys/module/cpu_boost/parameters/input_boost_ms
 
+                # Virtual memory tweaks
+                echo 10 > /proc/sys/vm/swappiness
+                echo 10 > /proc/sys/vm/dirty_background_ratio
+
 
                 # Don't put new tasks on the core which is 70% loaded
                 echo 70 > /proc/sys/kernel/sched_spill_load
