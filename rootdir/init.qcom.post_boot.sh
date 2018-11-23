@@ -90,7 +90,7 @@ else
     if [ "$arch_type" == "aarch64" ] && [ $MemTotal -gt 2097152 ]; then
         echo 10 > /sys/module/process_reclaim/parameters/pressure_min
         echo 1024 > /sys/module/process_reclaim/parameters/per_swap_size
-        echo "18432,23040,27648,32256,55296,80640" > /sys/module/lowmemorykiller/parameters/minfree
+        echo "21687,28916,36145,43374,50603,65061" > /sys/module/lowmemorykiller/parameters/minfree
         echo 81250 > /sys/module/lowmemorykiller/parameters/vmpressure_file_min
     elif [ "$arch_type" == "aarch64" ] && [ $MemTotal -gt 1048576 ]; then
         echo 10 > /sys/module/process_reclaim/parameters/pressure_min
@@ -350,6 +350,7 @@ case "$target" in
 
                 # Virtual memory tweaks
                 echo 10 > /proc/sys/vm/swappiness
+                echo 30 > /proc/sys/vm/dirty_ratio
                 echo 10 > /proc/sys/vm/dirty_background_ratio
 
 
@@ -405,9 +406,9 @@ case "$target" in
 
                 # Set Memory parameters
                 configure_memory_parameters
-	;;
-	esac
-	;;
+        ;;
+        esac
+        ;;
 esac
 
 # Post-setup services
