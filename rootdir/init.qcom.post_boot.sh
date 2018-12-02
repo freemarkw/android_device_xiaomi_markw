@@ -342,7 +342,7 @@ case "$target" in
 
                 ### CPU_BOOST
                 echo 1036800 > /sys/module/cpu_boost/parameters/input_boost_freq
-                echo 100 > /sys/module/cpu_boost/parameters/input_boost_ms
+                echo 200 > /sys/module/cpu_boost/parameters/input_boost_ms
 
                 # Virtual memory tweaks
                 echo 10 > /proc/sys/vm/swappiness
@@ -410,8 +410,8 @@ esac
 # Post-setup services
 case "$target" in
     "msm8937" | "msm8953")
-        echo 512 > /sys/block/mmcblk0/bdi/read_ahead_kb
-        echo 512 > /sys/block/mmcblk0/queue/read_ahead_kb
+        echo 1024 > /sys/block/mmcblk0/bdi/read_ahead_kb
+        echo 1024 > /sys/block/mmcblk0/queue/read_ahead_kb
         setprop sys.post_boot.parsed 1
     ;;
 
