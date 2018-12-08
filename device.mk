@@ -187,7 +187,7 @@ PRODUCT_PACKAGES += \
     qcom.fmradio
 
 PRODUCT_BOOT_JARS += \
-    qcom.fmradio 
+    qcom.fmradio
 
 # Gatekeeper HAL
 PRODUCT_PACKAGES += \
