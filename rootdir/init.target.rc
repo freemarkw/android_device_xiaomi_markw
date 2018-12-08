@@ -45,7 +45,6 @@ on fs
 
 on init
     write /sys/module/qpnp_rtc/parameters/poweron_alarm 1
-    chmod 0664 sys/kernel/debug/camera/logsync
 
 on post-fs-data
     mkdir /data/tombstones 0771 system system
@@ -164,7 +163,7 @@ service ims_rtp_daemon /vendor/bin/ims_rtp_daemon
    writepid /dev/cpuset/system-background/tasks
    disabled
 
-service imsrcsservice /vendor/bin/imsrcsd
+service vendor.imsrcsservice /vendor/bin/imsrcsd
    class main
    user system
    group radio diag inet log
@@ -173,7 +172,7 @@ service imsrcsservice /vendor/bin/imsrcsd
 
 on property:vendor.ims.DATA_DAEMON_STATUS=1
    start ims_rtp_daemon
-   start imsrcsservice
+   start vendor.imsrcsservice
 
 on property:init.svc.surfaceflinger=stopped
     stop ppd
