@@ -300,6 +300,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libjson
 
+# Properties
+-include device/xiaomi/markw/prop.mk
+
 # init files
 PRODUCT_PACKAGES += \
     fstab.qcom \

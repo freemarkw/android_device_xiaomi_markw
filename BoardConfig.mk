@@ -193,9 +193,6 @@ TARGET_TAP_TO_WAKE_NODE := "/proc/gesture/onoff"
 # Enable real time lockscreen charging current values
 BOARD_GLOBAL_CFLAGS += -DBATTERY_REAL_INFO
 
-# Properties
-TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
-
 # Qualcomm
 BOARD_USES_QCOM_HARDWARE := true
 TARGET_USE_SDCLANG := true
