@@ -353,8 +353,8 @@ case "$target" in
                 echo 6 > /sys/class/kgsl/kgsl-3d0/default_pwrlevel
 
 
-                echo "maple" > /sys/block/mmcblk0/queue/scheduler
-                echo "maple" > /sys/block/mmcblk1/queue/scheduler
+                #echo "maple" > /sys/block/mmcblk0/queue/scheduler
+                #echo "maple" > /sys/block/mmcblk1/queue/scheduler
 
 
                 # Don't put new tasks on the core which is 70% loaded
