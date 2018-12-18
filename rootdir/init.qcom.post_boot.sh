@@ -341,8 +341,8 @@ case "$target" in
                 echo 652800 > /sys/devices/system/cpu/cpufreq/interactive/screen_off_maxfreq
 
                 ### CPU_BOOST
-                echo 1036800 > /sys/module/cpu_boost/parameters/input_boost_freq
-                echo 200 > /sys/module/cpu_boost/parameters/input_boost_ms
+                #echo 1036800 > /sys/module/cpu_boost/parameters/input_boost_freq
+                #echo 200 > /sys/module/cpu_boost/parameters/input_boost_ms
 
                 # Virtual memory tweaks
                 echo 10 > /proc/sys/vm/swappiness
@@ -414,10 +414,10 @@ esac
 # Post-setup services
 case "$target" in
     "msm8937" | "msm8953")
-        echo 1024 > /sys/block/mmcblk0/bdi/read_ahead_kb
-        echo 1024 > /sys/block/mmcblk0/queue/read_ahead_kb
-        echo 1024 > /sys/block/mmcblk1/bdi/read_ahead_kb
-        echo 1024 > /sys/block/mmcblk1/queue/read_ahead_kb
+        echo 512 > /sys/block/mmcblk0/bdi/read_ahead_kb
+        echo 512 > /sys/block/mmcblk0/queue/read_ahead_kb
+        echo 512 > /sys/block/mmcblk1/bdi/read_ahead_kb
+        echo 512 > /sys/block/mmcblk1/queue/read_ahead_kb
         setprop sys.post_boot.parsed 1
     ;;
 
