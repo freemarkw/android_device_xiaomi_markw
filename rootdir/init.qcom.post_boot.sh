@@ -332,21 +332,17 @@ case "$target" in
                 # Governor settings
                 echo 1 > /sys/devices/system/cpu/cpu0/online
                 echo "interactive" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
-                echo "19000 1401600:39000" > /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay
-                echo 85 > /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load
-                echo 20000 > /sys/devices/system/cpu/cpufreq/interactive/timer_rate
+                echo "20000 1209600:40000" > /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay
+                echo 95 > /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load
                 echo 1401600 > /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq
                 echo 0 > /sys/devices/system/cpu/cpufreq/interactive/io_is_busy
-                echo "85 1401600:80" > /sys/devices/system/cpu/cpufreq/interactive/target_loads
-                echo 39000 > /sys/devices/system/cpu/cpufreq/interactive/min_sample_time
+                echo 40000 > /sys/devices/system/cpu/cpufreq/interactive/min_sample_time
                 echo 652800 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+                echo 652800 > /sys/devices/system/cpu/cpufreq/interactive/screen_off_maxfreq
 
-                ### CPU_INPUT_BOOST
-                # Only boost power cores
-                # echo "652800 1804800" > /sys/kernel/cpu_input_boost/ib_freqs
-                # Input boost duration
-                # echo 440 > /sys/kernel/cpu_input_boost/ib_duration_ms
-                # echo 1 > /sys/kernel/cpu_input_boost/enabled
+                ### CPU_BOOST
+                #echo 1036800 > /sys/module/cpu_boost/parameters/input_boost_freq
+                #echo 200 > /sys/module/cpu_boost/parameters/input_boost_ms
 
                 # Virtual memory tweaks
                 echo 10 > /proc/sys/vm/swappiness
@@ -418,10 +414,10 @@ esac
 # Post-setup services
 case "$target" in
     "msm8937" | "msm8953")
-        echo 1024 > /sys/block/mmcblk0/bdi/read_ahead_kb
-        echo 1024 > /sys/block/mmcblk0/queue/read_ahead_kb
-        echo 1024 > /sys/block/mmcblk1/bdi/read_ahead_kb
-        echo 1024 > /sys/block/mmcblk1/queue/read_ahead_kb
+        echo 512 > /sys/block/mmcblk0/bdi/read_ahead_kb
+        echo 512 > /sys/block/mmcblk0/queue/read_ahead_kb
+        echo 512 > /sys/block/mmcblk1/bdi/read_ahead_kb
+        echo 512 > /sys/block/mmcblk1/queue/read_ahead_kb
         setprop sys.post_boot.parsed 1
     ;;
 
