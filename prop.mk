@@ -179,7 +179,6 @@ ro.telephony.call_ring.multiple=false \
 ro.telephony.default_network=22,20 \
 service.qti.ims.enabled=1 \
 telephony.lteOnCdmaDevice=1 \
-#hdvoice, for those who activated in the modem \
 ro.ril.enable.amr.wideband=1 \
 ril.ecclist=000,08,100,101,102,110,112,118,119,120,122,911,999
 
@@ -212,6 +211,10 @@ persist.sys.usb.config.extra=none
 # Wifi
 PRODUCT_PROPERTY_OVERRIDES += \
 wifi.interface=wlan0
+
+# Enable zram default
+PRODUCT_PROPERTY_OVERRIDES += \
+ro.vendor.qti.config.zram=true
 
 # Higher fling velocities
 # for smoother scrolling and better responsiveness

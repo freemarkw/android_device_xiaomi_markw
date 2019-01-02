@@ -30,10 +30,10 @@
 target=`getprop ro.board.platform`
 
 function configure_zram_parameters() {
-    # Zram disk - 512MB size
+    # Zram disk - 1024MB size
     zram_enable=`getprop ro.vendor.qti.config.zram`
     if [ "$zram_enable" == "true" ]; then
-        echo 536870912 > /sys/block/zram0/disksize
+        echo 1073741824 > /sys/block/zram0/disksize
         mkswap /dev/block/zram0
         swapon /dev/block/zram0 -p 32758
     fi
@@ -320,15 +320,6 @@ case "$target" in
                 # Switch TCP congestion control to westwood
                 echo westwood > /proc/sys/net/ipv4/tcp_congestion_control
 
-                # Sound control (decrease / increase volume)
-                # -1 => 255
-                # headphone_gain: -10(246)/20
-                # speaker_gain: -10(246)/20
-                # mic_gain: -10(246)/20
-                # echo "0 0" > /sys/kernel/sound_control/headphone_gain
-                # echo 0 > /sys/kernel/sound_control/speaker_gain
-                # echo 0 > /sys/kernel/sound_control/mic_gain
-
                 # Governor settings
                 echo 1 > /sys/devices/system/cpu/cpu0/online
                 echo "interactive" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
@@ -340,10 +331,6 @@ case "$target" in
                 echo 652800 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
                 echo 652800 > /sys/devices/system/cpu/cpufreq/interactive/screen_off_maxfreq
 
-                ### CPU_BOOST
-                #echo 1036800 > /sys/module/cpu_boost/parameters/input_boost_freq
-                #echo 200 > /sys/module/cpu_boost/parameters/input_boost_ms
-
                 # Virtual memory tweaks
                 echo 10 > /proc/sys/vm/swappiness
                 echo 30 > /proc/sys/vm/dirty_ratio
@@ -351,11 +338,6 @@ case "$target" in
 
                 # Set GPU default power level to 6 (133MHz)
                 echo 6 > /sys/class/kgsl/kgsl-3d0/default_pwrlevel
-
-
-                #echo "maple" > /sys/block/mmcblk0/queue/scheduler
-                #echo "maple" > /sys/block/mmcblk1/queue/scheduler
-
 
                 # Don't put new tasks on the core which is 70% loaded
                 echo 70 > /proc/sys/kernel/sched_spill_load
