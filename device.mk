@@ -299,6 +299,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libjson
 
+# QTI performance
+PRODUCT_BOOT_JARS += \
+    QPerformance
+
 # Properties
 -include device/xiaomi/markw/prop.mk
 
