@@ -24,6 +24,7 @@ import android.os.Bundle;
 import android.support.v14.preference.PreferenceFragment;
 import android.support.v14.preference.SwitchPreference;
 import android.support.v7.preference.Preference;
+import android.support.v7.preference.PreferenceCategory;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -50,6 +51,9 @@ public class DozeSettingsFragment extends PreferenceFragment implements OnPrefer
 
         boolean dozeEnabled = Utils.isDozeEnabled(getActivity());
 
+        PreferenceCategory proximitySensorCategory =
+                (PreferenceCategory) getPreferenceScreen().findPreference(Utils.CATEG_PROX_SENSOR);
+
         mPickUpPreference = (SwitchPreference) findPreference(Utils.GESTURE_PICK_UP_KEY);
         mPickUpPreference.setEnabled(dozeEnabled);
 
@@ -58,6 +62,11 @@ public class DozeSettingsFragment extends PreferenceFragment implements OnPrefer
 
         mPocketPreference = (SwitchPreference) findPreference(Utils.GESTURE_POCKET_KEY);
         mPocketPreference.setEnabled(dozeEnabled);
+
+        // Hide proximity sensor related features if the device doesn't support them
+        if (!Utils.getProxCheckBeforePulse(getActivity())) {
+            getPreferenceScreen().removePreference(proximitySensorCategory);
+        }
     }
 
     @Override
