@@ -43,7 +43,6 @@
 #include <SystemStatus.h>
 #include <vector>
 #include <sstream>
-#include <unistd.h>
 #include <XtraSystemStatusObserver.h>
 #include <LocAdapterBase.h>
 #include <DataItemId.h>
