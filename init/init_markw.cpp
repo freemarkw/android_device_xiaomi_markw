@@ -119,6 +119,7 @@ void gsi_check()
 
     // override device specific props for GSI & P DP*
     if ((product == "phhgsi_arm64_a") || (product == "marlin")) {
+        property_override("ro.build.type", "user");
         property_override("ro.build.tags", "release-keys");
         property_override("ro.product.model", "Redmi 4 Prime");
         property_override("ro.product.brand", "Xiaomi");
@@ -128,6 +129,12 @@ void gsi_check()
         property_override("ro.build.product", "markw");
         property_override("ro.build.description", "markw-user 6.0.1 MMB29M V10.2.1.0.MBEMIXM release-keys");
         property_override("ro.build.fingerprint", "Xiaomi/markw/markw:6.0.1/MMB29M/V10.2.1.0.MBEMIXM:user/release-keys");
+        property_set("ro.boot.verifiedbootstate", "green");
+        property_set("ro.boot.veritymode", "enforcing");
+    } else if (product == "markw") {
+        property_set("ro.boot.verifiedbootstate", "green");
+        property_set("ro.boot.veritymode", "enforcing");
+        property_override("ro.build.type", "user");
     }
 }
 
