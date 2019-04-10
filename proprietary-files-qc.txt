@@ -384,14 +384,15 @@ vendor/lib64/vendor.display.color@1.0_vendor.so|bdf0e9f73501b51745329da30550ea55
 vendor/lib64/vendor.display.postproc@1.0_vendor.so|28704c765bd9c4927a487c0a4d4281f1dbdb970d
 vendor/lib64/vendor.qti.hardware.qdutils_disp@1.0_vendor.so|7eb9a04c54c43e566728f4e11e078730c2e6c4f2
 
-# Power-off alarm
-etc/permissions/vendor-qti-hardware-alarm.xml:vendor/etc/permissions/vendor-qti-hardware-alarm.xml
--vendor/app/PowerOffAlarm/PowerOffAlarm.apk
-vendor/bin/hw/vendor.qti.hardware.alarm@1.0-service
-vendor/etc/init/vendor.qti.hardware.alarm@1.0-service.rc
-vendor/framework/vendor.qti.hardware.alarm-V1.0-java.jar
-vendor/lib64/hw/vendor.qti.hardware.alarm@1.0-impl.so
-vendor/lib64/vendor.qti.hardware.alarm@1.0.so
+# Power-off alarm - from bardock-pro - OPM1.171019.026 1749
+etc/permissions/vendor-qti-hardware-alarm.xml:vendor/etc/permissions/vendor-qti-hardware-alarm.xml|99ea2b3abffc975fb9875b5b3befabfb6eead7b9
+-vendor/app/PowerOffAlarm/PowerOffAlarm.apk|567f02b7d96327ee968fcf31dedaa16cd7a24b4b
+vendor/bin/hw/vendor.qti.hardware.alarm@1.0-service|d99c58d75145d9cc2176605f76eaf3012f6b8109
+vendor/bin/power_off_alarm|7a3bff2218e6ae6791d1542be6f74c8c6c72a289
+vendor/etc/init/vendor.qti.hardware.alarm@1.0-service.rc|c9877b6cae0353d5fdea5bc23dba77101b3d6980
+vendor/framework/vendor.qti.hardware.alarm-V1.0-java.jar|8acc0bd05fed157eee6fe7091bb0b359186e52de
+vendor/lib64/hw/vendor.qti.hardware.alarm@1.0-impl.so|cbee74bc88e007490e517ba310defec360ea0cb0
+vendor/lib64/vendor.qti.hardware.alarm@1.0.so|a53f4393cd41c5e213744f1b03bd58f3c7b10caf
 
 # QMI - from tissot - OPR1.170623.026
 etc/permissions/qti_libpermissions.xml|ef3c88495f2f61a2d16e1445113a9d80f8db0e0a
