@@ -1,4 +1,4 @@
-Copyright 2017 - LineageOS
+Copyright 2017 - 2019
 
 # Device Tree for Xiaomi Redmi 4 Prime/wt88553 (MARKW) 
 
@@ -11,8 +11,8 @@ Basic   | Spec Sheet
 CPU     | Octa-core 2.0 GHz Cortex-A53
 CHIPSET | Qualcomm MSM8953 Snapdragon 625
 GPU     | Adreno 506
-Memory  | 3 GB
-Shipped Android Version | Android 6.0.1 with MIUI 8
+Memory  | 3 GB LPDDR3
+Shipped Android Version | Android 6.0.1 with MIUI 8/9/10
 Storage | 32 GB (Samsung RX1BMB)
 MicroSD | Up to 256 GB (Hybrid)
 Battery | 4100 mAh (non-removable) (Coslight/Feimaotui)
@@ -25,7 +25,8 @@ FingerPrint | Yes (FPC 1020/Goodix GF3208)
 Accelerometer | Yes (Bosch BMI160)
 Magnetometer | Yes (Yamaha YAS537)
 Als/ps | Yes (Liteon LTR55X)
-LED | Yes (Awinic AW2013)
+LED | Yes (Awinic AW2013: 2 versions)
+WIFI/BT/FM IC | WCN3660B (Dual-band 2.4 GHz and 5 GHz; IEEE802.11a/b/g/n)
 Release Date | November 2016
 
 ## Device Picture
