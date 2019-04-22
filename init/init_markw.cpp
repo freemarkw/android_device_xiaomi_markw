@@ -38,13 +38,6 @@
 #include "vendor_init.h"
 #include "property_service.h"
 
-char const *heapstartsize;
-char const *heapgrowthlimit;
-char const *heapsize;
-char const *heaptargetutilization;
-char const *heapminfree;
-char const *heapmaxfree;
-
 using android::base::GetProperty;
 using android::base::ReadFileToString;
 using android::init::property_set;
