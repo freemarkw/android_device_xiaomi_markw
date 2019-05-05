@@ -331,6 +331,9 @@ case "$target" in
                 echo 652800 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
                 echo 652800 > /sys/devices/system/cpu/cpufreq/interactive/screen_off_maxfreq
 
+                #CPU_BOOST
+                echo 0 > /sys/module/cpu_boost/parameters/input_boost_enabled
+
                 # Virtual memory tweaks
                 echo 10 > /proc/sys/vm/swappiness
                 echo 30 > /proc/sys/vm/dirty_ratio
