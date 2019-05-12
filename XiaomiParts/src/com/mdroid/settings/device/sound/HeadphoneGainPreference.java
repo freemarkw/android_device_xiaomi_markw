@@ -15,7 +15,7 @@
 * along with this program. If not, see <http://www.gnu.org/licenses/>.
 *
 */
-package com.mdroid.settings.device;
+package com.mdroid.settings.device.sound;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -25,15 +25,18 @@ import android.util.AttributeSet;
 
 import java.util.List;
 
-public class SpeakerGainPreference extends ProperSeekBarPreference {
+import com.mdroid.settings.device.ProperSeekBarPreference;
+import com.mdroid.settings.device.Utils;
 
-    private static int mMinVal = -10;
+public class HeadphoneGainPreference extends ProperSeekBarPreference {
+
+    private static int mMinVal = -84;
     private static int mMaxVal = 20;
     private static int mDefVal = 0;
 
-    private static final String SPEAKER_GAIN_PATH = "/sys/kernel/sound_control/speaker_gain";
+    private static final String HEADPHONE_GAIN_PATH = "/sys/kernel/sound_control/headphone_gain";
 
-    public SpeakerGainPreference(Context context, AttributeSet attrs) {
+    public HeadphoneGainPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
 
         mInterval = 1;
@@ -44,12 +47,13 @@ public class SpeakerGainPreference extends ProperSeekBarPreference {
         mMaxValue = mMaxVal;
         mDefaultValueExists = true;
         mDefaultValue = mDefVal;
+        mValue = Integer.parseInt(loadValue());
 
         setPersistent(false);
     }
 
     public static boolean isSupported() {
-        return Utils.fileWritable(SPEAKER_GAIN_PATH);
+        return Utils.fileWritable(HEADPHONE_GAIN_PATH);
     }
 
     public static void restore(Context context) {
@@ -57,14 +61,25 @@ public class SpeakerGainPreference extends ProperSeekBarPreference {
             return;
         }
 
-        String storedValue = PreferenceManager.getDefaultSharedPreferences(context).getString(DeviceSettings.KEY_SPEAKER_GAIN, String.valueOf(mDefVal));
-        Utils.writeValue(SPEAKER_GAIN_PATH, storedValue);
+        String storedValue = PreferenceManager.getDefaultSharedPreferences(context).getString(SoundControlSettings.KEY_HEADPHONE_GAIN, String.valueOf(mDefVal));
+        Utils.writeValue(HEADPHONE_GAIN_PATH, storedValue + " " + storedValue);
+    }
+
+    public static String loadValue() {
+        String storedValue = Utils.getFileValue(HEADPHONE_GAIN_PATH, String.valueOf(mDefVal));
+        int value = Integer.valueOf(storedValue.substring(0, storedValue.indexOf(' ')));
+        if (value >= 0 && value <= 20) {
+            return String.valueOf(value);
+        } else if (value >= 172 && value <= 255) {
+            return String.valueOf(value - 256);
+        }
+        return "";
     }
 
     private void saveValue(String newValue) {
-        Utils.writeValue(SPEAKER_GAIN_PATH, newValue);
+        Utils.writeValue(HEADPHONE_GAIN_PATH, newValue + " " + newValue);
         SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(getContext()).edit();
-        editor.putString(DeviceSettings.KEY_SPEAKER_GAIN, newValue);
+        editor.putString(SoundControlSettings.KEY_HEADPHONE_GAIN, newValue);
         editor.commit();
     }
 

@@ -40,6 +40,8 @@
     <string name="menu_reset">Сбросить</string>
 
     <string name="sound_title">Звук</string>
+    <string name="sound_control_title">Управление звуком</string>
+    <string name="sound_control_summary">Настройки усиления звука наушников, динамика и микрофона</string>
     <string name="headphone_gain">Усиление наушников</string>
     <string name="speaker_gain">Усиление динамика</string>
     <string name="mic_gain">Усиление микрофона</string>

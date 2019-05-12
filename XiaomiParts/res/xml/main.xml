@@ -33,15 +33,11 @@
 
     <PreferenceCategory
         android:title="@string/sound_title">
-        <com.mdroid.settings.device.HeadphoneGainPreference
-            android:key="headphone_gain"
-            android:title="@string/headphone_gain" />
-        <com.mdroid.settings.device.SpeakerGainPreference
-            android:key="speaker_gain"
-            android:title="@string/speaker_gain" />
-        <com.mdroid.settings.device.MicGainPreference
-            android:key="mic_gain"
-            android:title="@string/mic_gain" />
+        <PreferenceScreen
+            android:key="sound_control"
+            android:fragment="com.mdroid.settings.device.sound.SoundControlSettings"
+            android:summary="@string/sound_control_summary"
+            android:title="@string/sound_control_title" />
     </PreferenceCategory>
 
     <PreferenceCategory

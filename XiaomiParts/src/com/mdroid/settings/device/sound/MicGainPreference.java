@@ -15,7 +15,7 @@
 * along with this program. If not, see <http://www.gnu.org/licenses/>.
 *
 */
-package com.mdroid.settings.device;
+package com.mdroid.settings.device.sound;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -24,6 +24,9 @@ import android.support.v7.preference.PreferenceViewHolder;
 import android.util.AttributeSet;
 
 import java.util.List;
+
+import com.mdroid.settings.device.ProperSeekBarPreference;
+import com.mdroid.settings.device.Utils;
 
 public class MicGainPreference extends ProperSeekBarPreference {
 
@@ -44,6 +47,7 @@ public class MicGainPreference extends ProperSeekBarPreference {
         mMaxValue = mMaxVal;
         mDefaultValueExists = true;
         mDefaultValue = mDefVal;
+        mValue = Integer.parseInt(loadValue());
 
         setPersistent(false);
     }
@@ -57,14 +61,24 @@ public class MicGainPreference extends ProperSeekBarPreference {
             return;
         }
 
-        String storedValue = PreferenceManager.getDefaultSharedPreferences(context).getString(DeviceSettings.KEY_MICROPHONE_GAIN, String.valueOf(mDefVal));
+        String storedValue = PreferenceManager.getDefaultSharedPreferences(context).getString(SoundControlSettings.KEY_MICROPHONE_GAIN, String.valueOf(mDefVal));
         Utils.writeValue(MICROPHONE_GAIN_PATH, storedValue);
+    }
+
+    public static String loadValue() {
+        int value = Integer.valueOf(Utils.getFileValue(MICROPHONE_GAIN_PATH, String.valueOf(mDefVal)));
+        if (value >= 0 && value <= 20) {
+            return String.valueOf(value);
+        } else if (value >= 246 && value <= 255) {
+            return String.valueOf(value - 256);
+        }
+        return "";
     }
 
     private void saveValue(String newValue) {
         Utils.writeValue(MICROPHONE_GAIN_PATH, newValue);
         SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(getContext()).edit();
-        editor.putString(DeviceSettings.KEY_MICROPHONE_GAIN, newValue);
+        editor.putString(SoundControlSettings.KEY_MICROPHONE_GAIN, newValue);
         editor.commit();
     }
 

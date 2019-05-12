@@ -37,22 +37,18 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.util.Log;
 
+import com.mdroid.settings.device.sound.SoundControlActivity;
+
 public class DeviceSettings extends PreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     public static final String KEY_VIBSTRENGTH = "vib_strength";
     public static final String KEY_YELLOW_TORCH_BRIGHTNESS = "yellow_torch_brightness";
     public static final String KEY_WHITE_TORCH_BRIGHTNESS = "white_torch_brightness";
-    public static final String KEY_HEADPHONE_GAIN = "headphone_gain";
-    public static final String KEY_SPEAKER_GAIN = "speaker_gain";
-    public static final String KEY_MICROPHONE_GAIN = "mic_gain";
 
     private VibratorStrengthPreference mVibratorStrength;
     private YellowTorchBrightnessPreference mYellowTorchBrightness;
     private WhiteTorchBrightnessPreference mWhiteTorchBrightness;
-    private HeadphoneGainPreference mHeadphoneGain;
-    private SpeakerGainPreference mSpeakerGain;
-    private MicGainPreference mMicGain;
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -63,6 +59,16 @@ public class DeviceSettings extends PreferenceFragment implements
              @Override
              public boolean onPreferenceClick(Preference preference) {
                  Intent intent = new Intent(getActivity().getApplicationContext(), DisplayCalibration.class);
+                 startActivity(intent);
+                 return true;
+             }
+        });
+
+        PreferenceScreen mSoundControlPref = (PreferenceScreen) findPreference("sound_control");
+        mSoundControlPref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+             @Override
+             public boolean onPreferenceClick(Preference preference) {
+                 Intent intent = new Intent(getActivity().getApplicationContext(), SoundControlActivity.class);
                  startActivity(intent);
                  return true;
              }
@@ -81,21 +87,6 @@ public class DeviceSettings extends PreferenceFragment implements
         mWhiteTorchBrightness = (WhiteTorchBrightnessPreference) findPreference(KEY_WHITE_TORCH_BRIGHTNESS);
         if (mWhiteTorchBrightness != null) {
             mWhiteTorchBrightness.setEnabled(WhiteTorchBrightnessPreference.isSupported());
-        }
-
-        mHeadphoneGain = (HeadphoneGainPreference) findPreference(KEY_HEADPHONE_GAIN);
-        if (mHeadphoneGain != null) {
-            mHeadphoneGain.setEnabled(HeadphoneGainPreference.isSupported());
-        }
-
-        mSpeakerGain = (SpeakerGainPreference) findPreference(KEY_SPEAKER_GAIN);
-        if (mSpeakerGain != null) {
-            mSpeakerGain.setEnabled(SpeakerGainPreference.isSupported());
-        }
-
-        mMicGain = (MicGainPreference) findPreference(KEY_MICROPHONE_GAIN);
-        if (mMicGain != null) {
-            mMicGain.setEnabled(MicGainPreference.isSupported());
         }
     }
 

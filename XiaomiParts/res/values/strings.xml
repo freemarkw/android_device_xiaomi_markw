@@ -40,6 +40,8 @@
     <string name="menu_reset">Reset</string>
 
     <string name="sound_title">Sound</string>
+    <string name="sound_control_title">Sound control</string>
+    <string name="sound_control_summary">Setup headphones, speaker and microphone gains</string>
     <string name="headphone_gain">Headphone gain</string>
     <string name="speaker_gain">Speaker gain</string>
     <string name="mic_gain">Microphone gain</string>

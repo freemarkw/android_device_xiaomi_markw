@@ -44,6 +44,25 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.mdroid.settings.device.sound.SoundControlActivity"
+            android:exported="false"
+            android:label="@string/sound_control_title" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity-alias
+            android:name="com.mdroid.settings.device.sound.SoundControlSettings"
+            android:exported="true"
+            android:label="@string/sound_control_title"
+            android:targetActivity="com.mdroid.settings.device.sound.SoundControlActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity-alias>
         <receiver android:name="com.mdroid.settings.device.Startup" >
             <intent-filter android:priority="100" >
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
