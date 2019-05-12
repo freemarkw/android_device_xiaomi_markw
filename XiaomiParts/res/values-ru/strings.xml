@@ -38,4 +38,9 @@
     <string name="kcal_greyscale_title">Оттенки серого</string>
     <string name="kcal_greyscale_summary">Полностью отключить насыщенность</string>
     <string name="menu_reset">Сбросить</string>
+
+    <string name="sound_title">Звук</string>
+    <string name="headphone_gain">Усиление наушников</string>
+    <string name="speaker_gain">Усиление динамика</string>
+    <string name="mic_gain">Усиление микрофона</string>
 </resources>

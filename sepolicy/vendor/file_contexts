@@ -28,6 +28,9 @@
 /sys/class/leds(/.*)?							u:object_r:sysfs_leds:s0
 /sys/devices/soc/78b6000\.i2c/i2c-2/2-[0-9a-f]+/leds(/.*)?		u:object_r:sysfs_leds:s0
 
+# Sound Control
+/sys/kernel/sound_control(/.*)?              u:object_r:sysfs_sound_control:s0
+
 # Sysfs files
 /sys/devices/soc/qpnp-flash-led-24/leds/led:torch_0/max_brightness	u:object_r:sysfs_torch:s0
 /sys/devices/soc/qpnp-flash-led-24/leds/led:torch_1/max_brightness	u:object_r:sysfs_torch:s0

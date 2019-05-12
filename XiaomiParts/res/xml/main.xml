@@ -32,6 +32,19 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:title="@string/sound_title">
+        <com.mdroid.settings.device.HeadphoneGainPreference
+            android:key="headphone_gain"
+            android:title="@string/headphone_gain" />
+        <com.mdroid.settings.device.SpeakerGainPreference
+            android:key="speaker_gain"
+            android:title="@string/speaker_gain" />
+        <com.mdroid.settings.device.MicGainPreference
+            android:key="mic_gain"
+            android:title="@string/mic_gain" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:title="@string/graphics_title">
         <PreferenceScreen
             android:key="kcal"
