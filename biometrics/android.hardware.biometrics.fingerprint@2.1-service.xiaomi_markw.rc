@@ -1,8 +1,53 @@
-service fps_hal /vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service.xiaomi_markw
+service vendor.fps_hal /vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service.xiaomi_markw
     # "class hal" causes a race condition on some devices due to files created
     # in /data. As a workaround, postpone startup until later in boot once
     # /data is mounted.
     class late_start
+    socket fpce stream 0666 system system
     user system
     group system sdcard_rw input
+    system system
     disabled
+
+service vendor.gx_fpd /vendor/bin/gx_fpd
+    class core
+    user system
+    group system drmrpc
+
+on post-fs-data
+    # Create directories for Fingerprint
+    mkdir /data/vendor/misc/qti_fp 0770 system system
+    mkdir /data/vendor/misc/qti_fp/bg_estimation 0770 system system
+    mkdir /data/vendor/misc/qti_fp/calib_test 0770 system system
+    mkdir /data/vendor/misc/qti_fp/database 0770 system system
+
+on boot
+    # Goodix Fingerprint
+    chown system system /dev/goodix_fp
+    chmod 0644 /dev/goodix_fp
+
+    chown system system /sys/devices/soc/soc:fpc1020/compatible_all
+    chmod 0664 /sys/devices/soc/soc:fpc1020/compatible_all
+    chown system system /sys/devices/soc/soc:fpc1020/irq
+    chmod 0660 /sys/devices/soc/soc:fpc1020/irq
+    chown system system /sys/devices/soc/soc:fpc1020/hw_reset
+    chmod 0660 /sys/devices/soc/soc:fpc1020/hw_reset
+    chown system system /sys/devices/soc/soc:fpc1020/wakeup_enable
+    chmod 0660 /sys/devices/soc/soc:fpc1020/wakeup_enable
+
+# fpc fingerprint section - start
+on property:persist.sys.fp.vendor=switchf
+    stop vendor.gx_fpd
+    setprop persist.sys.fp.vendor searchf
+    setprop persist.sys.fp.goodix 0
+    setprop ro.boot.fpsensor fpc
+    setprop ro.hardware.fingerprint fpc
+    start vendor.fps_hal
+
+# goodix fingerprint section - start
+on property:persist.sys.fp.vendor=goodix
+    setprop persist.sys.fp.goodix 1
+    setprop ro.boot.fpsensor gdx
+    setprop ro.hardware.fingerprint goodix 
+    start vendor.fps_hal
+# goodix fingerprint section - end
