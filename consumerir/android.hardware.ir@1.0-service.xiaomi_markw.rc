@@ -3,7 +3,7 @@ on init
     chown system system /sys/class/leds/infrared/transmit
     chown system system /sys/class/leds/infrared/brightness
 
-service ir-hal-1-0 /vendor/bin/hw/android.hardware.ir@1.0-service.xiaomi_markw
+service vendor.ir-hal-1-0 /vendor/bin/hw/android.hardware.ir@1.0-service.xiaomi_markw
     class hal
     user system
     group system
