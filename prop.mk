@@ -184,6 +184,13 @@ telephony.lteOnCdmaDevice=1 \
 ro.ril.enable.amr.wideband=1 \
 ril.ecclist=000,08,100,101,102,110,112,118,119,120,122,911,999
 
+# IMS - disable debug spam
+PRODUCT_PROPERTY_OVERRIDES += \
+persist.vendor.ims.disableADBLogs=1 \
+persist.vendor.ims.disableDebugLogs=1 \
+persist.vendor.ims.disableIMSLogs=1 \
+persist.vendor.ims.disableQXDMLogs=1
+
 # Time Services
 PRODUCT_PROPERTY_OVERRIDES += \
 persist.timed.enable=true \
