@@ -1,2 +1,1 @@
-add_lunch_combo mdroid_markw-user
 add_lunch_combo mdroid_markw-userdebug
