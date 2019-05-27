@@ -19,9 +19,6 @@ $(call inherit-product, device/xiaomi/markw/full_markw.mk)
 # Inherit some common MDroid stuff.
 $(call inherit-product, vendor/mdroid/config/common_full_phone.mk)
 
-# Release keys
-$(call inherit-product-if-exists, vendor/certs/config.mk)
-
 PRODUCT_NAME := mdroid_markw
 BOARD_VENDOR := Xiaomi
 
