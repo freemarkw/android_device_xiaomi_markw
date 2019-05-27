@@ -2,3 +2,5 @@
 r_dir_file(system_server, idc_file)
 r_dir_file(system_server, keylayout_file)
 allow system_server default_prop:property_service set;
+#microg/f-droid
+allow system_server adb_data_file:file { open read getattr };
