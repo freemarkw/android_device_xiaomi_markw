@@ -24,7 +24,7 @@
 # Rild
 /(vendor|system/vendor)/radio/qcril_database/qcril.db			u:object_r:rild_file:s0
 
-# Leds
+# Leds & consumerir
 /sys/class/leds(/.*)?							u:object_r:sysfs_leds:s0
 /sys/devices/soc/78b6000\.i2c/i2c-2/2-[0-9a-f]+/leds(/.*)?		u:object_r:sysfs_leds:s0
 
