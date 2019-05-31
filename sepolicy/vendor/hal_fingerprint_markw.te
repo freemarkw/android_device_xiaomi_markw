@@ -15,6 +15,7 @@ allow hal_fingerprint_markw uhid_device:chr_file rw_file_perms;
 allow hal_fingerprint_markw fpc_data_file:dir rw_dir_perms;
 allow hal_fingerprint_markw fpc_data_file:sock_file create_file_perms;
 allow hal_fingerprint_markw storage_file:dir search;
+allow hal_fingerprint_markw storage_file:lnk_file read;
 allow hal_fingerprint_markw servicemanager:binder { transfer call };
 
 set_prop(hal_fingerprint_markw, system_prop)
