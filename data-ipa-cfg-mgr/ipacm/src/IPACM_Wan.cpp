@@ -762,9 +762,9 @@ void IPACM_Wan::event_callback(ipa_cm_event_id event, void *param)
 						}
 					}
 #ifdef FEATURE_IPA_ANDROID
-#ifdef FEATURE_IPACM_HAL
-					post_wan_up_tether_evt(data->iptype, 0);
-#else
+#ifndef FEATURE_IPACM_HAL
+					/* Fixed CR 2438491 for HAL-android platform trgets.
+					   Need to revisit for non-hal-android-platform targets if issue could be reproduced there as well */
 					/* using ipa_if_index, not netdev_index */
 					post_wan_up_tether_evt(data->iptype, iface_ipa_index_query(data->if_index_tether));
 #endif
@@ -797,15 +797,14 @@ void IPACM_Wan::event_callback(ipa_cm_event_id event, void *param)
 							handle_route_add_evt(data->iptype);
 						}
 					}
-#ifdef FEATURE_IPA_ANDROID
-#ifdef FEATURE_IPACM_HAL
-					post_wan_up_tether_evt(data->iptype, 0);
-#else
-					/* using ipa_if_index, not netdev_index */
-					post_wan_up_tether_evt(data->iptype, iface_ipa_index_query(data->if_index_tether));
-#endif
-#endif
 				}
+#ifdef FEATURE_IPA_ANDROID
+#ifndef FEATURE_IPACM_HAL
+				/* using ipa_if_index, not netdev_index */
+				post_wan_up_tether_evt(data->iptype, iface_ipa_index_query(data->if_index_tether));
+#endif
+#endif
+
 			}
 			else /* double check if current default iface is not itself */
 			{
@@ -1625,6 +1624,10 @@ int IPACM_Wan::handle_route_add_evt(ipa_ip_type iptype)
 		evt_data.event = IPA_HANDLE_WAN_UP;
 		evt_data.evt_data = (void *)wanup_data;
 		IPACM_EvtDispatcher::PostEvt(&evt_data);
+
+#ifdef FEATURE_IPACM_HAL
+		post_wan_up_tether_evt(IPA_IP_v4, 0);
+#endif
 	}
 	else
 	{
@@ -1664,6 +1667,10 @@ int IPACM_Wan::handle_route_add_evt(ipa_ip_type iptype)
 		evt_data.event = IPA_HANDLE_WAN_UP_V6;
 		evt_data.evt_data = (void *)wanup_data;
 		IPACM_EvtDispatcher::PostEvt(&evt_data);
+
+#ifdef FEATURE_IPACM_HAL
+                post_wan_up_tether_evt(IPA_IP_v6, 0);
+#endif
 	}
 
 	/* Add corresponding ipa_rm_resource_name of TX-endpoint up before IPV6 RT-rule set */
