@@ -1,1 +1,3 @@
 dontaudit hwservicemanager mm-qcamerad_exec:file getattr;
+dontaudit hwservicemanager gx_fpd_exec:file getattr;
+dontaudit hwservicemanager vendor_file:file getattr;
