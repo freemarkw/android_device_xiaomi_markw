@@ -1,1 +1,3 @@
 dontaudit zygote mm-qcamerad_exec:file getattr;
+dontaudit zygote gx_fpd_exec:file getattr ;
+dontaudit zygote vendor_file:file getattr ;

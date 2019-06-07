@@ -1,1 +1,3 @@
 dontaudit bootstat mm-qcamerad_exec:file getattr;
+dontaudit bootstat gx_fpd_exec:file getattr ;
+dontaudit bootstat vendor_file:file getattr ;

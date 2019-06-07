@@ -1,1 +1,3 @@
 dontaudit tzdatacheck mm-qcamerad_exec:file getattr;
+dontaudit tzdatacheck gx_fpd_exec:file getattr ;
+dontaudit tzdatacheck vendor_file:file getattr ;

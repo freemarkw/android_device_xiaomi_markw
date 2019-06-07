@@ -1,1 +1,3 @@
 dontaudit sgdisk mm-qcamerad_exec:file getattr;
+dontaudit sgdisk gx_fpd_exec:file getattr ;
+dontaudit sgdisk vendor_file:file getattr ;
