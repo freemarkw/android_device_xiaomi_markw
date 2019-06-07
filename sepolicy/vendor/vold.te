@@ -1,1 +1,3 @@
 dontaudit vold mm-qcamerad_exec:file getattr;
+dontaudit vold gx_fpd_exec:file getattr ;
+dontaudit vold vendor_file:file getattr ;
