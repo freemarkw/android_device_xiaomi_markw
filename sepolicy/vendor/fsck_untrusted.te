@@ -1,1 +1,3 @@
 dontaudit fsck_untrusted mm-qcamerad_exec:file getattr;
+dontaudit fsck_untrusted gx_fpd_exec:file getattr;
+dontaudit fsck_untrusted vendor_file:file getattr;
