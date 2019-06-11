@@ -1,1 +1,3 @@
 dontaudit healthd mm-qcamerad_exec:file getattr;
+dontaudit healthd gx_fpd_exec:file getattr;
+dontaudit healthd vendor_file:file getattr;

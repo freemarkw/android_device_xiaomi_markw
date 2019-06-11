@@ -1,1 +1,3 @@
 dontaudit drmserver mm-qcamerad_exec:file getattr;
+dontaudit drmserver gx_fpd_exec:file getattr;
+dontaudit drmserver vendor_file:file getattr;

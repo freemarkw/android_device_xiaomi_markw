@@ -1,1 +1,3 @@
 dontaudit audioserver mm-qcamerad_exec:file getattr;
+dontaudit audioserver gx_fpd_exec:file getattr;
+dontaudit audioserver vendor_file:file getattr;

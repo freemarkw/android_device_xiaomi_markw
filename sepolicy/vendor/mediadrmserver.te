@@ -1,2 +1,4 @@
 allow mediadrmserver mediadrmserver_service:service_manager add;
 dontaudit mediadrmserver mm-qcamerad_exec:file getattr;
+dontaudit mediadrmserver gx_fpd_exec:file getattr;
+dontaudit mediadrmserver vendor_file:file getattr;

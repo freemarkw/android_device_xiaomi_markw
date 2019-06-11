@@ -1,0 +1,2 @@
+dontaudit hal_allocator_default file_type:file getattr;
+dontaudit hal_allocator_default vendor_file:file getattr;

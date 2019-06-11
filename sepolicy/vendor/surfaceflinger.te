@@ -1,1 +1,3 @@
 dontaudit surfaceflinger mm-qcamerad_exec:file getattr;
+dontaudit surfaceflinger gx_fpd_exec:file getattr;
+dontaudit surfaceflinger vendor_file:file getattr;
