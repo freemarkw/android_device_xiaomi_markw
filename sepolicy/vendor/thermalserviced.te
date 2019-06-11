@@ -1,1 +1,3 @@
 dontaudit thermalserviced mm-qcamerad_exec:file getattr;
+dontaudit thermalserviced gx_fpd_exec:file getattr;
+dontaudit thermalserviced vendor_file:file getattr;
