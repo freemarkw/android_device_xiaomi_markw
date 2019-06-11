@@ -339,9 +339,6 @@ case "$target" in
                 echo 30 > /proc/sys/vm/dirty_ratio
                 echo 10 > /proc/sys/vm/dirty_background_ratio
 
-                # Set GPU default power level to 6 (133MHz)
-                echo 6 > /sys/class/kgsl/kgsl-3d0/default_pwrlevel
-
                 # Don't put new tasks on the core which is 70% loaded
                 echo 70 > /proc/sys/kernel/sched_spill_load
                 # Migrate tasks to powerful cores when the load is above 70%
