@@ -1,0 +1,2 @@
+dontaudit sysinit file_type:file getattr;
+dontaudit sysinit vendor_file:file getattr;
