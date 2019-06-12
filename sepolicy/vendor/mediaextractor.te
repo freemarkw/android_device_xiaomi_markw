@@ -1,2 +1,3 @@
 dontaudit mediaextractor mm-qcamerad_exec:file getattr;
 dontaudit mediaextractor vendor_file:file getattr;
+dontaudit mediaextractor gx_fpd_exec:file getattr;

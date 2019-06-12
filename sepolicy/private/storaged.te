@@ -1,0 +1,2 @@
+dontaudit storaged file_type:file getattr;
+dontaudit storaged vendor_file:file getattr;
