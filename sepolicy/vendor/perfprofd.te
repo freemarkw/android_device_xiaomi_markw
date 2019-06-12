@@ -1,0 +1,1 @@
+dontaudit perfprofd vendor_file:file getattr;

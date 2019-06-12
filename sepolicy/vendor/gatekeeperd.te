@@ -1,1 +1,3 @@
 dontaudit gatekeeperd mm-qcamerad_exec:file getattr;
+dontaudit gatekeeperd gx_fpd_exec:file getattr;
+dontaudit gatekeeperd vendor_file:file getattr;

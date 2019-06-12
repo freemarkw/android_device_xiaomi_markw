@@ -1,1 +1,3 @@
 dontaudit tombstoned mm-qcamerad_exec:file getattr;
+dontaudit tombstoned gx_fpd_exec:file getattr;
+dontaudit tombstoned vendor_file:file getattr;
