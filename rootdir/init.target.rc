@@ -46,6 +46,13 @@ on fs
 on init
     write /sys/module/qpnp_rtc/parameters/poweron_alarm 1
 
+on property:sys.boot_completed=1
+    # Sound control
+    chown system system /sys/kernel/sound_control/headphone_gain
+    chown system system /sys/kernel/sound_control/speaker_gain
+    chown system system /sys/kernel/sound_control/mic_gain
+    restorecon_recursive /sys/kernel/sound_control
+
 on post-fs-data
     mkdir /data/tombstones 0771 system system
     mkdir /tombstones/modem 0771 system system
