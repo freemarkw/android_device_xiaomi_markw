@@ -44,7 +44,7 @@ ro.bluetooth.hfp.ver=1.7 \
 ro.qualcomm.bt.hci_transport=smd \
 persist.bt.enableAptXHD=true \
 persist.service.btui.use_aptx=1 \
-persistent.vendor.bt.a2dp_offload_cap=sbc-aac-aptx-aptXHD
+persist.vendor.bt.a2dp_offload_cap=sbc-aac-aptx-aptXHD
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
