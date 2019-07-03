@@ -31,7 +31,7 @@
     <string name="kcal_blue">Синій</string>
     <string name="kcal_saturation">Насиченість</string>
     <string name="kcal_contrast">Контраст</string>
-    <string name="kcal_value">Значення</string>
+    <string name="kcal_value">Світлота</string>
     <string name="kcal_hue">Тон</string>
     <string name="kcal_invert_title">Інвертувати</string>
     <string name="kcal_invert_summary">Інвертувати всі кольори екрану</string>
