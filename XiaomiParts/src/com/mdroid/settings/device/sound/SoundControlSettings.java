@@ -28,10 +28,12 @@ public class SoundControlSettings extends PreferenceFragment {
     public static final String KEY_HEADPHONE_GAIN = "headphone_gain";
     public static final String KEY_SPEAKER_GAIN = "speaker_gain";
     public static final String KEY_MICROPHONE_GAIN = "mic_gain";
+    public static final String KEY_MICROPHONE2_GAIN = "mic2_gain";
 
     private HeadphoneGainPreference mHeadphoneGain;
     private SpeakerGainPreference mSpeakerGain;
     private MicGainPreference mMicGain;
+    private Mic2GainPreference mMic2Gain;
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -50,6 +52,11 @@ public class SoundControlSettings extends PreferenceFragment {
         mMicGain = (MicGainPreference) findPreference(KEY_MICROPHONE_GAIN);
         if (mMicGain != null) {
             mMicGain.setEnabled(MicGainPreference.isSupported());
+        }
+
+        mMic2Gain = (Mic2GainPreference) findPreference(KEY_MICROPHONE2_GAIN);
+        if (mMic2Gain != null) {
+            mMic2Gain.setEnabled(Mic2GainPreference.isSupported());
         }
     }
 }
