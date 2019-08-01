@@ -45,5 +45,4 @@
     <string name="headphone_gain">Підсилення навушників</string>
     <string name="speaker_gain">Підсилення динаміка</string>
     <string name="mic_gain">Підсилення мікрофону</string>
-    <string name="mic2_gain">Збільшення діапазону чутливості шумодава</string>
 </resources>

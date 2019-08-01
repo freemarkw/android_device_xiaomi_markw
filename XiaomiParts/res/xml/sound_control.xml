@@ -22,8 +22,5 @@
     <com.mdroid.settings.device.sound.MicGainPreference
         android:key="mic_gain"
         android:title="@string/mic_gain" />
-    <com.mdroid.settings.device.sound.Mic2GainPreference
-        android:key="mic2_gain"
-        android:title="@string/mic2_gain" />
 
 </PreferenceScreen>

@@ -28,7 +28,6 @@ import android.text.TextUtils;
 import com.mdroid.settings.device.sound.HeadphoneGainPreference;
 import com.mdroid.settings.device.sound.SpeakerGainPreference;
 import com.mdroid.settings.device.sound.MicGainPreference;
-import com.mdroid.settings.device.sound.Mic2GainPreference;
 
 public class Startup extends BroadcastReceiver {
 
@@ -59,6 +58,5 @@ public class Startup extends BroadcastReceiver {
         HeadphoneGainPreference.restore(context);
         SpeakerGainPreference.restore(context);
         MicGainPreference.restore(context);
-        Mic2GainPreference.restore(context);
     }
 }

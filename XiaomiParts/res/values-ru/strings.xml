@@ -45,5 +45,4 @@
     <string name="headphone_gain">Усиление наушников</string>
     <string name="speaker_gain">Усиление динамика</string>
     <string name="mic_gain">Усиление микрофона</string>
-    <string name="mic2_gain">Увеличение диапазона чувствительности шумодава</string>
 </resources>
